@@ -256,6 +256,7 @@ env_config:
 | `thinking` | DeepSeek 思考模式；评测建议使用 `disabled` |
 | `max_tokens` | 每一步模型最大输出 token 数 |
 | `temperature` | 可选；默认 `0.0`，保证评测更稳定 |
+| `tool_choice` | 可选；默认 `required`，要求模型每轮调用一个工具 |
 | `system_prompt` | 购物 Agent 的动作规范和任务提示 |
 | `task_nums` | 执行 `[0, task_nums)` 范围内的任务 |
 | `output_path` | 结果输出根目录，相对于 `single_eval` 当前目录 |
@@ -343,30 +344,27 @@ env_config:
 
 ## 10. 动作格式
 
-模型每一步必须输出：
+模型每一步必须且只能发起一次标准 tool call。单 Agent 模式提供：
 
-```text
-Thought: 简要说明选择依据。
-Action: search[关键词]
+```json
+{"name": "search", "arguments": {"keywords": "商品关键词"}}
 ```
 
 或者：
 
-```text
-Thought: 简要说明选择依据。
-Action: click[当前可点击值]
+```json
+{"name": "click", "arguments": {"value": "当前可点击值"}}
 ```
 
-典型轨迹：
+多方交互模式还提供：
 
-```text
-search[商品关键词]
-click[商品ASIN]
-click[商品规格]
-click[buy now]
+```json
+{"name": "ask_shopper", "arguments": {"question": "需要确认的问题"}}
 ```
 
-购买前必须至少选择一个商品规格。
+`tool_adapter.py` 会将工具调用转换为环境原有的 `search[...]` / `click[...]`
+动作。环境响应会编码为 JSON，并以带有对应 `tool_call_id` 的 `role: tool`
+消息加入模型上下文。购买前仍然必须至少选择一个商品规格。
 
 ## 11. 输出文件结构
 

@@ -160,6 +160,19 @@ Once your evaluation completes, let's see how your agent performed:
 python get_score.py
 ```
 
+### Standard tool calling
+
+The evaluation agents use OpenAI-compatible Chat Completions tool calls instead
+of emitting textual `search[...]` and `click[...]` actions. The model receives:
+
+- `search({"keywords": "..."})`
+- `click({"value": "..."})`
+- `ask_shopper({"question": "..."})` in multi-turn evaluation
+
+`tool_adapter.py` validates exactly one tool call per turn, translates it to the
+existing ShopEnv action string, and returns the unchanged environment response as a
+standard `role: "tool"` message. The ShopEnv implementation itself is unchanged.
+
 ## Citation
 
 Feel free to cite us if you like our work.
@@ -174,4 +187,3 @@ Feel free to cite us if you like our work.
       primaryClass={cs.AI},
       url={https://arxiv.org/abs/2601.18225}, 
 }
-

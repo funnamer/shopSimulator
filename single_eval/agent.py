@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import sys
 import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -14,6 +15,12 @@ from openai import OpenAI
 from tqdm import tqdm
 
 from env import ShopEnv
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from tool_adapter import ShopToolAdapter, assistant_message_to_dict
 
 DEFAULT_MAX_TOKENS = 512
 DEFAULT_TEMPERATURE = 0.0
@@ -81,9 +88,16 @@ class Agent:
         self.shop_env: Optional[ShopEnv] = None
         self.task_complete = False
         self.conversation_log: List[Dict[str, Any]] = []
-        self.messages: List[Dict[str, str]] = []
+        self.messages: List[Dict[str, Any]] = []
         self.user_persona: Optional[Dict[str, Any]] = None
         self.env_idx: Optional[int] = None
+        self.tool_adapter: Optional[ShopToolAdapter] = None
+        self.initial_instruction = ""
+        self.last_valid_observation = ""
+        self.last_env_response: Dict[str, Any] = {}
+        self.tool_outputs: List[Dict[str, Any]] = []
+        self.usage_by_call: List[Dict[str, Any]] = []
+        self.diagnostic_saved = False
 
     def set_shop_env(self, shop_env: ShopEnv) -> None:
         """
@@ -93,6 +107,7 @@ class Agent:
             shop_env: ShopEnv instance
         """
         self.shop_env = shop_env
+        self.tool_adapter = ShopToolAdapter(shop_env)
 
     def reset(self) -> str:
         """
@@ -113,6 +128,12 @@ class Agent:
 
         self.task_complete = False
         self.conversation_log = []
+        self.initial_instruction = instruction
+        self.last_valid_observation = instruction
+        self.last_env_response = {}
+        self.tool_outputs = []
+        self.usage_by_call = []
+        self.diagnostic_saved = False
 
         if self.shop_env.if_persona and "user_persona" in env_result:
             self.user_persona = env_result["user_persona"]
@@ -143,57 +164,58 @@ class Agent:
             ValueError: When environment error occurs
             RuntimeError: When LLM call fails
         """
-        if self.shop_env is None:
+        if self.shop_env is None or self.tool_adapter is None:
             raise AttributeError(
                 "Agent not correctly connected to ShopEnv, please check the configuration."
             )
 
-        self.messages.append({"role": "user", "content": instruction})
+        # The initial observation is a user message. Subsequent observations are
+        # already in the history as standard role=tool results.
+        if not self.messages or self.messages[-1].get("role") != "tool":
+            self.messages.append({"role": "user", "content": instruction})
 
-        llm_response = self.get_response_idealab(self.messages)
-        llm_response = self._clean_response(llm_response)
+        assistant_message = self.get_response_idealab(self.messages)
 
-        if llm_response == FAILED_CALL_MESSAGE:
+        if assistant_message == FAILED_CALL_MESSAGE:
             raise RuntimeError("LLM call failed")
 
-        self.messages.append({"role": "assistant", "content": llm_response})
-        action = llm_response
-
-        env_response = self.shop_env.interact(action)
-        if "error" in env_response:
-            print(action)
-            raise ValueError(f"环境报错: {env_response['error']}")
+        self.messages.append(assistant_message)
+        execution = self.tool_adapter.execute_assistant_message(assistant_message)
+        self.messages.append(execution.message)
+        self.tool_outputs.append(execution.output)
+        if not execution.output.get("ok", False):
+            raise ValueError(f"环境报错: {execution.output.get('error', 'unknown error')}")
+        env_response = execution.output["result"]
 
         observation = env_response.get("instruction", "")
+        self.last_env_response = env_response
+        if observation:
+            self.last_valid_observation = observation
 
         if env_response.get("done", False) or env_response.get("over", False):
             reward = env_response.get("reward", 0)
             reward_detail = env_response.get("reward_detail", {})
             goal = env_response.get("goal", {})
             purchase = env_response.get("purchase", {})
+            termination_reason = (
+                "purchase" if env_response.get("done", False) else "history_limit"
+            )
 
             self.save_to_json(reward, reward_detail, goal, purchase)
+            self.save_diagnostics(
+                termination_reason=termination_reason,
+                reward=reward,
+                reward_detail=reward_detail,
+                goal=goal,
+                purchase=purchase,
+            )
             self.task_complete = True
 
         return self.task_complete, observation
 
-    def _clean_response(self, response: str) -> str:
-        """
-        Clean LLM response by removing redacted_reasoning tags.
-
-        Args:
-            response: Raw response
-
-        Returns:
-            str: Cleaned response
-        """
-        if "</think>" in response:
-            response = response.split("</think>")[-1].strip("\n")
-        return response
-
     def get_response_idealab(
-        self, messages: List[Dict[str, str]], max_try: int = DEFAULT_MAX_RETRY
-    ) -> str:
+        self, messages: List[Dict[str, Any]], max_try: int = DEFAULT_MAX_RETRY
+    ) -> Any:
         """
         Call idealab LLM API.
 
@@ -219,6 +241,8 @@ class Agent:
                 request_kwargs = {
                     "model": self.model_name,
                     "messages": messages,
+                    "tools": self.tool_adapter.tools if self.tool_adapter else [],
+                    "tool_choice": self.config.get("tool_choice", "required"),
                     "temperature": self.config.get(
                         "temperature", DEFAULT_TEMPERATURE
                     ),
@@ -231,7 +255,17 @@ class Agent:
                 completion = client.chat.completions.create(
                     **request_kwargs,
                 )
-                return completion.choices[0].message.content
+                usage = getattr(completion, "usage", None)
+                if usage is not None:
+                    if hasattr(usage, "model_dump"):
+                        usage_dict = usage.model_dump(exclude_none=True)
+                    elif isinstance(usage, dict):
+                        usage_dict = dict(usage)
+                    else:
+                        usage_dict = {}
+                    if usage_dict:
+                        self.usage_by_call.append(usage_dict)
+                return assistant_message_to_dict(completion.choices[0].message)
             except Exception as e:
                 print(f"LLM call failed (attempt {attempt + 1}/{max_try}): {e}")
                 if attempt == max_try - 1:
@@ -275,6 +309,136 @@ class Agent:
             json.dump(log_data, f, ensure_ascii=False, indent=4)
 
         print(f"[LOG] Saved to file: {filename}")
+
+    def save_diagnostics(
+        self,
+        termination_reason: str,
+        reward: Optional[float] = None,
+        reward_detail: Optional[Dict[str, Any]] = None,
+        goal: Optional[Dict[str, Any]] = None,
+        purchase: Optional[Dict[str, Any]] = None,
+        error: Optional[str] = None,
+    ) -> None:
+        """Save a compact, separate record for trajectory diagnosis."""
+        if self.diagnostic_saved:
+            return
+
+        actions = []
+        tool_errors = [
+            output for output in self.tool_outputs if output.get("ok") is False
+        ]
+        for message in self.messages:
+            if message.get("role") == "assistant":
+                for tool_call in message.get("tool_calls") or []:
+                    function = tool_call.get("function") or {}
+                    raw_arguments = function.get("arguments") or "{}"
+                    try:
+                        arguments = (
+                            raw_arguments
+                            if isinstance(raw_arguments, dict)
+                            else json.loads(raw_arguments)
+                        )
+                    except (TypeError, json.JSONDecodeError):
+                        arguments = {"_raw": raw_arguments}
+                    actions.append(
+                        {
+                            "step": len(actions) + 1,
+                            "tool": function.get("name"),
+                            "arguments": arguments,
+                        }
+                    )
+        search_actions = [action for action in actions if action["tool"] == "search"]
+        click_actions = [action for action in actions if action["tool"] == "click"]
+        click_values = [
+            action["arguments"].get("value")
+            for action in click_actions
+            if isinstance(action["arguments"], dict)
+        ]
+        visited_asins = list(
+            dict.fromkeys(
+                value
+                for value in click_values
+                if isinstance(value, str) and value.isdigit()
+            )
+        )
+        action_signatures = {
+            json.dumps(
+                {"tool": action["tool"], "arguments": action["arguments"]},
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            for action in actions
+        }
+
+        token_usage = {
+            "api_calls_with_usage": len(self.usage_by_call),
+            "prompt_tokens": sum(
+                usage.get("prompt_tokens", 0) for usage in self.usage_by_call
+            ),
+            "completion_tokens": sum(
+                usage.get("completion_tokens", 0) for usage in self.usage_by_call
+            ),
+            "total_tokens": sum(
+                usage.get("total_tokens", 0) for usage in self.usage_by_call
+            ),
+            "by_call": self.usage_by_call,
+        }
+
+        purchase = purchase or {}
+        goal = goal or {}
+        diagnostic = {
+            "task_id": self.task_id,
+            "model_name": self.model_name,
+            "env_idx": self.env_idx,
+            "termination_reason": termination_reason,
+            "completed_purchase": termination_reason == "purchase",
+            "error": error,
+            "reward": 0 if reward is None else reward,
+            "reward_detail": reward_detail or {},
+            "instruction": self.initial_instruction,
+            "num_tool_calls": len(actions),
+            "num_searches": len(search_actions),
+            "num_clicks": len(click_actions),
+            "num_back_to_search": click_values.count("back to search"),
+            "num_detail_views": sum(
+                value in {"description", "features", "reviews"}
+                for value in click_values
+            ),
+            "repeated_action_count": len(actions) - len(action_signatures),
+            "visited_asins": visited_asins,
+            "selected_options": purchase.get("options", {}),
+            "last_action": actions[-1] if actions else None,
+            "actions": actions,
+            "tool_errors": tool_errors,
+            "model_usage": token_usage,
+            "goal_summary": {
+                key: goal.get(key)
+                for key in (
+                    "asin",
+                    "name",
+                    "attributes",
+                    "goal_options",
+                    "price_upper",
+                )
+                if key in goal
+            },
+            "purchase_summary": {
+                key: purchase.get(key)
+                for key in ("asin", "name", "attributes", "options", "price")
+                if key in purchase
+            },
+            "last_valid_observation": self.last_valid_observation,
+        }
+
+        output_root = Path(self.config["output_path"]) / self.model_name
+        diagnostics_dir = output_root / "diagnostics"
+        diagnostics_dir.mkdir(parents=True, exist_ok=True)
+        diagnostics_file = diagnostics_dir / f"{self.task_id}.json"
+        with diagnostics_file.open("w", encoding="utf-8") as handle:
+            json.dump(diagnostic, handle, ensure_ascii=False, indent=4)
+
+        self.diagnostic_saved = True
+        print(f"[DIAGNOSTIC] Saved to file: {diagnostics_file}")
 
 
 def get_finished_task(out_path: str) -> List[int]:
@@ -328,6 +492,14 @@ def run_task(task_id: int, config: Dict[str, Any]) -> None:
     except Exception as e:
         print(f"Error (task {task_id}): {e}")
         traceback.print_exc()
+        if agent is not None:
+            try:
+                agent.save_diagnostics(
+                    termination_reason="error",
+                    error=f"{type(e).__name__}: {e}",
+                )
+            except Exception:
+                traceback.print_exc()
     finally:
         if agent is not None and agent.shop_env is not None:
             agent.shop_env.release()

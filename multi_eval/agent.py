@@ -4,8 +4,10 @@ import argparse
 import json
 import os
 import re
+import sys
 import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
@@ -15,6 +17,12 @@ from tqdm import tqdm
 from env import ShopEnv
 from shopper import ShopperSimulator
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from tool_adapter import ShopToolAdapter, assistant_message_to_dict
+
 import pdb
 DEFAULT_MAX_TOKENS = 512
 DEFAULT_TEMPERATURE = 0.0
@@ -23,8 +31,6 @@ IDEALAB_DEFAULT_KEY = "{your_api_key}"  # Should be set via config file or envir
 IDEALAB_DEFAULT_BASE_URL = "{your_base_url}"  # Should be set via config file or environment variable
 
 SEP_MARKER = "[SEP]"
-ACTION_TYPE_INTERACT = "interact_with_env"
-ACTION_TYPE_SHOPPER = "ask_shopper"
 ROLE_ENV = "Env"
 ROLE_SHOPPER = "Shopper"
 FAILED_CALL_MESSAGE = "failed call"
@@ -45,23 +51,26 @@ class Agent:
         self.model_name = self.config["model_name"]
         self.source = config["source"]
 
-        if self.source == "idealab":
+        if self.source in ("idealab", "openai", "deepseek"):
             default_key = IDEALAB_DEFAULT_KEY
             default_base_url = IDEALAB_DEFAULT_BASE_URL
         else:
             default_key = None
             default_base_url = None
         
-        self.model_key = self.config.get("model_key", default_key)
-        self.base_url = self.config.get("base_url", default_base_url)
+        key_env = self.config.get("model_key_env")
+        base_url_env = self.config.get("base_url_env")
+        self.model_key = os.getenv(key_env) if key_env else self.config.get("model_key", default_key)
+        self.base_url = os.getenv(base_url_env) if base_url_env else self.config.get("base_url", default_base_url)
 
         api_config = {
-            "idealab": {
+            source_name: {
                 "api_key": self.model_key,
                 "model_name": self.model_name,
                 "max_tokens": DEFAULT_MAX_TOKENS,
                 "temperature": DEFAULT_TEMPERATURE,
             }
+            for source_name in ("idealab", "openai", "deepseek")
         }
         if self.source not in api_config:
             raise ValueError(f"Unsupported data source: {self.source}")
@@ -77,13 +86,14 @@ class Agent:
         self.conversation_log: List[Dict[str, Any]] = []
         self.action_list: List[str] = []
         self.obs_list: List[str] = []
-        self.messages: List[Dict[str, str]] = []
+        self.messages: List[Dict[str, Any]] = []
         self.turn: int = 0
         self.max_turns: int = 0
         self.search_available: bool = True
         self.available_buttons: List[str] = []
         self.user_persona: Optional[Dict[str, Any]] = None
         self.env_idx: Optional[int] = None
+        self.tool_adapter: Optional[ShopToolAdapter] = None
 
     def set_shopper(self, shopper_simulator: ShopperSimulator) -> None:
         """
@@ -102,6 +112,7 @@ class Agent:
             shop_env: ShopEnv instance
         """
         self.shop_env = shop_env
+        self.tool_adapter = ShopToolAdapter(shop_env, ask_shopper=self._ask_shopper)
 
     def reset(self) -> Tuple[str, str]:
         """
@@ -144,38 +155,6 @@ class Agent:
             raise AttributeError("shopper response error")
 
         return instruction, shopper_input
-
-    def parse_output(self, llm_response: str) -> Dict[str, Optional[str]]:
-        """
-        Parse LLM response output.
-
-        Args:
-            llm_response: Raw response string from LLM
-
-        Returns:
-            Dict[str, Optional[str]]: Dictionary containing thought, action_type, action_content
-        """
-        result = {
-            "thought": None,
-            "action_type": None,
-            "action_content": None,
-        }
-
-        for line in llm_response.strip().split("\n"):
-            line = line.strip()
-            if not line:
-                continue
-
-            if line.startswith("Thought:") or line.startswith("Thought："):
-                result["thought"] = line.split(":", 1)[-1].strip()
-
-            elif line.startswith("Action_type:") or line.startswith("Action_type："):
-                result["action_type"] = line.split(":", 1)[-1].strip()
-
-            elif line.startswith("Action_content:") or line.startswith("Action_content："):
-                result["action_content"] = line.split(":", 1)[-1].strip()
-
-        return result
 
     def process_observation(self, observation: str) -> str:
         """
@@ -252,110 +231,58 @@ class Agent:
             RuntimeError: When LLM call fails
             ValueError: When user_role is wrong or environment error occurs
         """
-        if self.shopper_simulator is None or self.shop_env is None:
+        if self.shopper_simulator is None or self.shop_env is None or self.tool_adapter is None:
             raise AttributeError("Agent not correctly connected to Shopper or ShopEnv, please check the configuration.")
-
-        prompt = f"{user_role}: {instruction}"
-
-        if user_role == ROLE_ENV:
-            observation = prompt
-            self.obs_list.append(observation)
-            prompt += f"\n轮次: {self.turn}\n请做出下一轮决策:"
-        elif user_role == ROLE_SHOPPER:
-            prompt += f"\n轮次: {self.turn}\n请做出下一轮决策:"
-        else:
+        if user_role not in (ROLE_ENV, ROLE_SHOPPER):
             raise ValueError(f"user_role error: {user_role}")
 
-        self.messages.append({"role": "user", "content": prompt})
+        # Only the initial shopper input is a user message. Results from both
+        # ShopEnv and ShopperSimulator are standard role=tool messages.
+        if not self.messages or self.messages[-1].get("role") != "tool":
+            prompt = f"{user_role}: {instruction}\n轮次: {self.turn}\n请做出下一轮决策:"
+            self.messages.append({"role": "user", "content": prompt})
 
-        if self.source == "idealab":
-            llm_response = self.get_response_idealab(self.messages)
-        else:
+        if self.source not in ("idealab", "openai", "deepseek"):
             raise ValueError(f"Unsupported data source: {self.source}")
-
-        llm_response_raw = llm_response
-        llm_response = self._clean_response(llm_response)
-
-        if llm_response == FAILED_CALL_MESSAGE:
+        assistant_message = self.get_response_idealab(self.messages)
+        if assistant_message == FAILED_CALL_MESSAGE:
             raise RuntimeError("LLM call failed")
 
-        try:
-            response_dict = self.parse_output(llm_response)
-        except Exception as e:
-            self.messages.append({"role": "assistant", "content": llm_response_raw})
-            print(f"Action parsing failed: {e}")
-            return False, ROLE_ENV, "Action解析失败，请重新决策。"
+        self.messages.append(assistant_message)
+        execution = self.tool_adapter.execute_assistant_message(assistant_message)
+        self.messages.append(execution.message)
 
-        action = response_dict["action_type"]
-        content = response_dict["action_content"]
-        self.messages.append({"role": "assistant", "content": llm_response})
+        if execution.name == "ask_shopper":
+            return self.task_complete, ROLE_SHOPPER, execution.output["response"]
 
-        if action == ACTION_TYPE_INTERACT:
-            return self._handle_env_interaction(content)
-        elif action == ACTION_TYPE_SHOPPER:
-            if self.shopper_simulator is None:
-                raise AttributeError("shopper_simulator not initialized")
-            observation = self.shopper_simulator.step(content)
-            return self.task_complete, ROLE_SHOPPER, observation
-        else:
-            raise ValueError(f"Unsupported action type: {action}")
-    def _clean_response(self, response: str) -> str:
-        """
-        Clean LLM response by removing redacted_reasoning tags.
+        self.action_list.append(execution.output["action"])
+        if not execution.output.get("ok", False):
+            raise ValueError(f"Environment error: {execution.output.get('error', 'unknown error')}")
+        return self._handle_env_result(execution.output["result"])
 
-        Args:
-            response: Raw response
-
-        Returns:
-            str: Cleaned response
-        """
-        if "</think>" in response:
-            response = response.split("</think>")[-1].strip("\n")
-        if "<think>\n\n" in response:
-            response = response.split("<think>\n\n")[-1].strip("\n")
-        return response
-
-    def _handle_env_interaction(self, content: str) -> Tuple[bool, str, str]:
-        """
-        Handle environment interaction operation.
-
-        Args:
-            content: Operation content
-
-        Returns:
-            Tuple[bool, str, str]: (task_complete, role, observation)
-        """
-        if self.shop_env is None:
-            raise AttributeError("shop_env not initialized")
-
-        role = ROLE_ENV
-        env_response = self.shop_env.interact(f"\nAction: {content}")
-
-        self.action_list.append(content)
-
-        if "error" in env_response:
-            error_msg = env_response["error"]
-            print(f"Environment error: {error_msg}")
-            raise ValueError(f"Environment error: {error_msg}")
-
-        observation = env_response["instruction"]
-        observation = self.process_observation(observation)
+    def _handle_env_result(self, env_response: Dict[str, Any]) -> Tuple[bool, str, str]:
+        """Handle a ShopEnv result already produced by the tool adapter."""
+        observation = self.process_observation(env_response["instruction"])
 
         if env_response.get("done", False) or env_response.get("over", False):
-            reward = env_response.get("reward", 0)
-            reward_detail = env_response.get("reward_detail", {})
-            goal = env_response.get("goal", {})
-            purchase = env_response.get("purchase", {})
-
             if self.shopper_simulator is None:
                 raise AttributeError("shopper_simulator not initialized")
-
             self.save_to_json(
-                reward, reward_detail, goal, purchase, self.shopper_simulator.messages
+                env_response.get("reward", 0),
+                env_response.get("reward_detail", {}),
+                env_response.get("goal", {}),
+                env_response.get("purchase", {}),
+                self.shopper_simulator.messages,
             )
             self.task_complete = True
 
-        return self.task_complete, role, observation
+        return self.task_complete, ROLE_ENV, observation
+
+    def _ask_shopper(self, question: str) -> str:
+        """Execute the ask_shopper tool through the existing shopper simulator."""
+        if self.shopper_simulator is None:
+            raise AttributeError("shopper_simulator not initialized")
+        return self.shopper_simulator.step(question)
 
     def _get_shopper_input(self) -> str:
         """
@@ -376,8 +303,8 @@ class Agent:
         return shopper_output
 
     def get_response_idealab(
-        self, messages: List[Dict[str, str]], max_try: int = DEFAULT_MAX_RETRY
-    ) -> str:
+        self, messages: List[Dict[str, Any]], max_try: int = DEFAULT_MAX_RETRY
+    ) -> Any:
         """
         Call idealab LLM API.
 
@@ -403,9 +330,12 @@ class Agent:
                 completion = client.chat.completions.create(
                     model=self.model_name,
                     messages=messages,
-                    temperature=DEFAULT_TEMPERATURE,
+                    tools=self.tool_adapter.tools if self.tool_adapter else [],
+                    tool_choice=self.config.get("tool_choice", "required"),
+                    temperature=self.config.get("temperature", DEFAULT_TEMPERATURE),
+                    max_tokens=self.config.get("max_tokens", DEFAULT_MAX_TOKENS),
                 )
-                return completion.choices[0].message.content
+                return assistant_message_to_dict(completion.choices[0].message)
             except Exception as e:
                 print(f"LLM call failed (attempt {attempt + 1}/{max_try}): {e}")
                 if attempt == max_try - 1:

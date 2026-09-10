@@ -7,13 +7,11 @@ agent_config:
   model_key_env: DEEPSEEK_API_KEY
   base_url_env: DEEPSEEK_BASE_URL
   thinking: disabled
-  max_tokens: 8192
+  max_tokens: 512
   system_prompt: |
     你正在进行网上购物。每一轮只能执行一个动作。
-    可用动作是 search[关键词] 和 click[值]；click 的值必须严格来自当前可点击按钮列表。
+    必须通过提供的 search 或 click 工具执行动作，不要用文本模拟工具调用。
+    click 的 value 必须严格来自当前可点击按钮列表。
     在点击购买前，必须至少选择一个商品规格。
-    请按照以下格式回答：
-    Thought: 简要说明选择依据。
-    Action: search[关键词] 或 click[值]
-  task_nums: 30
-  output_path: outputs/smoke
+  task_nums: 3
+  output_path: outputs/test_tool3

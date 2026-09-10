@@ -120,11 +120,19 @@ def _handle_interact_action(
     action_text = _format_available_actions(available_actions)
     observation = observation + action_text
 
-    # Extract status information
+    over = len(env.history) > MAX_HISTORY_LENGTH or done
+
+    # Extract status information. When the history limit ends a task without a
+    # purchase, include the hidden goal only in this terminal response so the
+    # separate trajectory diagnostic remains useful.
     if done:
         reward_detail = status["reward_detail"]
         purchase = status['purchase']
         goal = status['goal']
+    elif over:
+        reward_detail = {}
+        purchase = {}
+        goal = env.server.user_sessions[env.session].get('goal', {})
     else:
         reward_detail = {}
         purchase = {}
@@ -141,7 +149,7 @@ def _handle_interact_action(
         "reward_detail": reward_detail,
         "purchase": purchase,
         "goal": goal,
-        "over": len(env.history) > MAX_HISTORY_LENGTH or done
+        "over": over
     }
 
     return return_info
