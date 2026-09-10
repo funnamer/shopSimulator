@@ -13,5 +13,11 @@ agent_config:
     必须通过提供的 search 或 click 工具执行动作，不要用文本模拟工具调用。
     click 的 value 必须严格来自当前可点击按钮列表。
     在点击购买前，必须至少选择一个商品规格。
-  task_nums: 3
+  # task_nums is the size of the candidate task pool: IDs 0..1494.
+  task_nums: 1495
+  task_selection:
+    # sequential selects 0,1,2; change to random for a seeded random sample.
+    mode: sequential
+    sample_size: 3
+    seed: 42
   output_path: outputs/test_tool3

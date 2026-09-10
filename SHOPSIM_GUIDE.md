@@ -181,17 +181,21 @@ python agent.py \
 
 `agent.py` 会自动读取根目录 `.env`，因此这里不需要再次执行 `source .env`。
 
-Smoke 配置只执行 task 0：
+Smoke 配置通过顺序抽样执行 task 0、1、2：
 
 ```yaml
-task_nums: 1
-output_path: outputs/smoke
+task_nums: 1495
+task_selection:
+  mode: sequential
+  sample_size: 3
+  seed: 42
+output_path: outputs/test_tool3
 ```
 
 结果保存在：
 
 ```text
-ShopSimulator/single_eval/outputs/smoke/deepseek-v4-flash/0.json
+ShopSimulator/single_eval/outputs/test_tool3/deepseek-v4-flash/0.json
 ```
 
 如果结果文件已经存在，断点续跑逻辑会认为 task 0 已完成。需要重新测试时，请先将该 JSON 移到备份位置，然后重新执行命令。
@@ -219,8 +223,12 @@ agent_config:
   max_tokens: 512
   system_prompt: |
     你正在进行网上购物……
-  task_nums: 1
-  output_path: outputs/smoke
+  task_nums: 1495
+  task_selection:
+    mode: sequential
+    sample_size: 3
+    seed: 42
+  output_path: outputs/test_tool3
 ```
 
 ### `env_config`
@@ -258,7 +266,10 @@ env_config:
 | `temperature` | 可选；默认 `0.0`，保证评测更稳定 |
 | `tool_choice` | 可选；默认 `required`，要求模型每轮调用一个工具 |
 | `system_prompt` | 购物 Agent 的动作规范和任务提示 |
-| `task_nums` | 执行 `[0, task_nums)` 范围内的任务 |
+| `task_nums` | 候选任务池大小，对应任务 ID `[0, task_nums)` |
+| `task_selection.mode` | 可选；`sequential`（默认）或 `random` |
+| `task_selection.sample_size` | 可选；从候选池选择多少个任务，默认选择全部 |
+| `task_selection.seed` | 随机模式使用的整数 seed，默认 `0` |
 | `output_path` | 结果输出根目录，相对于 `single_eval` 当前目录 |
 
 配置中只保存环境变量名，不直接保存 API Key：
@@ -278,12 +289,38 @@ cp configs/standard/deepseek_smoke.yaml \
    configs/standard/deepseek_eval.yaml
 ```
 
-然后修改：
+然后修改。下面表示从 1495 个候选任务中，用 seed 42 可复现地随机抽取 100 个：
 
 ```yaml
-task_nums: 100
+task_nums: 1495
+task_selection:
+  mode: random
+  sample_size: 100
+  seed: 42
 output_path: outputs/standard
 ```
+
+如果需要按任务 ID 顺序运行前 100 个任务：
+
+```yaml
+task_nums: 1495
+task_selection:
+  mode: sequential
+  sample_size: 100
+  seed: 42  # sequential 模式会忽略 seed
+```
+
+相同的 `task_nums`、`sample_size` 和 `seed` 总会得到相同的随机任务 ID。
+实际选择结果还会保存到：
+
+```text
+<output_path>/<model_name>/run_metadata/task_selection.json
+```
+
+断点续跑时会先按相同配置重新生成完整抽样，再跳过其中已经完成的任务，
+因此不会因为部分任务已经完成而改变剩余样本。`sequential` 控制任务 ID 的
+选择顺序；使用 `--multithread` 时完成顺序仍由各任务耗时决定，严格串行请不要
+传 `--multithread`。
 
 单线程运行：
 
@@ -363,8 +400,9 @@ env_config:
 ```
 
 `tool_adapter.py` 会将工具调用转换为环境原有的 `search[...]` / `click[...]`
-动作。环境响应会编码为 JSON，并以带有对应 `tool_call_id` 的 `role: tool`
-消息加入模型上下文。购买前仍然必须至少选择一个商品规格。
+动作。下一步所需的环境 observation 会以带有对应 `tool_call_id` 的
+`role: tool` 消息加入模型上下文；终止状态和 Reward 等结构化信息只在程序
+内部处理。购买前仍然必须至少选择一个商品规格。
 
 ## 11. 输出文件结构
 

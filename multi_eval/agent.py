@@ -22,6 +22,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from tool_adapter import ShopToolAdapter, assistant_message_to_dict
+from task_selection import select_task_ids, task_selection_metadata
 
 import pdb
 DEFAULT_MAX_TOKENS = 512
@@ -545,15 +546,38 @@ def main() -> None:
     output_path = os.path.join(
         agent_config["output_path"], agent_config["model_name"]
     )
+    try:
+        selected_tasks = select_task_ids(agent_config)
+    except ValueError as e:
+        print(f"Error: Invalid task selection config: {e}")
+        return
+
     finished_tasks = get_finished_task(output_path)
-    all_tasks = list(range(agent_config.get("task_nums", 0)))
-    todo_tasks = [i for i in all_tasks if i not in finished_tasks]
+    finished_task_set = set(finished_tasks)
+    selected_finished = [i for i in selected_tasks if i in finished_task_set]
+    todo_tasks = [i for i in selected_tasks if i not in finished_task_set]
+
+    metadata_dir = os.path.join(output_path, "run_metadata")
+    os.makedirs(metadata_dir, exist_ok=True)
+    with open(
+        os.path.join(metadata_dir, "task_selection.json"),
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            task_selection_metadata(agent_config, selected_tasks),
+            f,
+            ensure_ascii=False,
+            indent=4,
+        )
 
     print(
-        f"Total tasks: {len(all_tasks)}, "
-        f"Completed: {len(finished_tasks)}, "
+        f"Task pool: {agent_config.get('task_nums', 0)}, "
+        f"Selected: {len(selected_tasks)}, "
+        f"Completed in selection: {len(selected_finished)}, "
         f"Pending: {len(todo_tasks)}"
     )
+    print(f"Selected task IDs: {selected_tasks}")
 
     if args.multithread:
         print(f"Using multithreaded mode, max workers: {args.max_workers}")
