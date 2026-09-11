@@ -79,6 +79,15 @@ def assistant_message_to_dict(message: Any) -> Dict[str, Any]:
         result = dict(message)
     elif hasattr(message, "model_dump"):
         result = message.model_dump(exclude_none=True)
+        # OpenAI-compatible providers may return provider-specific fields in
+        # model_extra. DeepSeek requires reasoning_content from every previous
+        # assistant turn to be sent back when thinking mode uses tools.
+        model_extra = getattr(message, "model_extra", None) or {}
+        reasoning_content = getattr(message, "reasoning_content", None)
+        if reasoning_content is None:
+            reasoning_content = model_extra.get("reasoning_content")
+        if reasoning_content is not None:
+            result["reasoning_content"] = reasoning_content
     else:
         raise TypeError(f"Unsupported assistant message type: {type(message)!r}")
     result.setdefault("role", "assistant")

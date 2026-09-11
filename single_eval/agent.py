@@ -24,6 +24,7 @@ from tool_adapter import ShopToolAdapter, assistant_message_to_dict
 from task_selection import select_task_ids, task_selection_metadata
 
 DEFAULT_MAX_TOKENS = 512
+DEFAULT_THINKING_MAX_TOKENS = 8192
 DEFAULT_TEMPERATURE = 0.0
 DEFAULT_MAX_RETRY = 200
 IDEALAB_DEFAULT_KEY = "{your_api_key}"  # Should be set via config file or environment variable
@@ -51,7 +52,22 @@ class Agent:
         self.task_id = task_id
         self.config = config
         self.model_name = self.config["model_name"]
+        self.run_name = self.config.get("run_name", self.model_name)
         self.source = config["source"]
+        self.thinking = self.config.get(
+            "thinking", "enabled" if self.source == "deepseek" else None
+        )
+        if self.source == "deepseek" and self.thinking not in {"enabled", "disabled"}:
+            raise ValueError("DeepSeek thinking must be 'enabled' or 'disabled'")
+        self.tool_choice = self.config.get(
+            "tool_choice", "auto" if self.thinking == "enabled" else "required"
+        )
+        if self.source == "deepseek" and self.thinking == "enabled":
+            if self.tool_choice != "auto":
+                raise ValueError(
+                    "DeepSeek thinking mode requires tool_choice='auto'; "
+                    "'required' and named tool choices return HTTP 400"
+                )
 
         if self.source == "idealab":
             default_key = IDEALAB_DEFAULT_KEY
@@ -98,6 +114,7 @@ class Agent:
         self.last_env_response: Dict[str, Any] = {}
         self.tool_outputs: List[Dict[str, Any]] = []
         self.usage_by_call: List[Dict[str, Any]] = []
+        self.invalid_tool_response_count = 0
         self.diagnostic_saved = False
 
     def set_shop_env(self, shop_env: ShopEnv) -> None:
@@ -134,6 +151,7 @@ class Agent:
         self.last_env_response = {}
         self.tool_outputs = []
         self.usage_by_call = []
+        self.invalid_tool_response_count = 0
         self.diagnostic_saved = False
 
         if self.shop_env.if_persona and "user_persona" in env_result:
@@ -237,22 +255,36 @@ class Agent:
             base_url=self.base_url,
         )
 
+        request_messages = messages
+        tool_call_retry_used = False
         for attempt in range(max_try):
             try:
                 request_kwargs = {
                     "model": self.model_name,
-                    "messages": messages,
+                    "messages": request_messages,
                     "tools": self.tool_adapter.tools if self.tool_adapter else [],
-                    "tool_choice": self.config.get("tool_choice", "required"),
-                    "temperature": self.config.get(
-                        "temperature", DEFAULT_TEMPERATURE
+                    "tool_choice": self.tool_choice,
+                    "max_tokens": self.config.get(
+                        "max_tokens",
+                        DEFAULT_THINKING_MAX_TOKENS
+                        if self.thinking == "enabled"
+                        else DEFAULT_MAX_TOKENS,
                     ),
-                    "max_tokens": self.config.get("max_tokens", DEFAULT_MAX_TOKENS),
+                    "stream": False,
                 }
-                if "thinking" in self.config:
+                thinking = self.thinking
+                if thinking:
                     request_kwargs["extra_body"] = {
-                        "thinking": {"type": self.config["thinking"]}
+                        "thinking": {"type": thinking}
                     }
+                if thinking == "enabled":
+                    request_kwargs["reasoning_effort"] = self.config.get(
+                        "reasoning_effort", "high"
+                    )
+                else:
+                    request_kwargs["temperature"] = self.config.get(
+                        "temperature", DEFAULT_TEMPERATURE
+                    )
                 completion = client.chat.completions.create(
                     **request_kwargs,
                 )
@@ -266,11 +298,43 @@ class Agent:
                         usage_dict = {}
                     if usage_dict:
                         self.usage_by_call.append(usage_dict)
-                return assistant_message_to_dict(completion.choices[0].message)
+                assistant_message = assistant_message_to_dict(
+                    completion.choices[0].message
+                )
+                tool_calls = assistant_message.get("tool_calls") or []
+                if self.thinking == "enabled" and len(tool_calls) != 1:
+                    self.invalid_tool_response_count += 1
+                    if not tool_call_retry_used:
+                        tool_call_retry_used = True
+                        # Thinking mode only permits tool_choice=auto. If the
+                        # model answers with text or emits multiple tools, keep
+                        # its reasoning_content in the corrective request as
+                        # required by DeepSeek's tool-call protocol.
+                        request_messages = [
+                            *messages,
+                            assistant_message,
+                            {
+                                "role": "system",
+                                "content": (
+                                    "当前购物任务尚未完成。请不要输出普通文本；"
+                                    "必须从当前可用操作中调用且只调用一个工具。"
+                                ),
+                            },
+                        ]
+                        continue
+                return assistant_message
             except Exception as e:
                 print(f"LLM call failed (attempt {attempt + 1}/{max_try}): {e}")
-                if attempt == max_try - 1:
+                status_code = getattr(e, "status_code", None)
+                non_retryable = (
+                    isinstance(status_code, int)
+                    and 400 <= status_code < 500
+                    and status_code != 429
+                )
+                if non_retryable or attempt == max_try - 1:
                     traceback.print_exc()
+                if non_retryable:
+                    return FAILED_CALL_MESSAGE
                 continue
 
         return FAILED_CALL_MESSAGE
@@ -300,9 +364,7 @@ class Agent:
             "conversation": self.messages,
         }
 
-        file_path = os.path.join(
-            self.config["output_path"], self.config["model_name"]
-        )
+        file_path = os.path.join(self.config["output_path"], self.run_name)
         os.makedirs(file_path, exist_ok=True)
 
         filename = os.path.join(file_path, f"{self.task_id}.json")
@@ -390,6 +452,9 @@ class Agent:
         diagnostic = {
             "task_id": self.task_id,
             "model_name": self.model_name,
+            "run_name": self.run_name,
+            "thinking": self.thinking or "disabled",
+            "reasoning_effort": self.config.get("reasoning_effort"),
             "env_idx": self.env_idx,
             "termination_reason": termination_reason,
             "completed_purchase": termination_reason == "purchase",
@@ -398,6 +463,7 @@ class Agent:
             "reward_detail": reward_detail or {},
             "instruction": self.initial_instruction,
             "num_tool_calls": len(actions),
+            "invalid_tool_response_count": self.invalid_tool_response_count,
             "num_searches": len(search_actions),
             "num_clicks": len(click_actions),
             "num_back_to_search": click_values.count("back to search"),
@@ -431,7 +497,7 @@ class Agent:
             "last_valid_observation": self.last_valid_observation,
         }
 
-        output_root = Path(self.config["output_path"]) / self.model_name
+        output_root = Path(self.config["output_path"]) / self.run_name
         diagnostics_dir = output_root / "diagnostics"
         diagnostics_dir.mkdir(parents=True, exist_ok=True)
         diagnostics_file = diagnostics_dir / f"{self.task_id}.json"
@@ -590,7 +656,8 @@ def main() -> None:
         return
 
     output_path = os.path.join(
-        agent_config["output_path"], agent_config["model_name"]
+        agent_config["output_path"],
+        agent_config.get("run_name", agent_config["model_name"]),
     )
     try:
         selected_tasks = select_task_ids(agent_config)

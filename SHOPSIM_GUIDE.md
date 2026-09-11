@@ -195,7 +195,7 @@ output_path: outputs/test_tool3
 结果保存在：
 
 ```text
-ShopSimulator/single_eval/outputs/test_tool3/deepseek-v4-flash/0.json
+ShopSimulator/single_eval/outputs/test_tool3/deepseek-flash/0.json
 ```
 
 如果结果文件已经存在，断点续跑逻辑会认为 task 0 已完成。需要重新测试时，请先将该 JSON 移到备份位置，然后重新执行命令。
@@ -215,7 +215,7 @@ env_config:
   base_url: http://127.0.0.1:5000
 
 agent_config:
-  model_name: deepseek-v4-flash
+  model_name: deepseek-flash
   source: deepseek
   model_key_env: DEEPSEEK_API_KEY
   base_url_env: DEEPSEEK_BASE_URL

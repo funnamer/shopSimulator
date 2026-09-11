@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from tool_adapter import ShopToolAdapter
+from tool_adapter import ShopToolAdapter, assistant_message_to_dict
 
 
 class FakeShopEnv:
@@ -36,6 +36,20 @@ def tool_message(name, arguments, call_id="call_1"):
 
 
 class ShopToolAdapterTest(unittest.TestCase):
+    def test_preserves_provider_reasoning_content_from_sdk_message(self):
+        class FakeSdkMessage:
+            model_extra = {"reasoning_content": "compare all constraints"}
+            reasoning_content = None
+
+            @staticmethod
+            def model_dump(exclude_none=True):
+                return {"role": "assistant", "content": "", "tool_calls": []}
+
+        self.assertEqual(
+            assistant_message_to_dict(FakeSdkMessage())["reasoning_content"],
+            "compare all constraints",
+        )
+
     def test_search_is_translated_and_environment_result_is_a_tool_message(self):
         env = FakeShopEnv()
         result = ShopToolAdapter(env).execute_assistant_message(
