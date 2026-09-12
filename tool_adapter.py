@@ -1,8 +1,13 @@
 """Translate standard OpenAI tool calls to the unchanged ShopEnv API."""
 
 import json
+import re
+import unicodedata
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
+
+CLICKABLES_RE = re.compile(r"可点击的按钮:\s*(\[[^\n]*\])")
 
 
 SHOP_TOOLS: List[Dict[str, Any]] = [
@@ -104,6 +109,14 @@ class ShopToolAdapter:
     ) -> None:
         self.shop_env = shop_env
         self.ask_shopper = ask_shopper
+        self.current_observation: Optional[str] = None
+        self.current_clickables: Optional[List[str]] = None
+        self.last_executed_state_action: Optional[Tuple[str, str]] = None
+
+    def update_observation(self, observation: str) -> None:
+        """Record the latest environment state used to ground future clicks."""
+        self.current_observation = observation
+        self.current_clickables = self._parse_clickables(observation)
 
     @property
     def tools(self) -> List[Dict[str, Any]]:
@@ -165,15 +178,28 @@ class ShopToolAdapter:
             return str(output.get("error", "Environment error"))
         if output.get("source") == "shopper":
             return str(output.get("response", ""))
+        if output.get("source") == "validation":
+            return str(output.get("error", "Invalid tool action"))
         return ""
 
     def _execute(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
         if name == "search":
             keywords = self._required_string(arguments, "keywords", name)
-            return self._execute_env(f"search[{keywords}]")
+            return self._execute_once_per_state(f"search[{keywords}]")
         if name == "click":
             value = self._required_string(arguments, "value", name)
-            return self._execute_env(f"click[{value}]")
+            canonical_value = self._canonical_clickable(value)
+            if self.current_clickables is not None and canonical_value is None:
+                return self._validation_error(
+                    f"无效点击：{value} 不在当前可点击按钮中。"
+                    f"当前只能选择 {json.dumps(self.current_clickables, ensure_ascii=False)}。"
+                    "请重新调用 click，并且 value 必须与其中一个按钮完全对应。",
+                    requested_action=f"click[{value}]",
+                )
+
+            resolved_value = canonical_value if canonical_value is not None else value
+            action = f"click[{resolved_value}]"
+            return self._execute_once_per_state(action)
         if name == "ask_shopper" and self.ask_shopper is not None:
             question = self._required_string(arguments, "question", name)
             return {
@@ -182,6 +208,58 @@ class ShopToolAdapter:
                 "response": self.ask_shopper(question),
             }
         raise ValueError(f"Unsupported tool: {name}")
+
+    def _canonical_clickable(self, value: str) -> Optional[str]:
+        if self.current_clickables is None:
+            return None
+        normalized_value = self._normalize_click_value(value)
+        for clickable in self.current_clickables:
+            if self._normalize_click_value(clickable) == normalized_value:
+                return clickable
+        return None
+
+    @staticmethod
+    def _normalize_click_value(value: str) -> str:
+        """Match ShopEnv's case-insensitive clickable lookup semantics."""
+        return unicodedata.normalize("NFKC", value).strip().casefold()
+
+    @staticmethod
+    def _parse_clickables(observation: str) -> Optional[List[str]]:
+        matches = CLICKABLES_RE.findall(observation)
+        if not matches:
+            return None
+        try:
+            parsed = json.loads(matches[-1])
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(parsed, list) or not all(
+            isinstance(item, str) for item in parsed
+        ):
+            return None
+        return parsed
+
+    def _validation_error(
+        self, error: str, requested_action: str
+    ) -> Dict[str, Any]:
+        return {
+            "ok": False,
+            "recoverable": True,
+            "source": "validation",
+            "action": requested_action,
+            "available_clickables": self.current_clickables,
+            "error": error,
+        }
+
+    def _execute_once_per_state(self, action: str) -> Dict[str, Any]:
+        state_action = (self.current_observation or "", action)
+        if self.last_executed_state_action == state_action:
+            return self._validation_error(
+                f"重复动作：{action} 已在完全相同的页面状态执行过，页面没有变化。"
+                "请重新检查当前可用操作，并选择不同的有效操作。",
+                requested_action=action,
+            )
+        self.last_executed_state_action = state_action
+        return self._execute_env(action)
 
     def _execute_env(self, action: str) -> Dict[str, Any]:
         result = self.shop_env.interact(action)

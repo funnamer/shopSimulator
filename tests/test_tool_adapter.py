@@ -73,6 +73,60 @@ class ShopToolAdapterTest(unittest.TestCase):
         )
         self.assertEqual(env.actions, ["click[buy now]"])
 
+    def test_click_is_grounded_to_current_clickables(self):
+        env = FakeShopEnv()
+        adapter = ShopToolAdapter(env)
+        adapter.update_observation(
+            'page\n搜索功能是否可用: False\n可点击的按钮: ["Buy Now", "< prev"]'
+        )
+
+        result = adapter.execute_assistant_message(
+            tool_message("click", {"value": "buy now"})
+        )
+
+        self.assertTrue(result.output["ok"])
+        self.assertEqual(env.actions, ["click[Buy Now]"])
+
+    def test_invalid_click_returns_recoverable_tool_feedback(self):
+        env = FakeShopEnv()
+        adapter = ShopToolAdapter(env)
+        adapter.update_observation(
+            'page\n搜索功能是否可用: False\n可点击的按钮: ["back to search", "< prev"]'
+        )
+
+        result = adapter.execute_assistant_message(
+            tool_message("click", {"value": "description"})
+        )
+
+        self.assertFalse(result.output["ok"])
+        self.assertTrue(result.output["recoverable"])
+        self.assertEqual(result.output["source"], "validation")
+        self.assertEqual(env.actions, [])
+        self.assertIn("description", result.message["content"])
+        self.assertIn("back to search", result.message["content"])
+
+    def test_repeated_action_on_unchanged_state_is_not_sent_twice(self):
+        env = FakeShopEnv()
+        adapter = ShopToolAdapter(env)
+        observation = (
+            'page\n搜索功能是否可用: False\n可点击的按钮: ["description"]'
+        )
+        adapter.update_observation(observation)
+
+        first = adapter.execute_assistant_message(
+            tool_message("click", {"value": "description"}, call_id="call_1")
+        )
+        adapter.update_observation(observation)
+        second = adapter.execute_assistant_message(
+            tool_message("click", {"value": "description"}, call_id="call_2")
+        )
+
+        self.assertTrue(first.output["ok"])
+        self.assertFalse(second.output["ok"])
+        self.assertTrue(second.output["recoverable"])
+        self.assertEqual(env.actions, ["click[description]"])
+        self.assertIn("重复动作", second.message["content"])
+
     def test_ask_shopper_returns_a_tool_message(self):
         env = FakeShopEnv()
         adapter = ShopToolAdapter(env, ask_shopper=lambda question: f"回答：{question}")

@@ -1,6 +1,6 @@
 # ShopSimulator 启动与配置指南
 
-本文档说明如何在当前仓库中启动 ShopSimulator 文本环境，并使用 DeepSeek 作为被评测模型运行 `single_eval`。
+本文档说明如何启动 ShopSimulator 文本环境，运行单轮/多轮评测，以及采集 DeepSeek 教师轨迹。
 
 所有命令默认从仓库根目录执行：
 
@@ -8,14 +8,190 @@
 cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
 ```
 
-## 1. 目录与进程关系
+## 1. 快速启动
 
-一次完整评测包含两个进程：
+已经安装依赖、准备商品数据并配置 `.env` 时，使用两个终端即可启动。
+
+终端 A：启动购物环境服务并保持进程运行：
+
+```bash
+cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
+conda activate shopsim
+cd ShopSimulator/shop_env/shop_env
+python pack_api.py
+```
+
+终端 B：运行最小的单轮 Smoke Test：
+
+```bash
+cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
+conda activate shopsim
+cd ShopSimulator/single_eval
+python agent.py --yaml_name configs/standard/deepseek_smoke.yaml
+```
+
+如果要采集教师轨迹，终端 B 改为：
+
+```bash
+cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
+conda activate shopsim
+cd ShopSimulator
+
+python trajectory_collection/pipeline.py trial --tasks 50
+```
+
+`trial` 会自动执行 prepare、按配置难度比例抽取指定数量、collect 和 curate。当前配置的
+难度比例为 30% simple、50% medium、20% hard，因此 `--tasks 50` 会固定抽取
+15 simple、25 medium、10 hard；默认每题 4 个 rollout、8 个 worker。中途中断或有任务
+失败时，缺失 rollout 会作为无效轨迹，程序仍会从该任务其余有效 rollout 中执行
+Best-of-the-rest 并导出结果。若希望补齐全部原始轨迹，重新运行同一条命令即可继续。
+需要临时覆盖默认值时可追加
+`--rollouts 4 --max-workers 8`。
+
+教师轨迹采集的主配置位于：
+
+```text
+ShopSimulator/trajectory_collection/configs/collection.yaml
+```
+
+其中 `teacher_config` 指向实际使用的教师模型配置：
+
+```text
+ShopSimulator/single_eval/configs/standard/deepseek_thinking.yaml
+```
+
+各命令的职责：
+
+| 命令 | 作用 |
+| --- | --- |
+| `prepare` | 按固定 seed 生成 candidate、online-dev 和 pilot 任务清单；已有完整清单时不会重新抽样 |
+| `collect` | 按 manifest 调用教师模型采集原始轨迹，支持按 `(task_id, rollout_id)` 断点续跑 |
+| `curate` | 硬校验轨迹、执行 Best-of-N、生成质量报告，并同时导出 action-only 与保留 reasoning 的 SFT JSONL |
+| `trial --tasks N` | 一键执行上述完整流程，只需指定总任务数 N；难度数量按 `difficulty_quotas` 比例自动计算 |
+
+`collection.yaml` 中最常修改的参数：
+
+| 参数 | 含义 |
+| --- | --- |
+| `collection_name` | 本次采集名称，同时也是 `trajectory_collection/outputs/` 下的目录名 |
+| `teacher_config` | DeepSeek 教师模型 YAML 路径；模型名、thinking、system prompt 和 token 上限在该文件中配置 |
+| `data_file` | 用于抽样和核对任务的商品数据文件 |
+| `output_root` | manifest、原始轨迹、报告和 SFT 文件的输出根目录 |
+| `seed` | 任务抽样随机种子；相同数据与配置会得到相同任务清单 |
+| `train_start` / `train_end` | 允许采集的 train 任务 ID 范围，左闭右开 |
+| `candidate_size` | 正式候选任务数，必须等于 `difficulty_quotas` 三档数量之和 |
+| `online_dev_size` | 独立在线开发集任务数，必须等于 `online_dev_difficulty_quotas` 之和 |
+| `pilot_size` | pilot 清单包含的任务数 |
+| `rollouts_per_task` | 每个任务最多采集多少次，用于 Best-of-N |
+| `max_workers` | 默认并发 Agent 数，不能大于环境槽位数 `SHOPSIM_ENV_MAX_NUM` |
+| `accepted_difficulty_quotas` | 正式整理后 simple/medium/hard 各保留多少条 |
+| `sft_split_sizes` | 最终 train/validation/reserve 的样本数 |
+| `sft_split_difficulty_quotas` | 每个最终 split 内部的难度配额 |
+
+采集命令行参数会覆盖本次运行行为，但不会修改 YAML：
+
+| 参数 | 含义 |
+| --- | --- |
+| `--config` | 指定主采集配置文件 |
+| `--manifest` | 指定要运行的任务清单；只写文件名时从当前 collection 的 `manifests/` 中读取 |
+| `--rollouts` | 本次使用的 rollout 数，范围为 `1..rollouts_per_task` |
+| `--max-workers` | 本次实际并发数；建议与 `SHOPSIM_ENV_MAX_NUM` 保持一致 |
+
+例如 `--manifest pilot_ids.json --rollouts 4` 表示对 pilot 中每个任务最多采集四次，
+然后由 `curate` 从每个任务通过硬校验的轨迹中选择质量最好的一条。修改规模或配额后，
+建议同时更换 `collection_name`，避免新旧采集产物混在同一目录。
+
+并发采集时，环境槽位数应不小于 `--max-workers`。可在启动终端 A 前临时设置：
+
+```bash
+export SHOPSIM_ENV_MAX_NUM=8
+```
+
+检查环境服务是否可用：
+
+```bash
+curl -X POST http://127.0.0.1:5000/api/shop_agent \
+  -H 'Content-Type: application/json' \
+  -d '{"action":"release_all"}'
+```
+
+如果提示端口 5000 已被占用，先运行 `lsof -nP -iTCP:5000 -sTCP:LISTEN`。若监听进程是
+`python pack_api.py`，说明环境服务已经启动，无需再次启动。
+
+首次使用还需要完成依赖、数据和 `.env` 配置，请继续阅读后面的对应章节。
+
+## 2. 项目结构与运行关系
+
+```text
+LongHorizonAgentRL/
+├── AGENTS.md                         # 项目修改约束；YAML 中的提示词禁止修改
+├── .env                              # 本地 API Key、模型地址和环境并发数
+├── agent_rl/                         # 后续 RL 训练与实验代码目录
+└── ShopSimulator/
+    ├── SHOPSIM_GUIDE.md              # 当前中文启动与配置指南
+    ├── README.md                     # ShopSimulator 项目原始说明
+    ├── requirements.txt              # 聚合项目依赖
+    ├── tool_adapter.py               # OpenAI tool call 到环境动作的公共适配层
+    ├── task_selection.py             # 可复现任务抽样与选择逻辑
+    ├── get_score.py                  # 评测结果统计入口
+    ├── shop_env/
+    │   ├── requirements.txt          # 环境服务依赖
+    │   ├── data/
+    │   │   ├── fine_items_eval_train_all.json     # 完整商品和任务数据
+    │   │   └── items_eval_train.json              # 环境默认读取入口
+    │   ├── shop_env/
+    │   │   ├── pack_api.py           # Flask API 服务，默认监听 5000 端口
+    │   │   ├── shop_agent.py         # 环境会话、动作执行和资源管理
+    │   │   └── shop_agent.log        # 环境运行日志
+    │   ├── search_engine/
+    │   │   └── products.sqlite3      # 自动构建的 SQLite FTS5 搜索索引
+    │   ├── web_agent_site/
+    │   │   ├── envs/                 # Gym 文本购物环境和状态机
+    │   │   └── engine/               # 搜索、商品、目标和 reward 逻辑
+    │   └── tests/                     # 搜索与环境测试
+    ├── single_eval/
+    │   ├── agent.py                  # 单轮购物 Agent 和批量执行入口
+    │   ├── env.py                    # 对 Flask ShopEnv API 的客户端封装
+    │   ├── configs/
+    │   │   ├── standard/             # 完整用户要求模式配置
+    │   │   └── persona/              # 带用户画像模式配置
+    │   ├── scripts/                   # 常用单轮评测脚本
+    │   └── outputs/                   # 单轮评测生成的轨迹和 diagnostics
+    ├── multi_eval/
+    │   ├── agent.py                  # 多轮购物 Agent
+    │   ├── shopper.py                # 模拟用户及澄清对话逻辑
+    │   ├── env.py                    # 多轮环境客户端
+    │   ├── configs/                  # standard/persona 配置
+    │   ├── scripts/                  # 常用多轮评测脚本
+    │   └── outputs/                   # 多轮评测结果
+    ├── trajectory_collection/
+    │   ├── pipeline.py               # prepare/collect/curate 三阶段入口
+    │   ├── sampler.py                # train-only 分层抽样和去重
+    │   ├── verifier.py               # reward、动作、泄漏等硬校验
+    │   ├── exporter.py               # action-only SFT JSONL 导出
+    │   ├── common.py                 # 配置、路径和原子写入工具
+    │   ├── configs/collection.yaml   # 教师采集规模与配额
+    │   ├── tests/                     # 采集流水线单元测试
+    │   └── outputs/<collection>/
+    │       ├── manifests/             # 固定任务 ID 和分层元数据
+    │       ├── raw/                   # 各 rollout 原始 thinking 轨迹
+    │       ├── reports/               # 完整度、拒绝原因和质量报告
+    │       └── sft/                   # action-only 训练数据与审计 sidecar
+    └── tests/                         # 公共工具和任务选择测试
+```
+
+`outputs/`、日志和搜索索引都是运行产物；核心代码、配置与测试位于它们的同级目录。
+所有 YAML 配置中的提示词均视为用户维护的只读内容；可以按任务调整采集规模等非提示词
+参数，但不得修改 `system_prompt`、`prompt` 或其他模型指令文本。
+
+一次完整评测或轨迹采集的调用关系如下：
 
 ```text
 DeepSeek API
     ↑
-single_eval/agent.py        被评测 Agent，调用模型并生成动作
+single_eval/agent.py 或 trajectory_collection/pipeline.py
+    ↓ 调用模型并生成标准 tool call
+tool_adapter.py             校验并转换 search/click
     ↓ HTTP :5000
 shop_env/shop_env/pack_api.py
     ↓
@@ -24,12 +200,14 @@ WebAgentTextEnv             执行搜索、点击、选择规格和购买
 SQLite FTS5 + Original Reward
 ```
 
-建议使用两个终端：
+主要边界如下：
 
-- 终端 A：运行购物环境服务；
-- 终端 B：运行被评测 Agent。
+- `single_eval`、`multi_eval` 和 `trajectory_collection` 都通过 HTTP 调用同一个环境服务；
+- `tool_adapter.py` 只转换动作格式，不修改环境状态和 reward；
+- `trajectory_collection` 复用 `single_eval` 的 Agent，但使用独立输出目录，不覆盖评测结果；
+- 商品数据与 reward 由 `shop_env` 管理，模型 API Key 仅由客户端 Agent 使用。
 
-## 2. Conda 环境
+## 3. Conda 环境
 
 当前使用的环境名称是 `shopsim`：
 
@@ -65,7 +243,7 @@ pip install \
 python -c "import gym, flask, spacy, openai, yaml; spacy.load('zh_core_web_sm'); print('dependencies OK')"
 ```
 
-## 3. 商品数据
+## 4. 商品数据
 
 环境代码默认读取：
 
@@ -95,7 +273,7 @@ data/fine_items_eval_train_all.json
 data/items_eval_train.json -> fine_items_eval_train_all.json
 ```
 
-## 4. `.env` 配置
+## 5. `.env` 配置
 
 仓库根目录使用 `.env` 保存本地密钥和运行参数：
 
@@ -121,7 +299,7 @@ chmod 600 .env
 
 `single_eval/agent.py` 和 `pack_api.py` 都会通过 `python-dotenv` 自动读取仓库根目录的 `.env`。如果终端中已经显式设置了同名环境变量，终端中的值优先。
 
-## 5. 启动购物环境
+## 6. 启动购物环境
 
 在终端 A 执行：
 
@@ -166,7 +344,7 @@ curl -X POST http://127.0.0.1:5000/api/shop_agent \
 
 停止服务时，在终端 A 按 `Ctrl+C`。
 
-## 6. 运行 DeepSeek Smoke Test
+## 7. 运行 DeepSeek Smoke Test
 
 确认购物环境正在运行后，在终端 B 执行：
 
@@ -200,7 +378,7 @@ ShopSimulator/single_eval/outputs/test_tool3/deepseek-flash/0.json
 
 如果结果文件已经存在，断点续跑逻辑会认为 task 0 已完成。需要重新测试时，请先将该 JSON 移到备份位置，然后重新执行命令。
 
-## 7. DeepSeek 评测配置说明
+## 8. DeepSeek 评测配置说明
 
 当前配置文件：
 
@@ -279,7 +457,7 @@ model_key_env: DEEPSEEK_API_KEY
 base_url_env: DEEPSEEK_BASE_URL
 ```
 
-## 8. 运行更多任务
+## 9. 运行更多任务
 
 建议复制 smoke 配置：
 
@@ -346,7 +524,7 @@ SHOPSIM_ENV_MAX_NUM=4
 
 修改 `.env` 后需要重启购物环境服务。
 
-## 9. Standard 与 Persona
+## 10. Standard 与 Persona
 
 ### Standard
 
@@ -379,7 +557,7 @@ env_config:
 
 两种模式使用相同的动作循环和原始 Reward，差异只在模型可见的任务信息。
 
-## 10. 动作格式
+## 11. 动作格式
 
 模型每一步必须且只能发起一次标准 tool call。单 Agent 模式提供：
 
@@ -404,7 +582,7 @@ env_config:
 `role: tool` 消息加入模型上下文；终止状态和 Reward 等结构化信息只在程序
 内部处理。购买前仍然必须至少选择一个商品规格。
 
-## 11. 输出文件结构
+## 12. 输出文件结构
 
 每个任务生成一个 JSON：
 
@@ -434,7 +612,7 @@ env_config:
 | `purchase` | Agent 实际购买的商品与规格 |
 | `conversation` | 完整模型交互轨迹 |
 
-## 12. 搜索配置
+## 13. 搜索配置
 
 当前默认搜索实现是：
 
@@ -473,7 +651,7 @@ mv ShopSimulator/shop_env/search_engine/products.sqlite3 \
 
 只有在确认需要重建时才执行此命令。
 
-## 13. 常见问题
+## 14. 常见问题
 
 ### 无法连接 5000 端口
 
@@ -536,23 +714,3 @@ thinking: disabled
 ```
 
 确保有限的输出 token 用于生成可执行的 `Thought` 和 `Action`。
-
-## 14. 最短启动流程
-
-终端 A：
-
-```bash
-cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
-conda activate shopsim
-cd ShopSimulator/shop_env/shop_env
-python pack_api.py
-```
-
-终端 B：
-
-```bash
-cd /Users/funnamer/Desktop/agent-rl/LongHorizonAgentRL
-conda activate shopsim
-cd ShopSimulator/single_eval
-python agent.py --yaml_name configs/standard/deepseek_smoke.yaml
-```

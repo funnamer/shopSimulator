@@ -27,6 +27,7 @@ DEFAULT_MAX_TOKENS = 512
 DEFAULT_THINKING_MAX_TOKENS = 8192
 DEFAULT_TEMPERATURE = 0.0
 DEFAULT_MAX_RETRY = 200
+DEFAULT_MAX_VALIDATION_RETRIES = 3
 IDEALAB_DEFAULT_KEY = "{your_api_key}"  # Should be set via config file or environment variable
 IDEALAB_DEFAULT_BASE_URL = "{your_base_url}"  # Should be set via config file or environment variable
 FAILED_CALL_MESSAGE = "failed call"
@@ -115,6 +116,7 @@ class Agent:
         self.tool_outputs: List[Dict[str, Any]] = []
         self.usage_by_call: List[Dict[str, Any]] = []
         self.invalid_tool_response_count = 0
+        self.validation_retry_count = 0
         self.diagnostic_saved = False
 
     def set_shop_env(self, shop_env: ShopEnv) -> None:
@@ -152,7 +154,11 @@ class Agent:
         self.tool_outputs = []
         self.usage_by_call = []
         self.invalid_tool_response_count = 0
+        self.validation_retry_count = 0
         self.diagnostic_saved = False
+
+        if self.tool_adapter is not None:
+            self.tool_adapter.update_observation(instruction)
 
         if self.shop_env.if_persona and "user_persona" in env_result:
             self.user_persona = env_result["user_persona"]
@@ -203,13 +209,27 @@ class Agent:
         self.messages.append(execution.message)
         self.tool_outputs.append(execution.output)
         if not execution.output.get("ok", False):
+            if execution.output.get("recoverable", False):
+                self.validation_retry_count += 1
+                max_validation_retries = self.config.get(
+                    "max_validation_retries", DEFAULT_MAX_VALIDATION_RETRIES
+                )
+                if self.validation_retry_count <= max_validation_retries:
+                    return False, execution.message["content"]
+                raise ValueError(
+                    "工具动作连续校验失败，已超过最大纠错次数 "
+                    f"({max_validation_retries}): "
+                    f"{execution.output.get('error', 'unknown validation error')}"
+                )
             raise ValueError(f"环境报错: {execution.output.get('error', 'unknown error')}")
+        self.validation_retry_count = 0
         env_response = execution.output["result"]
 
         observation = env_response.get("instruction", "")
         self.last_env_response = env_response
         if observation:
             self.last_valid_observation = observation
+            self.tool_adapter.update_observation(observation)
 
         if env_response.get("done", False) or env_response.get("over", False):
             reward = env_response.get("reward", 0)
