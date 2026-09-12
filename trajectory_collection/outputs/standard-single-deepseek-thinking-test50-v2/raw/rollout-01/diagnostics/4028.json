@@ -1,0 +1,164 @@
+{
+    "task_id": 4028,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 14,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 帮忙找一个眼部产品礼盒，包含眼膜、眼霜和眼罩，预算在3000元以内。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "843446632925"
+    ],
+    "selected_options": {
+        "净含量": "1盒"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "眼部护理礼盒 眼膜 眼霜 眼罩 套装 3000元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "843446632925"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "1盒"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 8926,
+        "completion_tokens": 1447,
+        "total_tokens": 10373,
+        "by_call": [
+            {
+                "completion_tokens": 468,
+                "prompt_tokens": 618,
+                "total_tokens": 1086,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 290
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 234
+            },
+            {
+                "completion_tokens": 408,
+                "prompt_tokens": 2206,
+                "total_tokens": 2614,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 224
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1182
+            },
+            {
+                "completion_tokens": 333,
+                "prompt_tokens": 2795,
+                "total_tokens": 3128,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 164
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 235
+            },
+            {
+                "completion_tokens": 238,
+                "prompt_tokens": 3307,
+                "total_tokens": 3545,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 92
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 235
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "843446632925",
+        "name": "【立即购买】111SKIN黑钻臻奢眼部三部曲礼盒眼膜眼霜眼罩",
+        "attributes": [
+            "礼盒",
+            "眼罩",
+            "眼膜",
+            "眼霜"
+        ],
+        "goal_options": [
+            "1盒"
+        ],
+        "price_upper": 3210
+    },
+    "purchase_summary": {
+        "asin": "843446632925",
+        "name": "【立即购买】111SKIN黑钻臻奢眼部三部曲礼盒眼膜眼霜眼罩",
+        "attributes": [
+            "礼盒",
+            "眼罩",
+            "眼膜",
+            "眼霜"
+        ],
+        "options": {
+            "净含量": "1盒"
+        },
+        "price": 2990.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 843446632925 [SEP] options [SEP] {\"\\u51c0\\u542b\\u91cf\": \"1\\u76d2\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

@@ -1,0 +1,183 @@
+{
+    "task_id": 17162,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 3,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9166666666666666
+    },
+    "instruction": "Instruction: 我们一家三口住的房子，客厅空间不算大，想换套组合沙发，安在客厅拐角。预算封顶16000元。平时家人一起看电视、聊天，偶尔有朋友来也能坐得开，所以得有个带功能的单人位，累了能调调角度歇会儿，再来个普通座位和一个贵妃榻，贵妃榻放右边就行，躺着舒服。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "643704557245"
+    ],
+    "selected_options": {
+        "适用人数": "组合",
+        "颜色分类": "1单（带功能）+1无+右妃"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "转角组合沙发 功能单人位 右贵妃榻 16000元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "643704557245"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "1单（带功能）+1无+右妃"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "组合"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 17466,
+        "completion_tokens": 3267,
+        "total_tokens": 20733,
+        "by_call": [
+            {
+                "completion_tokens": 423,
+                "prompt_tokens": 673,
+                "total_tokens": 1096,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 244
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 161
+            },
+            {
+                "completion_tokens": 1061,
+                "prompt_tokens": 2336,
+                "total_tokens": 3397,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 850
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1312
+            },
+            {
+                "completion_tokens": 814,
+                "prompt_tokens": 3761,
+                "total_tokens": 4575,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 635
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 433
+            },
+            {
+                "completion_tokens": 478,
+                "prompt_tokens": 4931,
+                "total_tokens": 5409,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 304
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4480
+                },
+                "prompt_cache_hit_tokens": 4480,
+                "prompt_cache_miss_tokens": 451
+            },
+            {
+                "completion_tokens": 491,
+                "prompt_tokens": 5765,
+                "total_tokens": 6256,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 309
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5376
+                },
+                "prompt_cache_hit_tokens": 5376,
+                "prompt_cache_miss_tokens": 389
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "643704557245",
+        "name": "帝标家具真皮皮艺意式轻奢沙发简约现代客厅转角沙发小户型PS5017",
+        "attributes": [
+            "客厅转角沙发",
+            "小户型"
+        ],
+        "goal_options": [
+            "1单（带功能）+1无+右妃",
+            "组合"
+        ],
+        "price_upper": 17960
+    },
+    "purchase_summary": {
+        "asin": "643704557245",
+        "name": "帝标家具真皮皮艺意式轻奢沙发简约现代客厅转角沙发小户型PS5017",
+        "attributes": [
+            "客厅转角沙发",
+            "小户型"
+        ],
+        "options": {
+            "适用人数": "组合",
+            "颜色分类": "1单（带功能）+1无+右妃"
+        },
+        "price": 17924.822135401293
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 643704557245 [SEP] options [SEP] {\"\\u9002\\u7528\\u4eba\\u6570\": \"\\u7ec4\\u5408\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"1\\u5355\\uff08\\u5e26\\u529f\\u80fd\\uff09+1\\u65e0+\\u53f3\\u5983\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

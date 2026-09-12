@@ -1,0 +1,185 @@
+{
+    "task_id": 8619,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.7142857142857143,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.8888888888888888
+    },
+    "instruction": "Instruction: 想预定一个1/100比例的星渊日耀版机甲模型，预计2025年9月发售，定金50元，尾款200元出头，有现货预定渠道吗？\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "881587512253"
+    ],
+    "selected_options": {
+        "预定协议": "同意定金虚拟发货",
+        "颜色分类": "日耀版：定金50元 总价268元 需补尾款218元"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "星渊日耀版 1/100 机甲模型 预定 定金 2025年9月"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "881587512253"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "日耀版：定金50元 总价268元 需补尾款218元"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "同意定金虚拟发货"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 15347,
+        "completion_tokens": 1569,
+        "total_tokens": 16916,
+        "by_call": [
+            {
+                "completion_tokens": 507,
+                "prompt_tokens": 633,
+                "total_tokens": 1140,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 449
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 249
+            },
+            {
+                "completion_tokens": 343,
+                "prompt_tokens": 2343,
+                "total_tokens": 2686,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 303
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1319
+            },
+            {
+                "completion_tokens": 402,
+                "prompt_tokens": 3244,
+                "total_tokens": 3646,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 347
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 684
+            },
+            {
+                "completion_tokens": 182,
+                "prompt_tokens": 4197,
+                "total_tokens": 4379,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 142
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 613
+            },
+            {
+                "completion_tokens": 135,
+                "prompt_tokens": 4930,
+                "total_tokens": 5065,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 97
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4352
+                },
+                "prompt_cache_hit_tokens": 4352,
+                "prompt_cache_miss_tokens": 578
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "881587512253",
+        "name": "预定 铁创模型 1/100 TC-004 STAR ABYSS 星渊 机甲 拼装模型",
+        "attributes": [
+            "1/100",
+            "星渊"
+        ],
+        "goal_options": [
+            "预定商品下单请勿勾选号码保护",
+            "日耀版：定金50元 总价268元 需补尾款218元",
+            "预计2025年9月",
+            "同意定金虚拟发货"
+        ],
+        "price_upper": 400
+    },
+    "purchase_summary": {
+        "asin": "881587512253",
+        "name": "预定 铁创模型 1/100 TC-004 STAR ABYSS 星渊 机甲 拼装模型",
+        "attributes": [
+            "1/100",
+            "星渊"
+        ],
+        "options": {
+            "预定协议": "同意定金虚拟发货",
+            "颜色分类": "日耀版：定金50元 总价268元 需补尾款218元"
+        },
+        "price": 356.5401298964594
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 881587512253 [SEP] options [SEP] {\"\\u9884\\u5b9a\\u534f\\u8bae\": \"\\u540c\\u610f\\u5b9a\\u91d1\\u865a\\u62df\\u53d1\\u8d27\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u65e5\\u8000\\u7248\\uff1a\\u5b9a\\u91d150\\u5143 \\u603b\\u4ef7268\\u5143 \\u9700\\u8865\\u5c3e\\u6b3e218\\u5143\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.7142857142857143 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

@@ -1,0 +1,165 @@
+{
+    "task_id": 1808,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 4,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.8571428571428571,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我是化妆新手，想找一款能简化步骤的产品，涂完既能遮住斑斑点点，又能省去隔离的步骤，最好还能让皮肤看起来有自然光泽，还可以遮住油光，有没有类似美颜遮瑕二合一产品的推荐呀，颜色喜欢白一点的，克重在19-25克之间。预算有限，价格在10元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "707308417403"
+    ],
+    "selected_options": {
+        "颜色分类": "(象牙白)8g+12g"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "美颜遮瑕二合一 隔离霜 遮瑕 控油 自然光泽 白皙 20g"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "707308417403"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "(象牙白)8g+12g"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 12537,
+        "completion_tokens": 3724,
+        "total_tokens": 16261,
+        "by_call": [
+            {
+                "completion_tokens": 993,
+                "prompt_tokens": 670,
+                "total_tokens": 1663,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 856
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 158
+            },
+            {
+                "completion_tokens": 507,
+                "prompt_tokens": 2874,
+                "total_tokens": 3381,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 328
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1536
+                },
+                "prompt_cache_hit_tokens": 1536,
+                "prompt_cache_miss_tokens": 1338
+            },
+            {
+                "completion_tokens": 1357,
+                "prompt_tokens": 3673,
+                "total_tokens": 5030,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1160
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 345
+            },
+            {
+                "completion_tokens": 867,
+                "prompt_tokens": 5320,
+                "total_tokens": 6187,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 675
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4992
+                },
+                "prompt_cache_hit_tokens": 4992,
+                "prompt_cache_miss_tokens": 328
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "707308417403",
+        "name": "牛油果气垫霜美颜遮瑕二合一粉底液cc霜BB提亮肤色粉饼控油定妆女",
+        "attributes": [
+            "提亮",
+            "控油",
+            "二合一",
+            "遮瑕"
+        ],
+        "goal_options": [
+            "(象牙白)8g+12g",
+            "20g"
+        ],
+        "price_upper": 30
+    },
+    "purchase_summary": {
+        "asin": "707308417403",
+        "name": "牛油果气垫霜美颜遮瑕二合一粉底液cc霜BB提亮肤色粉饼控油定妆女",
+        "attributes": [
+            "提亮",
+            "控油",
+            "二合一",
+            "遮瑕"
+        ],
+        "options": {
+            "颜色分类": "(象牙白)8g+12g"
+        },
+        "price": 9.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 707308417403 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"(\\u8c61\\u7259\\u767d)8g+12g\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8571428571428571 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

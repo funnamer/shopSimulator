@@ -1,0 +1,166 @@
+{
+    "task_id": 2137,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 15,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 求推荐一款男女都可以使用的面部磨砂膏，想在艾尚美妆折扣店买，其核心成分是黄糖，啫喱质地的，净含量150毫升，价格在70元左右，能深入清洁毛孔。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "904644390475"
+    ],
+    "selected_options": {
+        "净含量": "150ml"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "艾尚美妆折扣店 黄糖面部磨砂膏 啫喱 150ml 男女 深层清洁毛孔"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "904644390475"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "150ml"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 10583,
+        "completion_tokens": 2169,
+        "total_tokens": 12752,
+        "by_call": [
+            {
+                "completion_tokens": 655,
+                "prompt_tokens": 643,
+                "total_tokens": 1298,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 432
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 509
+                },
+                "prompt_cache_hit_tokens": 509,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 666,
+                "prompt_tokens": 2511,
+                "total_tokens": 3177,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 428
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1280
+                },
+                "prompt_cache_hit_tokens": 1280,
+                "prompt_cache_miss_tokens": 1231
+            },
+            {
+                "completion_tokens": 407,
+                "prompt_tokens": 3402,
+                "total_tokens": 3809,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 188
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 330
+            },
+            {
+                "completion_tokens": 441,
+                "prompt_tokens": 4027,
+                "total_tokens": 4468,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 218
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 315
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "904644390475",
+        "name": "黄糖去角质啫喱面部深层清洁毛孔去脸部磨砂膏死皮男女士官方正品",
+        "attributes": [
+            "黄糖",
+            "啫喱",
+            "清洁毛孔",
+            "男女通用",
+            "艾尚美妆折扣店"
+        ],
+        "goal_options": [
+            "150ml"
+        ],
+        "price_upper": 80
+    },
+    "purchase_summary": {
+        "asin": "904644390475",
+        "name": "黄糖去角质啫喱面部深层清洁毛孔去脸部磨砂膏死皮男女士官方正品",
+        "attributes": [
+            "黄糖",
+            "啫喱",
+            "清洁毛孔",
+            "男女通用",
+            "艾尚美妆折扣店"
+        ],
+        "options": {
+            "净含量": "150ml"
+        },
+        "price": 68.58465642970694
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 904644390475 [SEP] options [SEP] {\"\\u51c0\\u542b\\u91cf\": \"150ml\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

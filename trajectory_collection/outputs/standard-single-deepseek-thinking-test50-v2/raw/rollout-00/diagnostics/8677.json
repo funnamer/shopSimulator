@@ -1,0 +1,286 @@
+{
+    "task_id": 8677,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 2,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.6363636363636364,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 6,
+        "num_option_matches": 0,
+        "query_match": true,
+        "r_att": 0.6666666666666666,
+        "r_option": 0.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.125
+    },
+    "instruction": "Instruction: 我想要一款适合小吃摊使用的风机，预算500元以内。专门用于处理烧烤产生的油烟，能达到无油烟效果，采用离心式排风设计，最好是双侧进风、外置转子样式，且线圈芯为纯铜材质。同时，运行时噪音要小，在标准家庭电压下功率不低于200W。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 9,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 8,
+    "num_back_to_search": 0,
+    "num_detail_views": 2,
+    "repeated_action_count": 2,
+    "visited_asins": [
+        "601052783312"
+    ],
+    "selected_options": {
+        "颜色分类": "250w纯铜静音风机"
+    },
+    "last_action": {
+        "step": 9,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "离心式排风机 烧烤油烟 双侧进风 外置转子 纯铜 200W 500元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "601052783312"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "250w纯铜静音风机"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "250w纯铜静音风机"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[250w纯铜静音风机]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：250w纯铜静音风机 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 9,
+        "prompt_tokens": 36427,
+        "completion_tokens": 3004,
+        "total_tokens": 39431,
+        "by_call": [
+            {
+                "completion_tokens": 447,
+                "prompt_tokens": 661,
+                "total_tokens": 1108,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 260
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 149
+            },
+            {
+                "completion_tokens": 501,
+                "prompt_tokens": 2334,
+                "total_tokens": 2835,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 328
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1310
+            },
+            {
+                "completion_tokens": 475,
+                "prompt_tokens": 3192,
+                "total_tokens": 3667,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 304
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 376
+            },
+            {
+                "completion_tokens": 168,
+                "prompt_tokens": 3791,
+                "total_tokens": 3959,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 57
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 207
+            },
+            {
+                "completion_tokens": 129,
+                "prompt_tokens": 4316,
+                "total_tokens": 4445,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 12
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 476
+            },
+            {
+                "completion_tokens": 684,
+                "prompt_tokens": 4593,
+                "total_tokens": 5277,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 508
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4352
+                },
+                "prompt_cache_hit_tokens": 4352,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 167,
+                "prompt_tokens": 5333,
+                "total_tokens": 5500,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 68
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5120
+                },
+                "prompt_cache_hit_tokens": 5120,
+                "prompt_cache_miss_tokens": 213
+            },
+            {
+                "completion_tokens": 143,
+                "prompt_tokens": 5857,
+                "total_tokens": 6000,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 6
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5376
+                },
+                "prompt_cache_hit_tokens": 5376,
+                "prompt_cache_miss_tokens": 481
+            },
+            {
+                "completion_tokens": 290,
+                "prompt_tokens": 6350,
+                "total_tokens": 6640,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 128
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5888
+                },
+                "prompt_cache_hit_tokens": 5888,
+                "prompt_cache_miss_tokens": 462
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "639657256358",
+        "name": "无烟烧烤车专用离心风机双进风外转子纯铜芯低噪音风机净化烧烤炉",
+        "attributes": [
+            "无烟",
+            "专用",
+            "离心风机",
+            "双进风",
+            "外转子",
+            "纯铜芯",
+            "低噪音",
+            "风机",
+            "净化"
+        ],
+        "goal_options": [
+            "250W功率/220v供电"
+        ],
+        "price_upper": 820
+    },
+    "purchase_summary": {
+        "asin": "601052783312",
+        "name": "无烟净化烧烤车烤炉低噪音电机纯铜离心鼓风机电吹风双进风外转子",
+        "attributes": [
+            "无烟",
+            "净化",
+            "电机",
+            "离心",
+            "鼓风机",
+            "电吹风",
+            "双进风",
+            "外转子",
+            "烤炉"
+        ],
+        "options": {
+            "颜色分类": "250w纯铜静音风机"
+        },
+        "price": 494.39383156196993
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 601052783312 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"250w\\u7eaf\\u94dc\\u9759\\u97f3\\u98ce\\u673a\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6363636363636364 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

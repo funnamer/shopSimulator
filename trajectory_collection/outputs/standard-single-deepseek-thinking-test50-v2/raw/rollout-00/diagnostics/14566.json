@@ -1,0 +1,170 @@
+{
+    "task_id": 14566,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 18,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 7,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9090909090909091
+    },
+    "instruction": "Instruction: 推荐一款玫红色披肩外套，使用高级缎面制作，上面要有蝴蝶结和拖尾设计，不包含礼服，适合走秀和拍照，不要别人退换过的，价格在300以内。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "827029080082"
+    ],
+    "selected_options": {
+        "颜色分类": "图片玫红色（不含礼服-不退换）"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "玫红色 缎面 披肩外套 蝴蝶结 拖尾 走秀 拍照"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "827029080082"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "图片玫红色（不含礼服-不退换）"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9467,
+        "completion_tokens": 1497,
+        "total_tokens": 10964,
+        "by_call": [
+            {
+                "completion_tokens": 578,
+                "prompt_tokens": 638,
+                "total_tokens": 1216,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 464
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 254
+            },
+            {
+                "completion_tokens": 366,
+                "prompt_tokens": 2343,
+                "total_tokens": 2709,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 245
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1191
+            },
+            {
+                "completion_tokens": 347,
+                "prompt_tokens": 2950,
+                "total_tokens": 3297,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 219
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 262
+            },
+            {
+                "completion_tokens": 206,
+                "prompt_tokens": 3536,
+                "total_tokens": 3742,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 107
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 336
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "827029080082",
+        "name": "玫红色高级定制缎面蝴蝶结拖尾造型披肩外套手袖造型走秀拍摄大片",
+        "attributes": [
+            "高级",
+            "缎面",
+            "蝴蝶结",
+            "拖尾",
+            "走秀",
+            "拍摄",
+            "披肩"
+        ],
+        "goal_options": [
+            "图片玫红色（不含礼服-不退换）"
+        ],
+        "price_upper": 350
+    },
+    "purchase_summary": {
+        "asin": "827029080082",
+        "name": "玫红色高级定制缎面蝴蝶结拖尾造型披肩外套手袖造型走秀拍摄大片",
+        "attributes": [
+            "高级",
+            "缎面",
+            "蝴蝶结",
+            "拖尾",
+            "走秀",
+            "拍摄",
+            "披肩"
+        ],
+        "options": {
+            "颜色分类": "图片玫红色（不含礼服-不退换）"
+        },
+        "price": 268.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 827029080082 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u56fe\\u7247\\u73ab\\u7ea2\\u8272\\uff08\\u4e0d\\u542b\\u793c\\u670d-\\u4e0d\\u9000\\u6362\\uff09\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

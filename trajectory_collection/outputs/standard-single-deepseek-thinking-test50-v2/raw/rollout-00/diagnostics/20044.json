@@ -1,0 +1,172 @@
+{
+    "task_id": 20044,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.6666666666666666,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 0,
+        "query_match": true,
+        "r_att": 0.7142857142857143,
+        "r_option": 0.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.7
+    },
+    "instruction": "Instruction: 想买一款家里以及奶茶店里都可以用的炼乳，家里没有小孩，可以自己动手去制作一些饮品和烤制一些甜点面包之类的，想要十几个小包的，一小包大概12g左右，价位在15元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "753374003051"
+    ],
+    "selected_options": {
+        "颜色分类": "熊猫炼乳12g20包"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "炼乳 小包装 12g 家用 商用"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "753374003051"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "熊猫炼乳12g20包"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 11686,
+        "completion_tokens": 4008,
+        "total_tokens": 15694,
+        "by_call": [
+            {
+                "completion_tokens": 388,
+                "prompt_tokens": 643,
+                "total_tokens": 1031,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 279
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 259
+            },
+            {
+                "completion_tokens": 1016,
+                "prompt_tokens": 2235,
+                "total_tokens": 3251,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 872
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1211
+            },
+            {
+                "completion_tokens": 1335,
+                "prompt_tokens": 3577,
+                "total_tokens": 4912,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1170
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 377
+            },
+            {
+                "completion_tokens": 1269,
+                "prompt_tokens": 5231,
+                "total_tokens": 6500,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1111
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4864
+                },
+                "prompt_cache_hit_tokens": 4864,
+                "prompt_cache_miss_tokens": 367
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "937481176929",
+        "name": "展艺炼乳小包装自制炼奶咖啡甜品无儿童家用奶茶专用烘焙家用商用",
+        "attributes": [
+            "小包装",
+            "自制",
+            "咖啡",
+            "甜品",
+            "无儿童家用",
+            "奶茶",
+            "商用"
+        ],
+        "goal_options": [
+            "【展艺】炼乳13克*15包"
+        ],
+        "price_upper": 50
+    },
+    "purchase_summary": {
+        "asin": "753374003051",
+        "name": "熊猫炼乳小包装12g商用家用甜品蛋挞咖啡奶茶奶油小馒头炼奶烘焙",
+        "attributes": [
+            "小包装",
+            "商用",
+            "家用",
+            "甜品",
+            "蛋挞",
+            "咖啡",
+            "奶茶",
+            "奶油",
+            "小馒头"
+        ],
+        "options": {
+            "颜色分类": "熊猫炼乳12g20包"
+        },
+        "price": 35.56680265293587
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 753374003051 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u718a\\u732b\\u70bc\\u4e7312g20\\u5305\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6666666666666666 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

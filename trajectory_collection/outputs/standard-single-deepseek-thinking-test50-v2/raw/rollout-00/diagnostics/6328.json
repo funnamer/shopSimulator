@@ -1,0 +1,181 @@
+{
+    "task_id": 6328,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 16,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 要买一套海贼王艾斯的整套服装，包括帽子。3XL码的。三百元左右的预算。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "714369988650"
+    ],
+    "selected_options": {
+        "大小": "xxxl",
+        "颜色分类": "艾斯衣服全套-含帽子"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "海贼王 艾斯 整套服装 帽子 3XL"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "714369988650"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "xxxl"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "艾斯衣服全套-含帽子"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13265,
+        "completion_tokens": 1678,
+        "total_tokens": 14943,
+        "by_call": [
+            {
+                "completion_tokens": 459,
+                "prompt_tokens": 618,
+                "total_tokens": 1077,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 307
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 234
+            },
+            {
+                "completion_tokens": 375,
+                "prompt_tokens": 2207,
+                "total_tokens": 2582,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 199
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1183
+            },
+            {
+                "completion_tokens": 450,
+                "prompt_tokens": 2854,
+                "total_tokens": 3304,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 288
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 294
+            },
+            {
+                "completion_tokens": 183,
+                "prompt_tokens": 3569,
+                "total_tokens": 3752,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 58
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 369
+            },
+            {
+                "completion_tokens": 211,
+                "prompt_tokens": 4017,
+                "total_tokens": 4228,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 84
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3456
+                },
+                "prompt_cache_hit_tokens": 3456,
+                "prompt_cache_miss_tokens": 561
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "714369988650",
+        "name": "动漫海贼王cos服火拳艾斯cosplay和服套装帽子二次元角色扮演服装",
+        "attributes": [
+            "海贼王"
+        ],
+        "goal_options": [
+            "XXXL",
+            "艾斯衣服全套-含帽子"
+        ],
+        "price_upper": 350
+    },
+    "purchase_summary": {
+        "asin": "714369988650",
+        "name": "动漫海贼王cos服火拳艾斯cosplay和服套装帽子二次元角色扮演服装",
+        "attributes": [
+            "海贼王"
+        ],
+        "options": {
+            "大小": "xxxl",
+            "颜色分类": "艾斯衣服全套-含帽子"
+        },
+        "price": 263.42382427896547
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 714369988650 [SEP] options [SEP] {\"\\u5927\\u5c0f\": \"xxxl\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u827e\\u65af\\u8863\\u670d\\u5168\\u5957-\\u542b\\u5e3d\\u5b50\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

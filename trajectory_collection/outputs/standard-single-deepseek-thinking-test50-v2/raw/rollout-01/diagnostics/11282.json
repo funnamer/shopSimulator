@@ -1,0 +1,189 @@
+{
+    "task_id": 11282,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 18,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.8461538461538461
+    },
+    "instruction": "Instruction: 我想买一款女童穿的冰雪奇缘水晶高跟鞋，适合四季和庆祝节日的时候穿，颜色要粉红色，尺码穿26码，内长17.5cm，预算70元左右，给我推荐一款合适的。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "538322754186"
+    ],
+    "selected_options": {
+        "尺码": "26码内长 | 17.5cm",
+        "颜色分类": "779粉红色"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "女童 冰雪奇缘 水晶高跟鞋 粉色 26码 内长17.5cm"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "538322754186"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "779粉红色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "26码内长 | 17.5cm"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 17132,
+        "completion_tokens": 1757,
+        "total_tokens": 18889,
+        "by_call": [
+            {
+                "completion_tokens": 316,
+                "prompt_tokens": 641,
+                "total_tokens": 957,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 259
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 507
+                },
+                "prompt_cache_hit_tokens": 507,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 327,
+                "prompt_tokens": 2090,
+                "total_tokens": 2417,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 150
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1194
+            },
+            {
+                "completion_tokens": 787,
+                "prompt_tokens": 3322,
+                "total_tokens": 4109,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 620
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2304
+                },
+                "prompt_cache_hit_tokens": 2304,
+                "prompt_cache_miss_tokens": 1018
+            },
+            {
+                "completion_tokens": 152,
+                "prompt_tokens": 5012,
+                "total_tokens": 5164,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 16
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 916
+            },
+            {
+                "completion_tokens": 175,
+                "prompt_tokens": 6067,
+                "total_tokens": 6242,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 44
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5120
+                },
+                "prompt_cache_hit_tokens": 5120,
+                "prompt_cache_miss_tokens": 947
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "538322754186",
+        "name": "冰雪奇缘水晶高跟鞋儿童公主鞋四季单鞋 节日礼服鞋女童艾莎皮鞋",
+        "attributes": [
+            "冰雪奇缘",
+            "四季",
+            "节日庆祝",
+            "女童",
+            "水晶高跟鞋"
+        ],
+        "goal_options": [
+            "779粉红色",
+            "26码内长/17.5cm"
+        ],
+        "price_upper": 90
+    },
+    "purchase_summary": {
+        "asin": "538322754186",
+        "name": "冰雪奇缘水晶高跟鞋儿童公主鞋四季单鞋 节日礼服鞋女童艾莎皮鞋",
+        "attributes": [
+            "冰雪奇缘",
+            "四季",
+            "节日庆祝",
+            "女童",
+            "水晶高跟鞋"
+        ],
+        "options": {
+            "尺码": "26码内长 | 17.5cm",
+            "颜色分类": "779粉红色"
+        },
+        "price": 69.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 538322754186 [SEP] options [SEP] {\"\\u5c3a\\u7801\": \"26\\u7801\\u5185\\u957f | 17.5cm\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"779\\u7c89\\u7ea2\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

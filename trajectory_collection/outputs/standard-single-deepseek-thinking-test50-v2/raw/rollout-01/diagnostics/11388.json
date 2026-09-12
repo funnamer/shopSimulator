@@ -1,0 +1,341 @@
+{
+    "task_id": 11388,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.875,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 6,
+        "num_option_matches": 0,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 推荐一个家用的全自动按摩仪给我吧，要按摩模式多一些，可以揉捏背部和腰部肌肉的，同时还能当靠垫，充电后不插电也能使用，颜色要米白色，价格不要超过300。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 12,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 11,
+    "num_back_to_search": 0,
+    "num_detail_views": 3,
+    "repeated_action_count": 2,
+    "visited_asins": [
+        "885732880285",
+        "877506366815"
+    ],
+    "selected_options": {
+        "规格类型": "正常规格"
+    },
+    "last_action": {
+        "step": 12,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "全自动按摩靠垫 揉捏 背部 腰部 充电 米白色 300元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "885732880285"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "reviews"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "米白色"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "877506366815"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "单支装"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[米白色]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：米白色 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 12,
+        "prompt_tokens": 60915,
+        "completion_tokens": 4556,
+        "total_tokens": 65471,
+        "by_call": [
+            {
+                "completion_tokens": 744,
+                "prompt_tokens": 643,
+                "total_tokens": 1387,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 595
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 509
+                },
+                "prompt_cache_hit_tokens": 509,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 960,
+                "prompt_tokens": 2513,
+                "total_tokens": 3473,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 806
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1280
+                },
+                "prompt_cache_hit_tokens": 1280,
+                "prompt_cache_miss_tokens": 1233
+            },
+            {
+                "completion_tokens": 321,
+                "prompt_tokens": 3680,
+                "total_tokens": 4001,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 196
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3456
+                },
+                "prompt_cache_hit_tokens": 3456,
+                "prompt_cache_miss_tokens": 224
+            },
+            {
+                "completion_tokens": 252,
+                "prompt_tokens": 4107,
+                "total_tokens": 4359,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 159
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 139
+            },
+            {
+                "completion_tokens": 102,
+                "prompt_tokens": 4566,
+                "total_tokens": 4668,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 13
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4352
+                },
+                "prompt_cache_hit_tokens": 4352,
+                "prompt_cache_miss_tokens": 214
+            },
+            {
+                "completion_tokens": 252,
+                "prompt_tokens": 4797,
+                "total_tokens": 5049,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 153
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4608
+                },
+                "prompt_cache_hit_tokens": 4608,
+                "prompt_cache_miss_tokens": 189
+            },
+            {
+                "completion_tokens": 83,
+                "prompt_tokens": 5254,
+                "total_tokens": 5337,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 3
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4992
+                },
+                "prompt_cache_hit_tokens": 4992,
+                "prompt_cache_miss_tokens": 262
+            },
+            {
+                "completion_tokens": 472,
+                "prompt_tokens": 5439,
+                "total_tokens": 5911,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 338
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5248
+                },
+                "prompt_cache_hit_tokens": 5248,
+                "prompt_cache_miss_tokens": 191
+            },
+            {
+                "completion_tokens": 172,
+                "prompt_tokens": 5962,
+                "total_tokens": 6134,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 96
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5760
+                },
+                "prompt_cache_hit_tokens": 5760,
+                "prompt_cache_miss_tokens": 202
+            },
+            {
+                "completion_tokens": 552,
+                "prompt_tokens": 7262,
+                "total_tokens": 7814,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 408
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6016
+                },
+                "prompt_cache_hit_tokens": 6016,
+                "prompt_cache_miss_tokens": 1246
+            },
+            {
+                "completion_tokens": 429,
+                "prompt_tokens": 8028,
+                "total_tokens": 8457,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 298
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7808
+                },
+                "prompt_cache_hit_tokens": 7808,
+                "prompt_cache_miss_tokens": 220
+            },
+            {
+                "completion_tokens": 217,
+                "prompt_tokens": 8664,
+                "total_tokens": 8881,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 111
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8448
+                },
+                "prompt_cache_hit_tokens": 8448,
+                "prompt_cache_miss_tokens": 216
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "877506366815",
+        "name": "欧莱雅男士耀白防晒霜户外专用防紫外线隔离霜美白防晒黑清爽不油",
+        "attributes": [
+            "欧莱雅",
+            "男士适用",
+            "防晒",
+            "防紫外线",
+            "美白",
+            "清爽不油"
+        ],
+        "goal_options": [
+            "单支装"
+        ],
+        "price_upper": 190
+    },
+    "purchase_summary": {
+        "asin": "877506366815",
+        "name": "欧莱雅男士耀白防晒霜户外专用防紫外线隔离霜美白防晒黑清爽不油",
+        "attributes": [
+            "欧莱雅",
+            "男士适用",
+            "防晒",
+            "防紫外线",
+            "美白",
+            "清爽不油"
+        ],
+        "options": {
+            "规格类型": "正常规格"
+        },
+        "price": 100.3915172914968
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 877506366815 [SEP] options [SEP] {\"\\u89c4\\u683c\\u7c7b\\u578b\": \"\\u6b63\\u5e38\\u89c4\\u683c\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.875 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

@@ -1,0 +1,182 @@
+{
+    "task_id": 8910,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 11,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 麻烦帮我找一款具备高弹性的羽毛球鞋！脚是40码的，我比较喜欢白色的外观，比较简洁，预算在300块上下。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "798773909126",
+        "40"
+    ],
+    "selected_options": {
+        "鞋码": "40",
+        "颜色分类": "白色"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "羽毛球鞋 高弹性 白色 40码 300元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "798773909126"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "白色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "40"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13810,
+        "completion_tokens": 1849,
+        "total_tokens": 15659,
+        "by_call": [
+            {
+                "completion_tokens": 471,
+                "prompt_tokens": 626,
+                "total_tokens": 1097,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 347
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 242
+            },
+            {
+                "completion_tokens": 582,
+                "prompt_tokens": 2239,
+                "total_tokens": 2821,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 430
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1215
+            },
+            {
+                "completion_tokens": 250,
+                "prompt_tokens": 3098,
+                "total_tokens": 3348,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 131
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 282
+            },
+            {
+                "completion_tokens": 326,
+                "prompt_tokens": 3623,
+                "total_tokens": 3949,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 229
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 295
+            },
+            {
+                "completion_tokens": 220,
+                "prompt_tokens": 4224,
+                "total_tokens": 4444,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 119
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 384
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "798773909126",
+        "name": "FELET辉厉 突击推进1.0 高弹性羽毛球鞋",
+        "attributes": [
+            "高弹性"
+        ],
+        "goal_options": [
+            "白色",
+            "40"
+        ],
+        "price_upper": 360
+    },
+    "purchase_summary": {
+        "asin": "798773909126",
+        "name": "FELET辉厉 突击推进1.0 高弹性羽毛球鞋",
+        "attributes": [
+            "高弹性"
+        ],
+        "options": {
+            "鞋码": "40",
+            "颜色分类": "白色"
+        },
+        "price": 309.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 798773909126 [SEP] options [SEP] {\"\\u978b\\u7801\": \"40\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u767d\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

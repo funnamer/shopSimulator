@@ -1,0 +1,188 @@
+{
+    "task_id": 20089,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 求推荐一双35码的小高跟！要真皮材质的，尖头设计显气质，颜色选择比较时尚的紫罗兰，预算1700元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "918523004907",
+        "35"
+    ],
+    "selected_options": {
+        "鞋码": "35",
+        "颜色分类": "紫罗兰"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "35码 真皮 尖头 小高跟 紫罗兰 1700元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "918523004907"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "35"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "紫罗兰"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 11483,
+        "completion_tokens": 791,
+        "total_tokens": 12274,
+        "by_call": [
+            {
+                "completion_tokens": 265,
+                "prompt_tokens": 628,
+                "total_tokens": 893,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 210
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 244
+            },
+            {
+                "completion_tokens": 233,
+                "prompt_tokens": 2034,
+                "total_tokens": 2267,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 193
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1266
+            },
+            {
+                "completion_tokens": 103,
+                "prompt_tokens": 2563,
+                "total_tokens": 2666,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 66
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2176
+                },
+                "prompt_cache_hit_tokens": 2176,
+                "prompt_cache_miss_tokens": 387
+            },
+            {
+                "completion_tokens": 44,
+                "prompt_tokens": 2960,
+                "total_tokens": 3004,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 6
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 400
+            },
+            {
+                "completion_tokens": 146,
+                "prompt_tokens": 3298,
+                "total_tokens": 3444,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 108
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 354
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "918523004907",
+        "name": "意大利Raraente~ ！绝美小高跟鞋女低跟中跟真皮时尚气质尖头单鞋",
+        "attributes": [
+            "小高跟",
+            "真皮材质",
+            "尖头设计",
+            "时尚气质"
+        ],
+        "goal_options": [
+            "35",
+            "紫罗兰"
+        ],
+        "price_upper": 1860
+    },
+    "purchase_summary": {
+        "asin": "918523004907",
+        "name": "意大利Raraente~ ！绝美小高跟鞋女低跟中跟真皮时尚气质尖头单鞋",
+        "attributes": [
+            "小高跟",
+            "真皮材质",
+            "尖头设计",
+            "时尚气质"
+        ],
+        "options": {
+            "鞋码": "35",
+            "颜色分类": "紫罗兰"
+        },
+        "price": 1699.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 918523004907 [SEP] options [SEP] {\"\\u978b\\u7801\": \"35\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u7d2b\\u7f57\\u5170\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

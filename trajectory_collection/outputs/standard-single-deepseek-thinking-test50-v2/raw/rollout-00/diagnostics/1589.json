@@ -1,0 +1,353 @@
+{
+    "task_id": 1589,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 19,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.625,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 0,
+        "query_match": true,
+        "r_att": 0.8333333333333334,
+        "r_option": 0.0,
+        "r_price": false,
+        "r_type": 1.0,
+        "title_score": 0.5
+    },
+    "instruction": "Instruction: 在西北生活需要一款贴合肌肤，风沙吹一天也不会脱妆，能遮盖毛孔和晒斑且不拔干的底妆，最好是具备控油效果，想要自然色和象牙白两种色号搭配，要求品牌授权正品，价格控制在520元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 12,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 11,
+    "num_back_to_search": 0,
+    "num_detail_views": 4,
+    "repeated_action_count": 4,
+    "visited_asins": [
+        "941459235568"
+    ],
+    "selected_options": {
+        "颜色分类": "1w1#17象牙白*1+2c0#62自然色*1 +美妆蛋*2+泵头*2"
+    },
+    "last_action": {
+        "step": 12,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "控油 遮瑕 不拔干 粉底液 自然色 象牙白 品牌授权 正品"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "941459235568"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "1w1#17象牙白*1+2c0#62自然色*1 +美妆蛋*2+泵头*2"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "reviews"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "reviews"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[reviews]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：reviews 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        },
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[buy now]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：buy now 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 12,
+        "prompt_tokens": 72637,
+        "completion_tokens": 4149,
+        "total_tokens": 76786,
+        "by_call": [
+            {
+                "completion_tokens": 480,
+                "prompt_tokens": 651,
+                "total_tokens": 1131,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 380
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 267
+            },
+            {
+                "completion_tokens": 721,
+                "prompt_tokens": 2367,
+                "total_tokens": 3088,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 628
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1343
+            },
+            {
+                "completion_tokens": 888,
+                "prompt_tokens": 3720,
+                "total_tokens": 4608,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 766
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 648
+            },
+            {
+                "completion_tokens": 131,
+                "prompt_tokens": 5233,
+                "total_tokens": 5364,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 55
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4608
+                },
+                "prompt_cache_hit_tokens": 4608,
+                "prompt_cache_miss_tokens": 625
+            },
+            {
+                "completion_tokens": 154,
+                "prompt_tokens": 5503,
+                "total_tokens": 5657,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 84
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5248
+                },
+                "prompt_cache_hit_tokens": 5248,
+                "prompt_cache_miss_tokens": 255
+            },
+            {
+                "completion_tokens": 63,
+                "prompt_tokens": 6282,
+                "total_tokens": 6345,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 4
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5632
+                },
+                "prompt_cache_hit_tokens": 5632,
+                "prompt_cache_miss_tokens": 650
+            },
+            {
+                "completion_tokens": 958,
+                "prompt_tokens": 6459,
+                "total_tokens": 7417,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 878
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6272
+                },
+                "prompt_cache_hit_tokens": 6272,
+                "prompt_cache_miss_tokens": 187
+            },
+            {
+                "completion_tokens": 98,
+                "prompt_tokens": 7468,
+                "total_tokens": 7566,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 38
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7296
+                },
+                "prompt_cache_hit_tokens": 7296,
+                "prompt_cache_miss_tokens": 172
+            },
+            {
+                "completion_tokens": 57,
+                "prompt_tokens": 8191,
+                "total_tokens": 8248,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 4
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7552
+                },
+                "prompt_cache_hit_tokens": 7552,
+                "prompt_cache_miss_tokens": 639
+            },
+            {
+                "completion_tokens": 435,
+                "prompt_tokens": 8358,
+                "total_tokens": 8793,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 347
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8192
+                },
+                "prompt_cache_hit_tokens": 8192,
+                "prompt_cache_miss_tokens": 166
+            },
+            {
+                "completion_tokens": 92,
+                "prompt_tokens": 8844,
+                "total_tokens": 8936,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 33
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8704
+                },
+                "prompt_cache_hit_tokens": 8704,
+                "prompt_cache_miss_tokens": 140
+            },
+            {
+                "completion_tokens": 72,
+                "prompt_tokens": 9561,
+                "total_tokens": 9633,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 5
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8832
+                },
+                "prompt_cache_hit_tokens": 8832,
+                "prompt_cache_miss_tokens": 729
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "843832441553",
+        "name": "方气垫持妆粉底液遮瑕持久不脱妆保湿服帖控油官方正品旗舰店",
+        "attributes": [
+            "持久",
+            "服帖",
+            "遮瑕",
+            "保湿",
+            "控油",
+            "官方正品"
+        ],
+        "goal_options": [
+            "【搭配装】持妆遮瑕自然色*2+象牙白*2"
+        ],
+        "price_upper": 390
+    },
+    "purchase_summary": {
+        "asin": "941459235568",
+        "name": "DW粉底液遮瑕持久不脱妆持妆干皮隔离抗氧化油皮控油服帖官方正品",
+        "attributes": [
+            "干皮",
+            "油皮",
+            "遮瑕",
+            "服帖",
+            "持久",
+            "不脱妆",
+            "隔离",
+            "抗氧化"
+        ],
+        "options": {
+            "颜色分类": "1w1#17象牙白*1+2c0#62自然色*1 +美妆蛋*2+泵头*2"
+        },
+        "price": 489.1824935402639
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 941459235568 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"1w1#17\\u8c61\\u7259\\u767d*1+2c0#62\\u81ea\\u7136\\u8272*1 +\\u7f8e\\u5986\\u86cb*2+\\u6cf5\\u5934*2\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.625 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

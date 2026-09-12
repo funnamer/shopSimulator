@@ -1,0 +1,164 @@
+{
+    "task_id": 12912,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 9,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想要四包泰式风味的手撕鸡调料，带有柠檬风味，口味酸甜且脂肪含量低，可用于冷泡海鲜，也能为各类凉拌菜调味，价格不超过30元。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "941458879862"
+    ],
+    "selected_options": {
+        "规格描述": "【4袋】泰式柠檬手撕鸡调料"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "泰式风味手撕鸡调料 柠檬 酸甜 低脂 冷泡海鲜 凉拌"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "941458879862"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "【4袋】泰式柠檬手撕鸡调料"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9925,
+        "completion_tokens": 2993,
+        "total_tokens": 12918,
+        "by_call": [
+            {
+                "completion_tokens": 562,
+                "prompt_tokens": 634,
+                "total_tokens": 1196,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 405
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 250
+            },
+            {
+                "completion_tokens": 411,
+                "prompt_tokens": 2430,
+                "total_tokens": 2841,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 253
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1278
+            },
+            {
+                "completion_tokens": 262,
+                "prompt_tokens": 3149,
+                "total_tokens": 3411,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 132
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 333
+            },
+            {
+                "completion_tokens": 1758,
+                "prompt_tokens": 3712,
+                "total_tokens": 5470,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1599
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 384
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "941458879862",
+        "name": "加点滋味泰式酸辣柠檬手撕鸡凉拌汁低脂冷泡海鲜凉拌菜酸调味料",
+        "attributes": [
+            "凉拌",
+            "低脂",
+            "海鲜",
+            "酸味"
+        ],
+        "goal_options": [
+            "【4袋】泰式柠檬手撕鸡调料"
+        ],
+        "price_upper": 70
+    },
+    "purchase_summary": {
+        "asin": "941458879862",
+        "name": "加点滋味泰式酸辣柠檬手撕鸡凉拌汁低脂冷泡海鲜凉拌菜酸调味料",
+        "attributes": [
+            "凉拌",
+            "低脂",
+            "海鲜",
+            "酸味"
+        ],
+        "options": {
+            "规格描述": "【4袋】泰式柠檬手撕鸡调料"
+        },
+        "price": 46.51760224141798
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 941458879862 [SEP] options [SEP] {\"\\u89c4\\u683c\\u63cf\\u8ff0\": \"\\u30104\\u888b\\u3011\\u6cf0\\u5f0f\\u67e0\\u6aac\\u624b\\u6495\\u9e21\\u8c03\\u6599\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

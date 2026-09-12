@@ -1,0 +1,190 @@
+{
+    "task_id": 16818,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 18,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9090909090909091
+    },
+    "instruction": "Instruction: 求推荐一双适合新娘穿的红色婚鞋，低跟设计，绒面材质，尖头设计，适合中式婚礼，我的脚34码。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "919098809420",
+        "34"
+    ],
+    "selected_options": {
+        "鞋码": "34",
+        "颜色分类": "红色【3cm】"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "红色 婚鞋 低跟 绒面 尖头 34码 中式婚礼"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "919098809420"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "34"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "红色【3cm】"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 11848,
+        "completion_tokens": 914,
+        "total_tokens": 12762,
+        "by_call": [
+            {
+                "completion_tokens": 303,
+                "prompt_tokens": 625,
+                "total_tokens": 928,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 209
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 266,
+                "prompt_tokens": 2083,
+                "total_tokens": 2349,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 186
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1187
+            },
+            {
+                "completion_tokens": 203,
+                "prompt_tokens": 2619,
+                "total_tokens": 2822,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 116
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2304
+                },
+                "prompt_cache_hit_tokens": 2304,
+                "prompt_cache_miss_tokens": 315
+            },
+            {
+                "completion_tokens": 73,
+                "prompt_tokens": 3090,
+                "total_tokens": 3163,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 8
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 274
+            },
+            {
+                "completion_tokens": 69,
+                "prompt_tokens": 3431,
+                "total_tokens": 3500,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 13
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 359
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "919098809420",
+        "name": "红色结婚鞋女低跟3cm不累脚绒面尖头粗跟中式秀禾新娘鞋敬酒服鞋",
+        "attributes": [
+            "新娘",
+            "低跟",
+            "绒面",
+            "尖头",
+            "中式婚礼"
+        ],
+        "goal_options": [
+            "34",
+            "红色【3cm】"
+        ],
+        "price_upper": 450
+    },
+    "purchase_summary": {
+        "asin": "919098809420",
+        "name": "红色结婚鞋女低跟3cm不累脚绒面尖头粗跟中式秀禾新娘鞋敬酒服鞋",
+        "attributes": [
+            "新娘",
+            "低跟",
+            "绒面",
+            "尖头",
+            "中式婚礼"
+        ],
+        "options": {
+            "鞋码": "34",
+            "颜色分类": "红色【3cm】"
+        },
+        "price": 399.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 919098809420 [SEP] options [SEP] {\"\\u978b\\u7801\": \"34\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u7ea2\\u8272\\u30103cm\\u3011\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

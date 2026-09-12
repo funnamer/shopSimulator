@@ -1,0 +1,185 @@
+{
+    "task_id": 17913,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 14,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 3,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 有没有一双AJ斯派克李系列复古篮球鞋，颜色是蓝白色，平时穿38.5码的，价格在700元左右，我想买。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "940020982087"
+    ],
+    "selected_options": {
+        "鞋码": "38.5",
+        "颜色分类": "fq3950-104 gs 白蓝"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "AJ 斯派克李 复古篮球鞋 蓝白 38.5"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "940020982087"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "fq3950-104 gs 白蓝"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "38.5"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13307,
+        "completion_tokens": 1136,
+        "total_tokens": 14443,
+        "by_call": [
+            {
+                "completion_tokens": 558,
+                "prompt_tokens": 627,
+                "total_tokens": 1185,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 505
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 243
+            },
+            {
+                "completion_tokens": 262,
+                "prompt_tokens": 2403,
+                "total_tokens": 2665,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 222
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1251
+            },
+            {
+                "completion_tokens": 184,
+                "prompt_tokens": 2978,
+                "total_tokens": 3162,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 137
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 418
+            },
+            {
+                "completion_tokens": 57,
+                "prompt_tokens": 3468,
+                "total_tokens": 3525,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 18
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 396
+            },
+            {
+                "completion_tokens": 75,
+                "prompt_tokens": 3831,
+                "total_tokens": 3906,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 37
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3456
+                },
+                "prompt_cache_hit_tokens": 3456,
+                "prompt_cache_miss_tokens": 375
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "940020982087",
+        "name": "Air Jordan Spizike Low斯派克李AJ男女复古篮球鞋FQ3950-104-106",
+        "attributes": [
+            "斯派克李",
+            "AJ",
+            "复古"
+        ],
+        "goal_options": [
+            "FQ3950-104 GS 白蓝",
+            "38.5"
+        ],
+        "price_upper": 710
+    },
+    "purchase_summary": {
+        "asin": "940020982087",
+        "name": "Air Jordan Spizike Low斯派克李AJ男女复古篮球鞋FQ3950-104-106",
+        "attributes": [
+            "斯派克李",
+            "AJ",
+            "复古"
+        ],
+        "options": {
+            "鞋码": "38.5",
+            "颜色分类": "fq3950-104 gs 白蓝"
+        },
+        "price": 619.3824642884832
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 940020982087 [SEP] options [SEP] {\"\\u978b\\u7801\": \"38.5\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"fq3950-104 gs \\u767d\\u84dd\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

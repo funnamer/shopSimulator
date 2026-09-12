@@ -1,0 +1,612 @@
+{
+    "task_id": 16653,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.8888888888888888,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 6,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我想装饰一下我的本田奥德赛，需要一款车内氛围灯，包含一个中控台和四个车门灯，颜色为幻彩，预算在450左右，给我推荐下韵豹车品旗舰店里合适的款式。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 24,
+    "invalid_tool_response_count": 2,
+    "num_searches": 1,
+    "num_clicks": 23,
+    "num_back_to_search": 0,
+    "num_detail_views": 2,
+    "repeated_action_count": 11,
+    "visited_asins": [
+        "733239928907",
+        "765214989830",
+        "814593676733",
+        "110"
+    ],
+    "selected_options": {
+        "参考身高": "110",
+        "颜色分类": "阳光橙【城市轻量化】"
+    },
+    "last_action": {
+        "step": 24,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "韵豹车品旗舰店 本田奥德赛 车内氛围灯 幻彩 中控台 四车门 450"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "733239928907"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "奥德赛幻彩（中控+4车门）"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "765214989830"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "en8-0067 mnv【偏光镜】"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "en8-0067 mnv【偏光镜】"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        },
+        {
+            "step": 13,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 14,
+            "tool": "click",
+            "arguments": {
+                "value": "814593676733"
+            }
+        },
+        {
+            "step": 15,
+            "tool": "click",
+            "arguments": {
+                "value": "110"
+            }
+        },
+        {
+            "step": 16,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 17,
+            "tool": "click",
+            "arguments": {
+                "value": "814593676733"
+            }
+        },
+        {
+            "step": 18,
+            "tool": "click",
+            "arguments": {
+                "value": "阳光橙【吸湿透气】"
+            }
+        },
+        {
+            "step": 19,
+            "tool": "click",
+            "arguments": {
+                "value": "110"
+            }
+        },
+        {
+            "step": 20,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        },
+        {
+            "step": 21,
+            "tool": "click",
+            "arguments": {
+                "value": "814593676733"
+            }
+        },
+        {
+            "step": 22,
+            "tool": "click",
+            "arguments": {
+                "value": "阳光橙【城市轻量化】"
+            }
+        },
+        {
+            "step": 23,
+            "tool": "click",
+            "arguments": {
+                "value": "110"
+            }
+        },
+        {
+            "step": 24,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[en8-0067 mnv【偏光镜】]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：en8-0067 mnv【偏光镜】 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 26,
+        "prompt_tokens": 309338,
+        "completion_tokens": 13219,
+        "total_tokens": 322557,
+        "by_call": [
+            {
+                "completion_tokens": 263,
+                "prompt_tokens": 641,
+                "total_tokens": 904,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 200
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 507
+                },
+                "prompt_cache_hit_tokens": 507,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 335,
+                "prompt_tokens": 2110,
+                "total_tokens": 2445,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 295
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1214
+            },
+            {
+                "completion_tokens": 381,
+                "prompt_tokens": 3059,
+                "total_tokens": 3440,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 333
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 627
+            },
+            {
+                "completion_tokens": 1315,
+                "prompt_tokens": 4047,
+                "total_tokens": 5362,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1088
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 719
+            },
+            {
+                "completion_tokens": 342,
+                "prompt_tokens": 5390,
+                "total_tokens": 5732,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 304
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5248
+                },
+                "prompt_cache_hit_tokens": 5248,
+                "prompt_cache_miss_tokens": 142
+            },
+            {
+                "completion_tokens": 435,
+                "prompt_tokens": 5567,
+                "total_tokens": 6002,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 395
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 1599
+            },
+            {
+                "completion_tokens": 257,
+                "prompt_tokens": 6457,
+                "total_tokens": 6714,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 220
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5888
+                },
+                "prompt_cache_hit_tokens": 5888,
+                "prompt_cache_miss_tokens": 569
+            },
+            {
+                "completion_tokens": 85,
+                "prompt_tokens": 6811,
+                "total_tokens": 6896,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 48
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6656
+                },
+                "prompt_cache_hit_tokens": 6656,
+                "prompt_cache_miss_tokens": 155
+            },
+            {
+                "completion_tokens": 237,
+                "prompt_tokens": 7351,
+                "total_tokens": 7588,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 200
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6784
+                },
+                "prompt_cache_hit_tokens": 6784,
+                "prompt_cache_miss_tokens": 567
+            },
+            {
+                "completion_tokens": 103,
+                "prompt_tokens": 7705,
+                "total_tokens": 7808,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 55
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7552
+                },
+                "prompt_cache_hit_tokens": 7552,
+                "prompt_cache_miss_tokens": 153
+            },
+            {
+                "completion_tokens": 70,
+                "prompt_tokens": 7869,
+                "total_tokens": 7939,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 33
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7680
+                },
+                "prompt_cache_hit_tokens": 7680,
+                "prompt_cache_miss_tokens": 189
+            },
+            {
+                "completion_tokens": 74,
+                "prompt_tokens": 8394,
+                "total_tokens": 8468,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 26
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7936
+                },
+                "prompt_cache_hit_tokens": 7936,
+                "prompt_cache_miss_tokens": 458
+            },
+            {
+                "completion_tokens": 287,
+                "prompt_tokens": 8915,
+                "total_tokens": 9202,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 249
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8448
+                },
+                "prompt_cache_hit_tokens": 8448,
+                "prompt_cache_miss_tokens": 467
+            },
+            {
+                "completion_tokens": 834,
+                "prompt_tokens": 9299,
+                "total_tokens": 10133,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 718
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 9088
+                },
+                "prompt_cache_hit_tokens": 9088,
+                "prompt_cache_miss_tokens": 211
+            },
+            {
+                "completion_tokens": 2328,
+                "prompt_tokens": 10161,
+                "total_tokens": 12489,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 2291
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 9984
+                },
+                "prompt_cache_hit_tokens": 9984,
+                "prompt_cache_miss_tokens": 177
+            },
+            {
+                "completion_tokens": 148,
+                "prompt_tokens": 12733,
+                "total_tokens": 12881,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 108
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 9216
+                },
+                "prompt_cache_hit_tokens": 9216,
+                "prompt_cache_miss_tokens": 3517
+            },
+            {
+                "completion_tokens": 2379,
+                "prompt_tokens": 13546,
+                "total_tokens": 15925,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 2342
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 12800
+                },
+                "prompt_cache_hit_tokens": 12800,
+                "prompt_cache_miss_tokens": 746
+            },
+            {
+                "completion_tokens": 95,
+                "prompt_tokens": 16026,
+                "total_tokens": 16121,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 58
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 15872
+                },
+                "prompt_cache_hit_tokens": 15872,
+                "prompt_cache_miss_tokens": 154
+            },
+            {
+                "completion_tokens": 307,
+                "prompt_tokens": 17227,
+                "total_tokens": 17534,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 267
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 16000
+                },
+                "prompt_cache_hit_tokens": 16000,
+                "prompt_cache_miss_tokens": 1227
+            },
+            {
+                "completion_tokens": 1357,
+                "prompt_tokens": 18199,
+                "total_tokens": 19556,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1314
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 17408
+                },
+                "prompt_cache_hit_tokens": 17408,
+                "prompt_cache_miss_tokens": 791
+            },
+            {
+                "completion_tokens": 94,
+                "prompt_tokens": 20219,
+                "total_tokens": 20313,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 57
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 19456
+                },
+                "prompt_cache_hit_tokens": 19456,
+                "prompt_cache_miss_tokens": 763
+            },
+            {
+                "completion_tokens": 115,
+                "prompt_tokens": 20976,
+                "total_tokens": 21091,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 77
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 20224
+                },
+                "prompt_cache_hit_tokens": 20224,
+                "prompt_cache_miss_tokens": 752
+            },
+            {
+                "completion_tokens": 1240,
+                "prompt_tokens": 22197,
+                "total_tokens": 23437,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1200
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 20992
+                },
+                "prompt_cache_hit_tokens": 20992,
+                "prompt_cache_miss_tokens": 1205
+            },
+            {
+                "completion_tokens": 54,
+                "prompt_tokens": 24100,
+                "total_tokens": 24154,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 11
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 23424
+                },
+                "prompt_cache_hit_tokens": 23424,
+                "prompt_cache_miss_tokens": 676
+            },
+            {
+                "completion_tokens": 42,
+                "prompt_tokens": 24817,
+                "total_tokens": 24859,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 5
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 24064
+                },
+                "prompt_cache_hit_tokens": 24064,
+                "prompt_cache_miss_tokens": 753
+            },
+            {
+                "completion_tokens": 42,
+                "prompt_tokens": 25522,
+                "total_tokens": 25564,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 4
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 24832
+                },
+                "prompt_cache_hit_tokens": 24832,
+                "prompt_cache_miss_tokens": 690
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "814593676733",
+        "name": "儿童防水防风三合一冲锋衣2025春季新款男女童特氟龙连帽运动上衣",
+        "attributes": [
+            "三合一",
+            "防水",
+            "防风",
+            "连帽",
+            "春季",
+            "特氟龙"
+        ],
+        "goal_options": [
+            "110",
+            "阳光橙【吸湿透气】"
+        ],
+        "price_upper": 580
+    },
+    "purchase_summary": {
+        "asin": "814593676733",
+        "name": "儿童防水防风三合一冲锋衣2025春季新款男女童特氟龙连帽运动上衣",
+        "attributes": [
+            "三合一",
+            "防水",
+            "防风",
+            "连帽",
+            "春季",
+            "特氟龙"
+        ],
+        "options": {
+            "参考身高": "110",
+            "颜色分类": "阳光橙【城市轻量化】"
+        },
+        "price": 499.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 814593676733 [SEP] options [SEP] {\"\\u53c2\\u8003\\u8eab\\u9ad8\": \"110\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9633\\u5149\\u6a59\\u3010\\u57ce\\u5e02\\u8f7b\\u91cf\\u5316\\u3011\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8888888888888888 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

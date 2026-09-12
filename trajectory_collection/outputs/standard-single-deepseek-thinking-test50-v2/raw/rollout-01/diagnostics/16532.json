@@ -1,0 +1,165 @@
+{
+    "task_id": 16532,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 9,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.8571428571428571,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 查一款家庭KTV套装，包含8个喇叭和麦克风，支持2.1声道，可以通过无线蓝牙连接电视机或投影仪，适合家庭K歌使用，售价不超过800元。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "655144788348"
+    ],
+    "selected_options": {
+        "颜色分类": "【家庭ktv套装】8喇叭+麦克风"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "家庭KTV套装 8喇叭 麦克风 2.1声道 无线蓝牙 电视 投影仪 800元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "655144788348"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "【家庭ktv套装】8喇叭+麦克风"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9728,
+        "completion_tokens": 1203,
+        "total_tokens": 10931,
+        "by_call": [
+            {
+                "completion_tokens": 305,
+                "prompt_tokens": 635,
+                "total_tokens": 940,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 242
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 251
+            },
+            {
+                "completion_tokens": 361,
+                "prompt_tokens": 2103,
+                "total_tokens": 2464,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 321
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1207
+            },
+            {
+                "completion_tokens": 282,
+                "prompt_tokens": 3060,
+                "total_tokens": 3342,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 235
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 628
+            },
+            {
+                "completion_tokens": 255,
+                "prompt_tokens": 3930,
+                "total_tokens": 4185,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 217
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 602
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "655144788348",
+        "name": "雷登H10 电视音响回音壁2.1家庭K歌套装无线蓝牙投影仪外接音箱",
+        "attributes": [
+            "无线蓝牙",
+            "投影仪",
+            "电视机",
+            "2.1声道"
+        ],
+        "goal_options": [
+            "【家庭KTV套装】8喇叭+麦克风",
+            "官方标配"
+        ],
+        "price_upper": 740
+    },
+    "purchase_summary": {
+        "asin": "655144788348",
+        "name": "雷登H10 电视音响回音壁2.1家庭K歌套装无线蓝牙投影仪外接音箱",
+        "attributes": [
+            "无线蓝牙",
+            "投影仪",
+            "电视机",
+            "2.1声道"
+        ],
+        "options": {
+            "颜色分类": "【家庭ktv套装】8喇叭+麦克风"
+        },
+        "price": 652.7091153591535
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 655144788348 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u3010\\u5bb6\\u5eadktv\\u5957\\u88c5\\u30118\\u5587\\u53ed+\\u9ea6\\u514b\\u98ce\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8571428571428571 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

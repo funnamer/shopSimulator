@@ -1,0 +1,166 @@
+{
+    "task_id": 1718,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 12,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我想购置一箱白酒，需要度数高一点的老白干香型，酒精度数需达到62度，且是纯粮食酿造，整箱共12瓶，每瓶规格为500毫升，另外，包装上得带有绿色标识，整体预算控制在150元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "788991284531"
+    ],
+    "selected_options": {
+        "规格描述": "500ml*12瓶整箱"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "衡水老白干 62度 绿标 整箱 12瓶 500ml 纯粮"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "788991284531"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "500ml*12瓶整箱"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 10785,
+        "completion_tokens": 1812,
+        "total_tokens": 12597,
+        "by_call": [
+            {
+                "completion_tokens": 793,
+                "prompt_tokens": 652,
+                "total_tokens": 1445,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 636
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 268
+            },
+            {
+                "completion_tokens": 417,
+                "prompt_tokens": 2692,
+                "total_tokens": 3109,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 289
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1408
+                },
+                "prompt_cache_hit_tokens": 1408,
+                "prompt_cache_miss_tokens": 1284
+            },
+            {
+                "completion_tokens": 357,
+                "prompt_tokens": 3400,
+                "total_tokens": 3757,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 234
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 328
+            },
+            {
+                "completion_tokens": 245,
+                "prompt_tokens": 4041,
+                "total_tokens": 4286,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 138
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 329
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "788991284531",
+        "name": "衡水老白干绿标62度500ml*12瓶整箱老白干香型高度纯粮食口粮白酒",
+        "attributes": [
+            "绿标",
+            "62度",
+            "老白干香型",
+            "高度",
+            "纯粮食"
+        ],
+        "goal_options": [
+            "500ml*12瓶整箱"
+        ],
+        "price_upper": 80
+    },
+    "purchase_summary": {
+        "asin": "788991284531",
+        "name": "衡水老白干绿标62度500ml*12瓶整箱老白干香型高度纯粮食口粮白酒",
+        "attributes": [
+            "绿标",
+            "62度",
+            "老白干香型",
+            "高度",
+            "纯粮食"
+        ],
+        "options": {
+            "规格描述": "500ml*12瓶整箱"
+        },
+        "price": 50.63491776166116
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 788991284531 [SEP] options [SEP] {\"\\u89c4\\u683c\\u63cf\\u8ff0\": \"500ml*12\\u74f6\\u6574\\u7bb1\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

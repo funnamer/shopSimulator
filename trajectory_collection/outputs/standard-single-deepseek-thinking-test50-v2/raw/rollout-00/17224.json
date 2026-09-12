@@ -1,0 +1,167 @@
+{
+    "task_id": 17224,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "goal": {
+        "asin": "869617071438",
+        "attributes": [
+            "中式婚礼",
+            "高跟鞋"
+        ],
+        "category": "女鞋›时装单鞋›婚鞋",
+        "goal_options": [
+            "38",
+            "酒红色"
+        ],
+        "instruction_simple": null,
+        "instruction_text": "查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。",
+        "name": "中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿",
+        "price_upper": 250,
+        "query": "",
+        "reason_key": null,
+        "user_persona": {},
+        "weight": 1
+    },
+    "purchase": {
+        "asin": "869617071438",
+        "attributes": [
+            "中式婚礼",
+            "高跟鞋"
+        ],
+        "category": "女鞋›时装单鞋›婚鞋",
+        "instruction_text": "查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。",
+        "name": "中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿",
+        "options": {
+            "鞋码": "38",
+            "颜色分类": "酒红色"
+        },
+        "price": 168.0,
+        "product_category": "",
+        "query": ""
+    },
+    "conversation": [
+        {
+            "role": "system",
+            "content": "你正在进行网上购物。\n我会给你一些关于需要做什么的指示。\n你必须遵循这些指示。\n每一轮，我会给你一个观察结果和一组可用的操作，你需要根据当前状态和指示来选择一个操作进行响应。\n如果搜索功能可用，你可以使用search工具执行搜索操作。\n你可以使用click工具点击可点击的按钮列表中的某一个按钮。\n如果操作无效，则不执行任何操作。\n搜索中的关键词由你自行决定，但点击操作中的值必须是可用操作列表中的值。\n一轮只能执行一个动作\n注意，在点击购买前，确保至少点击了一个商品的规格。\n请记住，你的搜索关键词应该精心设计。\n\n请在 Thought 中尝试回答以下几个问题：\n在当前的状态下你是如何思考以做出下一步操作？\n应该选择执行什么操作？\n这个操作是否直接或间接地帮助实现最终目标？\n选择的这个商品是否能够完全符合用户的要求？\n选择的商品规格是否完全覆盖了用户的要求？\n请你认真思考后给出你的思考过程。\n"
+        },
+        {
+            "role": "user",
+            "content": "Instruction: 查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。\n\n搜索功能是否可用: True\n\n可点击的按钮: []"
+        },
+        {
+            "content": "思考：当前处于购物任务初始状态，还没有任何商品或筛选条件，可点击按钮为空；搜索功能可用，因此下一步应先用搜索来查找商品。目标是买一双中式婚礼穿的高跟鞋，要求为 38 码、酒红色、价格 200 元以内。搜索关键词需要同时覆盖品类、颜色、尺码和预算约束，以便尽量直接返回符合条件的商品：使用“中式婚礼 高跟鞋 酒红色 38码 200元以内”。这个操作能直接推进目标，因为它会生成候选商品列表，后续才能进一步查看规格并购买。该搜索不是最终选择商品，因此暂时还不能判断具体商品是否完全符合要求；需要等搜索结果出来后再核实商品款式、颜色、尺码和价格。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_3CAY37kvdZOURjZtiZg55127",
+                    "function": {
+                        "arguments": "{\"keywords\": \"中式婚礼 高跟鞋 酒红色 38码 200元以内\"}",
+                        "name": "search"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We need answer with thought process only? User asks to perform online shopping, gives instruction and says each round observation and available operations. Current state: search available True, clickable buttons empty. We need choose action. We can use search. Need answer in Chinese likely, with Thought answering questions. We need decide next operation: search keywords. Need craft precise search keywords for Chinese wedding high heels, size 38, wine red, under 200. Since search tool keywords can include these terms. We need only one action. Use search with keywords. Need not click. Let's produce thought. Need ensure not violate \"search keyword should be carefully designed\". Keywords: \"中式婚礼 高跟鞋 酒红色 38码 200元以内\" maybe too many constraints, search engines might handle. Could use \"酒红色 高跟鞋 38码 中式婚礼 200元以内\". Since budget 200. I'll call search.\n\nNeed include reasoning in final? The instruction says \"请在 Thought 中尝试回答以下几个问题... 请你认真思考后给出你的思考过程。\" We can output reasoning text then tool call. In this setup, we can put analysis in final? The model should respond with tool call. Since final answer maybe includes Thought? Need follow. We'll produce concise reasoning and then tool call. The tool call will be executed. We can include no extra after? The assistant message can contain \"Thought: ...\" and then tool call. But function calling requires valid JSON? We can output content and tool call. We can invoke search.\n\nNeed ensure clickable buttons list empty, so no click. Search available. Let's invoke."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_3CAY37kvdZOURjZtiZg55127",
+            "content": "Instruction: [SEP] 查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。 [SEP] Back to Search [SEP] Page 1 (Total results: 150) [SEP] Next > [SEP] 869617071438 [SEP] 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿 [SEP] 168.0 [SEP] 828595163620 [SEP] 绝美高跟鞋中式婚鞋女秀禾婚纱红色新娘结婚鞋粗跟孕妇不累脚婚礼 [SEP] 155.0 [SEP] 741614497110 [SEP] 初心~中式秀禾婚鞋龙凤褂礼服高跟鞋女粗跟尖头宴会新娘配旗袍秋 [SEP] 598.0 [SEP] 813631152275 [SEP] 舞绣缘中式婚鞋女坡跟汉服鞋翘头婚礼红色绣花鞋增高古风秀禾婚鞋 [SEP] 299.0 [SEP] 805668995480 [SEP] 红色结婚鞋女2025新款中式粗跟新娘秀禾婚纱两穿订婚高跟鞋不累脚 [SEP] 188.0 [SEP] 598994293481 [SEP] 汉趣中式婚鞋2024新款绿色新娘秀禾鞋女结婚鞋红色平底绣花鞋红鞋 [SEP] 138.0 to 148.0 [SEP] 805637787427 [SEP] 高级感缎面红色婚鞋新娘高跟鞋2025新款防水台法式粗跟蝴蝶结单鞋 [SEP] 688.0 [SEP] 919098809420 [SEP] 红色结婚鞋女低跟3cm不累脚绒面尖头粗跟中式秀禾新娘鞋敬酒服鞋 [SEP] 399.0 [SEP] 918273683260 [SEP] 红色气质婚鞋高级感珍珠水钻方扣高跟鞋秀禾敬酒服大码加宽订婚鞋 [SEP] 288.0 [SEP] 845277889561 [SEP] Rose Doris红色婚鞋龙凤呈祥手工刺绣红色秀禾婚鞋女中式新娘鞋 [SEP] 188.0 [SEP] 721466912830 [SEP] 中式秀禾婚鞋女红色缎面新娘鞋2025新款高级感水钻礼服订婚高跟鞋 [SEP] 588.0 [SEP] 905562877870 [SEP] Rose castle2025新款麦穗婚鞋女结婚新娘鞋白色缎面高跟鞋单鞋 [SEP] 1299.0 [SEP] 925822342462 [SEP] 匠逅 红色新娘秀禾婚鞋粗跟不累脚高跟鞋女款蕾丝边玛丽珍小单鞋 [SEP] 779.0 to 799.0 [SEP] 680842949255 [SEP] 黑色高跟鞋女职业细跟金属尖头气质百搭软皮水钻大码真皮女鞋单鞋 [SEP] 889.0 [SEP] 820449124462 [SEP] 轻奢设计感小众气质高跟凉鞋女鞋夏季女款包头凉拖尖头高跟鞋单鞋 [SEP] 318.0 [SEP] 918523004907 [SEP] 意大利Raraente~ ！绝美小高跟鞋女低跟中跟真皮时尚气质尖头单鞋 [SEP] 1699.0 [SEP] 901500313065 [SEP] 玛丽珍婚鞋新娘鞋秀禾婚纱两用2025新款不累脚防水台高跟鞋女粗跟 [SEP] 525.0 [SEP] 671326846719 [SEP] 新娘中式秀禾服酒红流苏盖头结婚礼酒红色盖头喜帕婚庆用品大全 [SEP] 34.0 to 58.0 [SEP] 788207977689 [SEP] pjjuu婚纱鞋 白色绝美婚鞋女款2025夏季法式缎面主纱高跟鞋蝴蝶结 [SEP] 1149.0 [SEP] 908710763193 [SEP] 红綪蜓粗跟高跟鞋子女2025新款漆皮玛丽珍单鞋一字带尖头小皮鞋女 [SEP] 45.0\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"next >\", \"869617071438\", \"828595163620\", \"741614497110\", \"813631152275\", \"805668995480\", \"598994293481\", \"805637787427\", \"919098809420\", \"918273683260\", \"845277889561\", \"721466912830\", \"905562877870\", \"925822342462\", \"680842949255\", \"820449124462\", \"918523004907\", \"901500313065\", \"671326846719\", \"788207977689\", \"908710763193\"]"
+        },
+        {
+            "content": "思考：搜索结果中已经出现多个中式婚鞋商品，下一步应选择一个最可能同时满足“中式婚礼、高跟鞋、红色/酒红色、200元以内”的候选商品，进入详情页核实尺码和颜色规格。  \n候选“869617071438”标题为“中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿”，价格为168元，明确包含中式婚鞋、高跟鞋、红色和预算内特征，因此优先点击查看详情。  \n这个操作能间接推动最终目标，因为只有进入商品详情页后，才能确认是否有38码以及是否提供酒红色规格。当前还不能完全确定该商品能完全符合要求，需查看规格选项后再判断。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_hndD0iGGNUhvcQymFrIC8472",
+                    "function": {
+                        "arguments": "{\"value\": \"869617071438\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We need continue. Observation: search results page with 150 results. Buttons include product IDs, next, back. Search now unavailable. Need choose one action. We need inspect products. Need find suitable Chinese wedding high heels, size 38, wine red, <=200. Candidate product titles and prices. Need click a product to see details. Need consider which likely matches. We have results:\n\n869617071438 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿 168.0 — red, Chinese wedding, high heels, price <=200. Could be suitable but need size/color. likely has options. \n828595163620 绝美高跟鞋中式婚鞋女秀禾婚纱红色新娘结婚鞋粗跟孕妇不累脚婚礼 155.0 — red, Chinese wedding, high heel?粗跟, <=200. Good.\n741614497110 初心~中式秀禾婚鞋龙凤褂礼服高跟鞋女粗跟尖头宴会新娘配旗袍秋 598.0 — over budget.\n813631152275 舞绣缘中式婚鞋女坡跟汉服鞋翘头婚礼红色绣花鞋增高古风秀禾婚鞋 299.0 — over budget, maybe not high heel? \n805668995480 红色结婚鞋女2025新款中式粗跟新娘秀禾婚纱两穿订婚高跟鞋不累脚 188.0 — red, Chinese, high heel, <=200. Good.\n598994293481 汉趣中式婚鞋2024新款绿色新娘秀禾鞋女结婚鞋红色平底绣花鞋红鞋 138-148 — maybe green/red, flat, not high heel.\n805637787427 高级感缎面红色婚鞋新娘高跟鞋2025新款防水台法式粗跟蝴蝶结单鞋 688 — over budget.\n919098809420 红色结婚鞋女低跟3cm不累脚绒面尖头粗跟中式秀禾新娘鞋敬酒服鞋 399 — over.\n918273683260 红色气质婚鞋高级感珍珠水钻方扣高跟鞋秀禾敬酒服大码加宽订婚鞋 288 — over.\n845277889561 Rose Doris红色婚鞋龙凤呈祥手工刺绣红色秀禾婚鞋女中式新娘鞋 188 — red, Chinese wedding, <=200, but is it high heel? title doesn't mention high heel; maybe flat/embroidered. Need inspect. \n721466912830 中式秀禾婚鞋女红色缎面新娘鞋2025新款高级感水钻礼服订婚高跟鞋 588 — over.\n905562877870 Rose castle2025新款麦穗婚鞋女结婚新娘鞋白色缎面高跟鞋单鞋 1299 — white over.\n925822342462 匠逅 红色新娘秀禾婚鞋粗跟不累脚高跟鞋女款蕾丝边玛丽珍小单鞋 779-799 — over.\n680842949255 黑色高跟鞋... 889 — irrelevant.\n820449124462 轻奢设计感小众气质高跟凉鞋女鞋夏季女款包头凉拖尖头高跟鞋单鞋 318 — irrelevant/over.\n918523004907 意大利Raraente 1699 irrelevant.\n901500313065 玛丽珍婚鞋新娘鞋秀禾婚纱两用2025新款不累脚防水台高跟鞋女粗跟 525 over.\n671326846719 新娘中式秀禾服酒红流苏盖头... 34-58 — not shoes.\n788207977689 pjjuu婚纱鞋 白色 ... 1149 — not.\n908710763193 红綪蜓粗跟高跟鞋子女2025新款漆皮玛丽珍单鞋一字带尖头小皮鞋女 45.0 — cheap, maybe red? \"红綪蜓\" maybe brand with red? Not necessarily Chinese wedding. Could be candidate? But title not Chinese wedding. Need likely not.\n\nNeed choose action. Could click a candidate product. Need maybe sort? Search unavailable, but next page maybe. But we can click a product to see details. We need likely eventually buy. Which one best? Need inspect product options. The strongest candidates under budget and title explicitly includes Chinese wedding high heels red:\n- 869617071438 price 168\n- 828595163620 price 155\n- 805668995480 price 188\nMaybe 845277889561 price 188 but not high heel.\nNeed ensure 38码 and 酒红色. Search term \"酒红色\" but results mostly \"红色\" not explicitly wine red. Need click product with likely color options. We should open one. Which one? The first (168) is 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿. It likely has color options, sizes, maybe \"酒红色\". Price 168 within budget. It says high heels. Let's click it. Need action value exact from list: \"869617071438\". That's likely product ID button. Let's click.\n\nNeed justify: selected product likely matches all requirements? It is Chinese wedding shoe, red, high heels, 168 under budget. Need verify size 38 and wine red in details. Clicking is necessary. We'll call click."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_hndD0iGGNUhvcQymFrIC8472",
+            "content": "Instruction: [SEP] 查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。 [SEP] Back to Search [SEP] < Prev [SEP] 鞋码 [SEP] 43 [SEP] 42 [SEP] 34 [SEP] 36 [SEP] 33 [SEP] 38 [SEP] 39 [SEP] 37 [SEP] 35 [SEP] 41 [SEP] 40 [SEP] 颜色分类 [SEP] 锦绣 | 花枝招展6cm 金跟 [SEP] 酒红色 [SEP] 锦绣 | 花枝招展4cm 金跟 [SEP] 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿 [SEP] 价格: 168.0 [SEP] 店铺: 甜蜜约定 高端礼鞋 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"43\", \"42\", \"34\", \"36\", \"33\", \"38\", \"39\", \"37\", \"35\", \"41\", \"40\", \"锦绣 | 花枝招展6cm 金跟\", \"酒红色\", \"锦绣 | 花枝招展4cm 金跟\"]"
+        },
+        {
+            "content": "思考：当前商品详情页显示该商品价格168元，在200元预算内；并且同时提供“38”鞋码和“酒红色”颜色分类，标题也符合中式婚礼高跟鞋需求。因此该商品有较大可能完全符合用户要求。  \n下一步需要先选择规格；本轮先点击“38”码。选择规格是购买前必须完成的步骤，也能直接帮助确认所选商品满足尺码要求。之后再选择“酒红色”，最后才能购买。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_uGjlvoTdV4VsPuvZTe1O9009",
+                    "function": {
+                        "arguments": "{\"value\": \"38\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We are on product detail. Need next action. Available buttons include sizes 34-43, colors: 锦绣 | 花枝招展6cm 金跟, 酒红色, 锦绣 | 花枝招展4cm 金跟. Need select at least one spec before buy. Requirements: size 38, color 酒红色. Must click size 38 and color 酒红色. Only one action per round. Need choose one. Which first? Could click \"38\" then \"酒红色\". We need be careful: The list contains \"酒红色\" as a color option. So select size 38 first or color? Instruction: \"注意，在点击购买前，确保至少点击了一个商品的规格。\" At least one spec, but both size and color needed. We can click one now. Which is better? Maybe size 38 and color 酒红色. Since one action per round, choose size 38 first. It doesn't matter? Need ensure selected options. Click \"38\". Then next round click \"酒红色\", then buy now. But perhaps clicking color first, then size. Let's click 38.\n\nNeed final response with Thought. Could mention product has 38码 and 酒红色 options, price 168 within budget, so it can fully meet requirements if we select both. Next click size 38. Use click tool."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_uGjlvoTdV4VsPuvZTe1O9009",
+            "content": "Instruction: [SEP] 查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。 [SEP] Back to Search [SEP] < Prev [SEP] 鞋码 [SEP] 43 [SEP] 42 [SEP] 34 [SEP] 36 [SEP] 33 [SEP] 38 [SEP] 39 [SEP] 37 [SEP] 35 [SEP] 41 [SEP] 40 [SEP] 颜色分类 [SEP] 锦绣 | 花枝招展6cm 金跟 [SEP] 酒红色 [SEP] 锦绣 | 花枝招展4cm 金跟 [SEP] 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿 [SEP] 价格: 168 [SEP] 店铺: 甜蜜约定 高端礼鞋 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"43\", \"42\", \"34\", \"36\", \"33\", \"38\", \"39\", \"37\", \"35\", \"41\", \"40\", \"锦绣 | 花枝招展6cm 金跟\", \"酒红色\", \"锦绣 | 花枝招展4cm 金跟\"]"
+        },
+        {
+            "content": "思考：已经点击了“38”码，下一步需要选择颜色规格。该商品详情中明确有“酒红色”选项，符合用户对颜色的要求。选择“酒红色”后，商品将同时满足中式婚礼高跟鞋、38码、酒红色和168元预算内这几个条件。这个操作是购买前的必要步骤，能直接推进最终目标。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_BABJ2ylfExhRq5viZqan3656",
+                    "function": {
+                        "arguments": "{\"value\": \"酒红色\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "Now need click 酒红色. Then buy. Current state after clicking 38? Observation doesn't explicitly indicate selected, but buttons still same. Need select color. Click \"酒红色\". Ensure exact value. Then next round buy. Let's do."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_BABJ2ylfExhRq5viZqan3656",
+            "content": "Instruction: [SEP] 查找一双适合中式婚礼穿的高跟鞋，要38码的，颜色是酒红色，预算价格200元以内。 [SEP] Back to Search [SEP] < Prev [SEP] 鞋码 [SEP] 43 [SEP] 42 [SEP] 34 [SEP] 36 [SEP] 33 [SEP] 38 [SEP] 39 [SEP] 37 [SEP] 35 [SEP] 41 [SEP] 40 [SEP] 颜色分类 [SEP] 锦绣 | 花枝招展6cm 金跟 [SEP] 酒红色 [SEP] 锦绣 | 花枝招展4cm 金跟 [SEP] 中式婚鞋新娘鞋红色敬酒高跟鞋女2025年新款结婚秀禾服主婚纱两穿 [SEP] 价格: 168 [SEP] 店铺: 甜蜜约定 高端礼鞋 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"43\", \"42\", \"34\", \"36\", \"33\", \"38\", \"39\", \"37\", \"35\", \"41\", \"40\", \"锦绣 | 花枝招展6cm 金跟\", \"酒红色\", \"锦绣 | 花枝招展4cm 金跟\"]"
+        },
+        {
+            "content": "思考：当前已选择38码和酒红色两个规格，且商品价格为168元，满足200元以内预算；商品标题包含中式婚鞋、红色敬酒高跟鞋、秀禾服等关键词，符合中式婚礼穿着需求。现在购买前所需规格已经齐全，下一步应点击“buy now”完成购买操作。该操作直接实现最终目标。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_ndkzFaq4WpAn84LSxYg76818",
+                    "function": {
+                        "arguments": "{\"value\": \"buy now\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "Now should click buy now. Need ensure at least one spec clicked; we clicked 38 and 酒红色. Product price 168, within budget. Title high heels. Likely good. Click \"buy now\". Need answer thought. Use click."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_ndkzFaq4WpAn84LSxYg76818",
+            "content": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 869617071438 [SEP] options [SEP] {\"\\u978b\\u7801\": \"38\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9152\\u7ea2\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+        }
+    ]
+}

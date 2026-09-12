@@ -1,0 +1,188 @@
+{
+    "task_id": 19860,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 搜一双思加图品牌的法式复古风高跟鞋，要37码的，颜色是奶油那样的米色，有蕾丝装饰，预算价格1000元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "930839659215",
+        "37"
+    ],
+    "selected_options": {
+        "鞋码": "37",
+        "颜色分类": "香草奶油米"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "思加图 法式复古 蕾丝 高跟鞋 米色 37码"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "930839659215"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "37"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "香草奶油米"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13790,
+        "completion_tokens": 1830,
+        "total_tokens": 15620,
+        "by_call": [
+            {
+                "completion_tokens": 538,
+                "prompt_tokens": 629,
+                "total_tokens": 1167,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 270
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 245
+            },
+            {
+                "completion_tokens": 407,
+                "prompt_tokens": 2319,
+                "total_tokens": 2726,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 172
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1167
+            },
+            {
+                "completion_tokens": 418,
+                "prompt_tokens": 3000,
+                "total_tokens": 3418,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 192
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 312
+            },
+            {
+                "completion_tokens": 190,
+                "prompt_tokens": 3690,
+                "total_tokens": 3880,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 20
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 362
+            },
+            {
+                "completion_tokens": 277,
+                "prompt_tokens": 4152,
+                "total_tokens": 4429,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 127
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 312
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "930839659215",
+        "name": "思加图2025春季新款Burano仙女鞋蕾丝法式复古高跟鞋婚鞋ED334AK5",
+        "attributes": [
+            "法式复古风",
+            "高跟鞋",
+            "蕾丝",
+            "思加图"
+        ],
+        "goal_options": [
+            "37",
+            "香草奶油米"
+        ],
+        "price_upper": 1400
+    },
+    "purchase_summary": {
+        "asin": "930839659215",
+        "name": "思加图2025春季新款Burano仙女鞋蕾丝法式复古高跟鞋婚鞋ED334AK5",
+        "attributes": [
+            "法式复古风",
+            "高跟鞋",
+            "蕾丝",
+            "思加图"
+        ],
+        "options": {
+            "鞋码": "37",
+            "颜色分类": "香草奶油米"
+        },
+        "price": 1090.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 930839659215 [SEP] options [SEP] {\"\\u978b\\u7801\": \"37\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9999\\u8349\\u5976\\u6cb9\\u7c73\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

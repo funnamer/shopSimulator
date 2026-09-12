@@ -1,0 +1,162 @@
+{
+    "task_id": 6170,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 3,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 最近计划给我的力帆150摩托车换一套加厚的油箱套装，必须是圆口油箱，还要有配套的开关、油箱盖和油位传感器，预算在150块以内，能推荐一下吗？\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "802897124658"
+    ],
+    "selected_options": {
+        "颜色分类": "圆口油箱+油开关+油箱盖+传感器"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "力帆150 加厚 圆口油箱 套装 开关 油箱盖 油位传感器"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "802897124658"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "圆口油箱+油开关+油箱盖+传感器"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 13591,
+        "completion_tokens": 3433,
+        "total_tokens": 17024,
+        "by_call": [
+            {
+                "completion_tokens": 379,
+                "prompt_tokens": 637,
+                "total_tokens": 1016,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 172
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 253
+            },
+            {
+                "completion_tokens": 2324,
+                "prompt_tokens": 2224,
+                "total_tokens": 4548,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 2113
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1328
+            },
+            {
+                "completion_tokens": 480,
+                "prompt_tokens": 4935,
+                "total_tokens": 5415,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 304
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4480
+                },
+                "prompt_cache_hit_tokens": 4480,
+                "prompt_cache_miss_tokens": 455
+            },
+            {
+                "completion_tokens": 250,
+                "prompt_tokens": 5795,
+                "total_tokens": 6045,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 111
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5376
+                },
+                "prompt_cache_hit_tokens": 5376,
+                "prompt_cache_miss_tokens": 419
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "802897124658",
+        "name": "力帆摩托车皇马FL150油箱盖通用125燃油箱加厚金属钱江宗申嘉陵",
+        "attributes": [
+            "力帆",
+            "150",
+            "加厚"
+        ],
+        "goal_options": [
+            "圆口油箱+油开关+油箱盖+传感器"
+        ],
+        "price_upper": 170
+    },
+    "purchase_summary": {
+        "asin": "802897124658",
+        "name": "力帆摩托车皇马FL150油箱盖通用125燃油箱加厚金属钱江宗申嘉陵",
+        "attributes": [
+            "力帆",
+            "150",
+            "加厚"
+        ],
+        "options": {
+            "颜色分类": "圆口油箱+油开关+油箱盖+传感器"
+        },
+        "price": 119.0089063530409
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 802897124658 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u5706\\u53e3\\u6cb9\\u7bb1+\\u6cb9\\u5f00\\u5173+\\u6cb9\\u7bb1\\u76d6+\\u4f20\\u611f\\u5668\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

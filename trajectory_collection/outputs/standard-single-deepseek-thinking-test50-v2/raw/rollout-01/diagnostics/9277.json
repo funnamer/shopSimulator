@@ -1,0 +1,372 @@
+{
+    "task_id": 9277,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想要一款灰色的颈椎按摩器，可以按摩脖子和肩膀的那种，价格300左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 14,
+    "invalid_tool_response_count": 0,
+    "num_searches": 3,
+    "num_clicks": 11,
+    "num_back_to_search": 2,
+    "num_detail_views": 2,
+    "repeated_action_count": 2,
+    "visited_asins": [
+        "864550291039",
+        "935031525537",
+        "920166478663"
+    ],
+    "selected_options": {
+        "颜色分类": "颈部按摩仪k3-1t浅灰色"
+    },
+    "last_action": {
+        "step": 14,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "灰色 颈椎按摩器 肩颈按摩 300元左右"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "864550291039"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "back to search"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "search",
+            "arguments": {
+                "keywords": "灰色 肩颈按摩器 颈椎按摩器 揉捏 300"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "935031525537"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "back to search"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "search",
+            "arguments": {
+                "keywords": "西屋 UK5 颈椎按摩器 肩颈 灰色"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "920166478663"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "颈部按摩仪k3-1t浅灰色"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        },
+        {
+            "step": 13,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 14,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[buy now]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：buy now 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 14,
+        "prompt_tokens": 75945,
+        "completion_tokens": 3562,
+        "total_tokens": 79507,
+        "by_call": [
+            {
+                "completion_tokens": 348,
+                "prompt_tokens": 612,
+                "total_tokens": 960,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 224
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 228
+            },
+            {
+                "completion_tokens": 551,
+                "prompt_tokens": 2054,
+                "total_tokens": 2605,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 441
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1158
+            },
+            {
+                "completion_tokens": 360,
+                "prompt_tokens": 2788,
+                "total_tokens": 3148,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 262
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 228
+            },
+            {
+                "completion_tokens": 176,
+                "prompt_tokens": 3245,
+                "total_tokens": 3421,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 94
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 173
+            },
+            {
+                "completion_tokens": 278,
+                "prompt_tokens": 3483,
+                "total_tokens": 3761,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 180
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 155
+            },
+            {
+                "completion_tokens": 245,
+                "prompt_tokens": 4883,
+                "total_tokens": 5128,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 147
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 1171
+            },
+            {
+                "completion_tokens": 183,
+                "prompt_tokens": 5415,
+                "total_tokens": 5598,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 101
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5120
+                },
+                "prompt_cache_hit_tokens": 5120,
+                "prompt_cache_miss_tokens": 295
+            },
+            {
+                "completion_tokens": 130,
+                "prompt_tokens": 5660,
+                "total_tokens": 5790,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 33
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5504
+                },
+                "prompt_cache_hit_tokens": 5504,
+                "prompt_cache_miss_tokens": 156
+            },
+            {
+                "completion_tokens": 255,
+                "prompt_tokens": 6912,
+                "total_tokens": 7167,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 147
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5760
+                },
+                "prompt_cache_hit_tokens": 5760,
+                "prompt_cache_miss_tokens": 1152
+            },
+            {
+                "completion_tokens": 367,
+                "prompt_tokens": 7383,
+                "total_tokens": 7750,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 266
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7040
+                },
+                "prompt_cache_hit_tokens": 7040,
+                "prompt_cache_miss_tokens": 343
+            },
+            {
+                "completion_tokens": 141,
+                "prompt_tokens": 7959,
+                "total_tokens": 8100,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 59
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7680
+                },
+                "prompt_cache_hit_tokens": 7680,
+                "prompt_cache_miss_tokens": 279
+            },
+            {
+                "completion_tokens": 291,
+                "prompt_tokens": 8175,
+                "total_tokens": 8466,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 204
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7936
+                },
+                "prompt_cache_hit_tokens": 7936,
+                "prompt_cache_miss_tokens": 239
+            },
+            {
+                "completion_tokens": 133,
+                "prompt_tokens": 8517,
+                "total_tokens": 8650,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 62
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8320
+                },
+                "prompt_cache_hit_tokens": 8320,
+                "prompt_cache_miss_tokens": 197
+            },
+            {
+                "completion_tokens": 104,
+                "prompt_tokens": 8859,
+                "total_tokens": 8963,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 40
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8576
+                },
+                "prompt_cache_hit_tokens": 8576,
+                "prompt_cache_miss_tokens": 283
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "920166478663",
+        "name": "SKG按摩仪K3浅灰色K3-1T颈椎按摩器按摩仪肩颈颈椎BP3发热枕",
+        "attributes": [
+            "肩"
+        ],
+        "goal_options": [
+            "颈部按摩仪k3-1T浅灰色"
+        ],
+        "price_upper": 290
+    },
+    "purchase_summary": {
+        "asin": "920166478663",
+        "name": "SKG按摩仪K3浅灰色K3-1T颈椎按摩器按摩仪肩颈颈椎BP3发热枕",
+        "attributes": [
+            "肩"
+        ],
+        "options": {
+            "颜色分类": "颈部按摩仪k3-1t浅灰色"
+        },
+        "price": 227.44626460197068
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 920166478663 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9888\\u90e8\\u6309\\u6469\\u4eeak3-1t\\u6d45\\u7070\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

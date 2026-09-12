@@ -1,0 +1,186 @@
+{
+    "task_id": 22099,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 3,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我要买一款适合夏季穿着的轻奢风高跟凉鞋，37码的，颜色为酒红色，跟高7厘米左右，预算300元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "820449124462",
+        "37"
+    ],
+    "selected_options": {
+        "鞋码": "37",
+        "颜色分类": "酒红色 跟高：7cm左右"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "轻奢 高跟凉鞋 酒红色 37码 夏季"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "820449124462"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "37"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "酒红色 跟高：7cm左右"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 16175,
+        "completion_tokens": 2508,
+        "total_tokens": 18683,
+        "by_call": [
+            {
+                "completion_tokens": 822,
+                "prompt_tokens": 628,
+                "total_tokens": 1450,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 611
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 244
+            },
+            {
+                "completion_tokens": 650,
+                "prompt_tokens": 2590,
+                "total_tokens": 3240,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 436
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1408
+                },
+                "prompt_cache_hit_tokens": 1408,
+                "prompt_cache_miss_tokens": 1182
+            },
+            {
+                "completion_tokens": 588,
+                "prompt_tokens": 3548,
+                "total_tokens": 4136,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 369
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 348
+            },
+            {
+                "completion_tokens": 219,
+                "prompt_tokens": 4442,
+                "total_tokens": 4661,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 29
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 346
+            },
+            {
+                "completion_tokens": 229,
+                "prompt_tokens": 4967,
+                "total_tokens": 5196,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 56
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4608
+                },
+                "prompt_cache_hit_tokens": 4608,
+                "prompt_cache_miss_tokens": 359
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "820449124462",
+        "name": "轻奢设计感小众气质高跟凉鞋女鞋夏季女款包头凉拖尖头高跟鞋单鞋",
+        "attributes": [
+            "夏季",
+            "轻奢设计感",
+            "高跟凉鞋"
+        ],
+        "goal_options": [
+            "37",
+            "酒红色 跟高：7cm左右"
+        ],
+        "price_upper": 400
+    },
+    "purchase_summary": {
+        "asin": "820449124462",
+        "name": "轻奢设计感小众气质高跟凉鞋女鞋夏季女款包头凉拖尖头高跟鞋单鞋",
+        "attributes": [
+            "夏季",
+            "轻奢设计感",
+            "高跟凉鞋"
+        ],
+        "options": {
+            "鞋码": "37",
+            "颜色分类": "酒红色 跟高：7cm左右"
+        },
+        "price": 318.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 820449124462 [SEP] options [SEP] {\"\\u978b\\u7801\": \"37\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9152\\u7ea2\\u8272 \\u8ddf\\u9ad8\\uff1a7cm\\u5de6\\u53f3\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

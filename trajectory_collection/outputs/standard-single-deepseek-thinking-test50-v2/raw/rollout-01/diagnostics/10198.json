@@ -1,0 +1,160 @@
+{
+    "task_id": 10198,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 洗手间安装整体吊顶7灯左右的强效取暖浴霸，要银色灯头、琴式开关的，花费控制在450元以内\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "687787897257"
+    ],
+    "selected_options": {
+        "颜色分类": "6灯强暖浴霸  银色灯泡【琴键开关】"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "浴霸 整体吊顶 7灯 强效取暖 银色灯头 琴式开关 450元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "687787897257"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "6灯强暖浴霸  银色灯泡【琴键开关】"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 12268,
+        "completion_tokens": 2482,
+        "total_tokens": 14750,
+        "by_call": [
+            {
+                "completion_tokens": 586,
+                "prompt_tokens": 625,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 410
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 1067,
+                "prompt_tokens": 2376,
+                "total_tokens": 3443,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 882
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1224
+            },
+            {
+                "completion_tokens": 492,
+                "prompt_tokens": 4075,
+                "total_tokens": 4567,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 309
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 747
+            },
+            {
+                "completion_tokens": 337,
+                "prompt_tokens": 5192,
+                "total_tokens": 5529,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 165
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4480
+                },
+                "prompt_cache_hit_tokens": 4480,
+                "prompt_cache_miss_tokens": 712
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "687787897257",
+        "name": "浴室浴霸灯暖卫生间集成吊顶6六头8八个取暖灯泡暖洗澡间照明浴霸",
+        "attributes": [
+            "卫生间",
+            "集成吊顶"
+        ],
+        "goal_options": [
+            "6灯强暖浴霸  银色灯泡【琴键开关】"
+        ],
+        "price_upper": 720
+    },
+    "purchase_summary": {
+        "asin": "687787897257",
+        "name": "浴室浴霸灯暖卫生间集成吊顶6六头8八个取暖灯泡暖洗澡间照明浴霸",
+        "attributes": [
+            "卫生间",
+            "集成吊顶"
+        ],
+        "options": {
+            "颜色分类": "6灯强暖浴霸  银色灯泡【琴键开关】"
+        },
+        "price": 690.8848640887977
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 687787897257 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"6\\u706f\\u5f3a\\u6696\\u6d74\\u9738  \\u94f6\\u8272\\u706f\\u6ce1\\u3010\\u7434\\u952e\\u5f00\\u5173\\u3011\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

@@ -1,0 +1,182 @@
+{
+    "task_id": 8986,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我的预算在90以内，想给孩子买双一整年都能穿的运动鞋，要那种一穿上就感觉特别通风凉快的，鞋面是双层网布的，尺码是34，颜色要荧光绿这种显眼的。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "923203193403",
+        "34"
+    ],
+    "selected_options": {
+        "尺码": "34",
+        "颜色分类": "双网四季款-荧光绿"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "儿童运动鞋 34码 荧光绿 双层网布 透气 90元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "923203193403"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "双网四季款-荧光绿"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "34"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 16563,
+        "completion_tokens": 2228,
+        "total_tokens": 18791,
+        "by_call": [
+            {
+                "completion_tokens": 242,
+                "prompt_tokens": 642,
+                "total_tokens": 884,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 144
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 508
+                },
+                "prompt_cache_hit_tokens": 508,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 580,
+                "prompt_tokens": 1999,
+                "total_tokens": 2579,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 371
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1231
+            },
+            {
+                "completion_tokens": 576,
+                "prompt_tokens": 3385,
+                "total_tokens": 3961,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 389
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 825
+            },
+            {
+                "completion_tokens": 218,
+                "prompt_tokens": 4760,
+                "total_tokens": 4978,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 82
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 1176
+            },
+            {
+                "completion_tokens": 612,
+                "prompt_tokens": 5777,
+                "total_tokens": 6389,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 468
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4864
+                },
+                "prompt_cache_hit_tokens": 4864,
+                "prompt_cache_miss_tokens": 913
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "923203193403",
+        "name": "品牌赤兔8PRO男童运动鞋2025新款夏季透气网面跑鞋儿童跑步鞋女孩",
+        "attributes": [
+            "透气"
+        ],
+        "goal_options": [
+            "双网四季款-荧光绿",
+            "34"
+        ],
+        "price_upper": 90
+    },
+    "purchase_summary": {
+        "asin": "923203193403",
+        "name": "品牌赤兔8PRO男童运动鞋2025新款夏季透气网面跑鞋儿童跑步鞋女孩",
+        "attributes": [
+            "透气"
+        ],
+        "options": {
+            "尺码": "34",
+            "颜色分类": "双网四季款-荧光绿"
+        },
+        "price": 70.31574700742964
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 923203193403 [SEP] options [SEP] {\"\\u5c3a\\u7801\": \"34\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u53cc\\u7f51\\u56db\\u5b63\\u6b3e-\\u8367\\u5149\\u7eff\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

@@ -1,0 +1,493 @@
+{
+    "task_id": 18903,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 2,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.8,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 求推荐一颗特别的佛心果菩提做吊坠，果子要饱满圆润，大概像鹌鹑蛋那么大，大约是60-70尺寸吧，表皮要那种深红色的老树果，带自然裂纹和风化纹，最好还能透光看到里面的金丝纹路。最好是25元预算内能拿下，希望是天然空心的老果，配个简单的黑绳就能当项链戴。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 20,
+    "invalid_tool_response_count": 0,
+    "num_searches": 3,
+    "num_clicks": 17,
+    "num_back_to_search": 2,
+    "num_detail_views": 3,
+    "repeated_action_count": 9,
+    "visited_asins": [
+        "885068362419"
+    ],
+    "selected_options": {
+        "颜色分类": "佛心果金包玉60-70一个"
+    },
+    "last_action": {
+        "step": 20,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "佛心果菩提 老树果 深红色 60-70 金丝透光 天然空心 吊坠"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "885068362419"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "back to search"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "search",
+            "arguments": {
+                "keywords": "佛心果菩提 吊坠 60-70mm 深红 老树 金丝 空心 25元"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "885068362419"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "佛心果金包玉60-70一个"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "20mm以上"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "20mm以上"
+            }
+        },
+        {
+            "step": 13,
+            "tool": "click",
+            "arguments": {
+                "value": "佛心果金包玉60-70一个"
+            }
+        },
+        {
+            "step": 14,
+            "tool": "click",
+            "arguments": {
+                "value": "back to search"
+            }
+        },
+        {
+            "step": 15,
+            "tool": "search",
+            "arguments": {
+                "keywords": "佛心果菩提 老树果 深红色 60-70 金丝透光 天然空心 吊坠"
+            }
+        },
+        {
+            "step": 16,
+            "tool": "click",
+            "arguments": {
+                "value": "885068362419"
+            }
+        },
+        {
+            "step": 17,
+            "tool": "click",
+            "arguments": {
+                "value": "佛心果金包玉60-70一个"
+            }
+        },
+        {
+            "step": 18,
+            "tool": "click",
+            "arguments": {
+                "value": "reviews"
+            }
+        },
+        {
+            "step": 19,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 20,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[20mm以上]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：20mm以上 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 20,
+        "prompt_tokens": 166400,
+        "completion_tokens": 3868,
+        "total_tokens": 170268,
+        "by_call": [
+            {
+                "completion_tokens": 224,
+                "prompt_tokens": 681,
+                "total_tokens": 905,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 162
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 169
+            },
+            {
+                "completion_tokens": 260,
+                "prompt_tokens": 2200,
+                "total_tokens": 2460,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 220
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1304
+            },
+            {
+                "completion_tokens": 151,
+                "prompt_tokens": 3716,
+                "total_tokens": 3867,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 112
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 1284
+            },
+            {
+                "completion_tokens": 145,
+                "prompt_tokens": 3998,
+                "total_tokens": 4143,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 83
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 158
+            },
+            {
+                "completion_tokens": 146,
+                "prompt_tokens": 5486,
+                "total_tokens": 5632,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 106
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 1390
+            },
+            {
+                "completion_tokens": 370,
+                "prompt_tokens": 6048,
+                "total_tokens": 6418,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 324
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5632
+                },
+                "prompt_cache_hit_tokens": 5632,
+                "prompt_cache_miss_tokens": 416
+            },
+            {
+                "completion_tokens": 203,
+                "prompt_tokens": 6827,
+                "total_tokens": 7030,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 166
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6400
+                },
+                "prompt_cache_hit_tokens": 6400,
+                "prompt_cache_miss_tokens": 427
+            },
+            {
+                "completion_tokens": 117,
+                "prompt_tokens": 7174,
+                "total_tokens": 7291,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 80
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6912
+                },
+                "prompt_cache_hit_tokens": 6912,
+                "prompt_cache_miss_tokens": 262
+            },
+            {
+                "completion_tokens": 69,
+                "prompt_tokens": 7700,
+                "total_tokens": 7769,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 32
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7168
+                },
+                "prompt_cache_hit_tokens": 7168,
+                "prompt_cache_miss_tokens": 532
+            },
+            {
+                "completion_tokens": 685,
+                "prompt_tokens": 7939,
+                "total_tokens": 8624,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 646
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 7680
+                },
+                "prompt_cache_hit_tokens": 7680,
+                "prompt_cache_miss_tokens": 259
+            },
+            {
+                "completion_tokens": 67,
+                "prompt_tokens": 8676,
+                "total_tokens": 8743,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 30
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8448
+                },
+                "prompt_cache_hit_tokens": 8448,
+                "prompt_cache_miss_tokens": 228
+            },
+            {
+                "completion_tokens": 46,
+                "prompt_tokens": 9152,
+                "total_tokens": 9198,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 7
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8704
+                },
+                "prompt_cache_hit_tokens": 8704,
+                "prompt_cache_miss_tokens": 448
+            },
+            {
+                "completion_tokens": 270,
+                "prompt_tokens": 9607,
+                "total_tokens": 9877,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 224
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 9088
+                },
+                "prompt_cache_hit_tokens": 9088,
+                "prompt_cache_miss_tokens": 519
+            },
+            {
+                "completion_tokens": 529,
+                "prompt_tokens": 10286,
+                "total_tokens": 10815,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 490
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 9856
+                },
+                "prompt_cache_hit_tokens": 9856,
+                "prompt_cache_miss_tokens": 430
+            },
+            {
+                "completion_tokens": 71,
+                "prompt_tokens": 10946,
+                "total_tokens": 11017,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 9
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 10752
+                },
+                "prompt_cache_hit_tokens": 10752,
+                "prompt_cache_miss_tokens": 194
+            },
+            {
+                "completion_tokens": 44,
+                "prompt_tokens": 12312,
+                "total_tokens": 12356,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 4
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 11008
+                },
+                "prompt_cache_hit_tokens": 11008,
+                "prompt_cache_miss_tokens": 1304
+            },
+            {
+                "completion_tokens": 52,
+                "prompt_tokens": 12772,
+                "total_tokens": 12824,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 6
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 12288
+                },
+                "prompt_cache_hit_tokens": 12288,
+                "prompt_cache_miss_tokens": 484
+            },
+            {
+                "completion_tokens": 116,
+                "prompt_tokens": 13233,
+                "total_tokens": 13349,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 78
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 12800
+                },
+                "prompt_cache_hit_tokens": 12800,
+                "prompt_cache_miss_tokens": 433
+            },
+            {
+                "completion_tokens": 260,
+                "prompt_tokens": 13489,
+                "total_tokens": 13749,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 223
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 13312
+                },
+                "prompt_cache_hit_tokens": 13312,
+                "prompt_cache_miss_tokens": 177
+            },
+            {
+                "completion_tokens": 43,
+                "prompt_tokens": 14158,
+                "total_tokens": 14201,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 5
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 13696
+                },
+                "prompt_cache_hit_tokens": 13696,
+                "prompt_cache_miss_tokens": 462
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "885068362419",
+        "name": "彩色原籽佛心果菩提吊坠成品大果释迦红皮佛心菩提空心金包玉老果",
+        "attributes": [
+            "原籽",
+            "吊坠材料"
+        ],
+        "goal_options": [
+            "佛心果金包玉60-70一个",
+            "20mm以上"
+        ],
+        "price_upper": 40
+    },
+    "purchase_summary": {
+        "asin": "885068362419",
+        "name": "彩色原籽佛心果菩提吊坠成品大果释迦红皮佛心菩提空心金包玉老果",
+        "attributes": [
+            "原籽",
+            "吊坠材料"
+        ],
+        "options": {
+            "颜色分类": "佛心果金包玉60-70一个"
+        },
+        "price": 28.093901485822357
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 885068362419 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u4f5b\\u5fc3\\u679c\\u91d1\\u5305\\u738960-70\\u4e00\\u4e2a\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

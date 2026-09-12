@@ -1,0 +1,150 @@
+{
+    "task_id": 9325,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "goal": {
+        "asin": "693924923238",
+        "attributes": [
+            "吸盘",
+            "折叠",
+            "壁挂",
+            "带灯",
+            "伸缩"
+        ],
+        "category": "家装主材›卫浴五金›卫浴五金/挂件›美容镜",
+        "goal_options": [
+            "枪灰圆底带灯款8寸（吸盘主图款）"
+        ],
+        "instruction_simple": null,
+        "instruction_text": "想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。",
+        "name": "吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜",
+        "price_upper": 120,
+        "query": "",
+        "reason_key": null,
+        "user_persona": {},
+        "weight": 1
+    },
+    "purchase": {
+        "asin": "693924923238",
+        "attributes": [
+            "吸盘",
+            "折叠",
+            "壁挂",
+            "带灯",
+            "伸缩"
+        ],
+        "category": "家装主材›卫浴五金›卫浴五金/挂件›美容镜",
+        "instruction_text": "想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。",
+        "name": "吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜",
+        "options": {
+            "颜色分类": "枪灰圆底带灯款8寸（吸盘主图款）"
+        },
+        "price": 90.29960571625594,
+        "product_category": "",
+        "query": ""
+    },
+    "conversation": [
+        {
+            "role": "system",
+            "content": "你正在进行网上购物。\n我会给你一些关于需要做什么的指示。\n你必须遵循这些指示。\n每一轮，我会给你一个观察结果和一组可用的操作，你需要根据当前状态和指示来选择一个操作进行响应。\n如果搜索功能可用，你可以使用search工具执行搜索操作。\n你可以使用click工具点击可点击的按钮列表中的某一个按钮。\n如果操作无效，则不执行任何操作。\n搜索中的关键词由你自行决定，但点击操作中的值必须是可用操作列表中的值。\n一轮只能执行一个动作\n注意，在点击购买前，确保至少点击了一个商品的规格。\n请记住，你的搜索关键词应该精心设计。\n\n请在 Thought 中尝试回答以下几个问题：\n在当前的状态下你是如何思考以做出下一步操作？\n应该选择执行什么操作？\n这个操作是否直接或间接地帮助实现最终目标？\n选择的这个商品是否能够完全符合用户的要求？\n选择的商品规格是否完全覆盖了用户的要求？\n请你认真思考后给出你的思考过程。\n"
+        },
+        {
+            "role": "user",
+            "content": "Instruction: 想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。\n\n搜索功能是否可用: True\n\n可点击的按钮: []"
+        },
+        {
+            "content": "当前状态没有可点击按钮，无法进行点击操作；搜索功能可用，因此下一步应先搜索目标商品。  \n用户要求核心包括：灰色系、圆形、8寸、吸附式、壁挂/浴室厕所可用、带灯照明、可伸缩调节、可收拢、适合化妆、预算约150元。  \n因此搜索关键词需要覆盖这些关键属性，便于后续筛选。\n\n<tool_calls>",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_LS9BPCnJmULT2ttpg0Ld0371",
+                    "function": {
+                        "arguments": "{\"keywords\": \"灰色 圆形 8寸 吸附 浴室 带灯 伸缩 折叠 化妆镜\"}",
+                        "name": "search"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "我们需要回答用户。用户给出网上购物任务，指示。当前状态：Instruction 描述了想要商品。搜索功能可用 True。可点击按钮空。需要选择操作。必须遵循指示，每轮给观察和可用操作，根据状态和指示选一个操作。可以用search。点击需要可用列表中的值。当前按钮空。所以下一步应该搜索。需要在Thought中回答几个问题。然后实际调用 search? 系统说如果搜索可用，可以使用search工具执行搜索操作。一轮只能执行一个动作。我们需要输出思考过程并选择操作。应调用 search，关键词精心设计。\n\n需要分析用户要求：灰色系圆形美容镜，8寸大小，能直接吸附在浴室/厕所墙壁上，带打灯照亮功能，可伸缩调节位置，也可收拢，适合化妆，预算150元上下。搜索关键词应包含：灰色 圆形 美容镜 8寸 吸附 墙壁 带灯 伸缩 折叠 化妆 浴室。可能电商搜索关键词过长不好。可以搜“灰色 圆形 8寸 吸附 浴室 带灯 伸缩 化妆镜”。要一个动作，所以调用 search。\n\n需要在最终回答中包含 Thought？用户要求“请在 Thought 中尝试回答以下几个问题... 请你认真思考后给出你的思考过程。” 作为助手，我们可以输出思考过程，但策略是隐藏推理? 系统未特别要求隐藏，但一般可以给简略。我们可以 mention。最终需要工具调用。注意 function call 格式。我们可以在消息中写一些思考，然后调用 search。因为必须只一个动作。使用 search 工具。关键词应该精心设计。当前无按钮，所以无法点击。搜索是最合理。\n\n需要确保搜索关键词精准。可能用中文关键词。可包括：灰色 圆形 美容镜 8寸 吸附 带灯 伸缩 折叠。预算也可不放搜索，后续筛选。或者关键词“灰色 圆形 8寸 吸附 浴室 带灯 伸缩 化妆镜”。搜索工具参数 keywords。我们可以调用。\n\n最终回答应先 Thought 内容？因为工具调用块？我认为可以写简要推理，然后 function call。最终响应可以是：Thought: 当前... 下一步搜索... 然后调用。\n\n注意如果使用工具，只能一个动作。因此输出一个 search invoke。可以在同一条消息包含推理。按照“请在 Thought 中尝试回答...” 我们可以用标签。然后调用。需要确保 JSON 参数。例如：\n\n<thought>\n当前无点击按钮，不能点击；搜索可用。用户需求核心...\n因此下一步执行搜索。\n</thought>\n<tool_call>search... </tool_call>\n\n但工具调用格式是 <tool_calls> with function. 需要准确。我们可以在 final 中包含工具调用。\n\n最终内容应中文。"
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_LS9BPCnJmULT2ttpg0Ld0371",
+            "content": "Instruction: [SEP] 想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。 [SEP] Back to Search [SEP] Page 1 (Total results: 150) [SEP] Next > [SEP] 693924923238 [SEP] 吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜 [SEP] 53.0 to 150.0 [SEP] 845376438301 [SEP] 吸盘化妆镜带灯卫生间浴室免打孔酒店伸缩放大镜子折叠壁挂美容镜 [SEP] 178.0 to 438.0 [SEP] 940968334579 [SEP] 浴室吸盘带灯化妆镜卫生间壁挂折叠伸缩免打孔可旋转放大美容镜子 [SEP] 156.0 to 398.0 [SEP] 10842441648 [SEP] 蒙特卫浴8寸浴镜美容镜化妆镜双面折叠伸缩壁挂浴室镜子 打孔安装 [SEP] 398.0 to 596.0 [SEP] 625397120514 [SEP] LED浴室壁挂美容镜带灯单面折叠化妆镜伸缩充电3倍放大镜子免打孔 [SEP] 396.0 to 656.0 [SEP] 845917643576 [SEP] 枪灰浴室伸缩壁挂化妆镜卫生间吸盘免打孔美容镜折叠酒店放大镜 [SEP] 176.0 to 196.0 [SEP] 898371373439 [SEP] 复古免打孔浴室化妆镜带灯LED壁挂伸缩折叠卫生间美容镜全铜仿古 [SEP] 258.0 to 880.0 [SEP] 924771448869 [SEP] led带灯化妆镜卫生间浴室免打孔放大镜子酒店伸缩折叠壁挂美容镜 [SEP] 136.0 to 358.0 [SEP] 682049334951 [SEP] 浴室化妆镜led带灯美容镜壁挂折叠伸缩镜子酒店卫生间双面梳妆镜 [SEP] 476.0 to 616.0 [SEP] 751413439876 [SEP] 浴室折叠化妆镜伸缩免打孔壁挂双面放大美容镜酒店卫生间镜子枪灰 [SEP] 116.0 to 146.0 [SEP] 884486926630 [SEP] 德国Zdzsh浴室吸盘带灯化妆镜壁挂卫生间伸缩折叠镜免打孔可旋转 [SEP] 372.0 to 936.0 [SEP] 562871940665 [SEP] 浴室壁挂伸缩化妆镜免打孔圆形单面折叠放大镜子酒店卫生间梳妆镜 [SEP] 476.0 to 496.0 [SEP] 930026158309 [SEP] 吸盘枪灰色壁挂式补光梳妆美容镜折叠 放大双面ed带灯镜子化妆镜 [SEP] 152.0 to 240.0 [SEP] 741987949275 [SEP] 浴室化妆镜壁挂带灯双面镜子led免打孔折叠伸缩卫生间放大梳妆镜 [SEP] 478.0 to 518.0 [SEP] 923702747164 [SEP] 浴室带灯化妆镜卫生间可伸缩折叠美容镜免打孔酒店放大镜子壁挂式 [SEP] 172.0 to 418.0 [SEP] 815280360332 [SEP] LED镜子卫生间亚朵酒店化妆镜公寓希尔顿壁挂伸缩折叠补光镜带灯 [SEP] 196.0 to 876.0 [SEP] 634756353377 [SEP] 浴室化妆镜卫生间镜子美容镜酒店厕所放大伸缩折叠壁挂梳妆镜带灯 [SEP] 136.0 to 356.0 [SEP] 841984533634 [SEP] 枪灰全铜LED化妆镜带灯壁挂式ins风补光镜家用浴室放大伸缩梳妆镜 [SEP] 132.0 to 255.0 [SEP] 838237827691 [SEP] 折叠化妆镜壁挂带灯美容镜免打孔酒店卫生间浴室小镜子放大伸缩镜 [SEP] 116.0 to 316.0 [SEP] 16812106998 [SEP] 浴室镜子化妆镜免打孔壁挂酒店卫生间贴墙双面带灯梳妆镜伸缩折叠 [SEP] 359.0 to 559.0\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"next >\", \"693924923238\", \"845376438301\", \"940968334579\", \"10842441648\", \"625397120514\", \"845917643576\", \"898371373439\", \"924771448869\", \"682049334951\", \"751413439876\", \"884486926630\", \"562871940665\", \"930026158309\", \"741987949275\", \"923702747164\", \"815280360332\", \"634756353377\", \"841984533634\", \"838237827691\", \"16812106998\"]"
+        },
+        {
+            "content": "当前搜索结果中，第一个商品“吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜”与需求高度相关：包含“枪灰色 / 吸盘 / 折叠 / 壁挂 / 免打孔 / 带灯 / 伸缩 / 美容镜”，价格区间 53–150 元也符合预算。  \n但标题尚未明确显示“圆形”和“8寸”，需要进入商品详情页确认规格是否完全覆盖用户要求。因此下一步应点击该商品，而不是直接购买。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_YQhkdOelZbQsS6v16QWc1613",
+                    "function": {
+                        "arguments": "{\"value\": \"693924923238\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We need now respond to observation. Search unavailable now? It says 搜索功能是否可用: False. Available clickable buttons list. Need choose next action. We have results. Need identify product that matches. User wants gray round 8 inch吸附 wall带灯伸缩折叠 budget 150. We need click on product? We likely need inspect product details by clicking on one product button. Need select from list. The first result: 693924923238 \"吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜\" price 53.0 to 150.0. This seems very relevant: 枪灰色 (gray), 吸盘, 折叠, 壁挂, 带灯, 伸缩, 美容镜. But need 8寸圆形? Title lack 8寸/圆形. Could be. Price range up to 150, aligns. Another: 751413439876 \"浴室折叠化妆镜伸缩免打孔壁挂双面放大美容镜酒店卫生间镜子枪灰\" 116-146. Relevant,枪灰, but maybe no light? Title no带灯. 930026158309 \"吸盘枪灰色壁挂式补光梳妆美容镜折叠 放大双面ed带灯镜子化妆镜\" price 152-240, relevant, slightly above. 841984533634 \"枪灰全铜LED化妆镜带灯壁挂式ins风补光镜家用浴室放大伸缩梳妆镜\" 132-255, gray, LED, but no吸盘? Maybe wall mount, no免打孔. First one seems best match:吸盘枪灰色折叠化妆壁挂浴室镜...免打孔带灯伸缩美容镜. Price 53-150. It likely may include options. Need click product to see details. Since search unavailable, next choose click on product ID/button. The question asks in Thought answer: current state how think, choose operation, whether direct/indirect final goal, chosen product fully meets requirements, specs cover? Need reason. We need choose one action. Since product results, click the most promising product, likely 693924923238.\n\nBut must be careful: The click value must be exact from list. We can click \"693924923238\". Need only one action. Should we click product ID? Or maybe \"next >\" to see more? We need examine first result. The first product seems very good. So click it.\n\nNeed in final include Thought. Could say 搜索返回结果，没有可直接购买按钮；搜索不可用；需进入商品详情查看规格。最符合的是第一个：吸盘枪灰色折叠化妆壁挂浴室镜...价格53-150，标题包含枪灰、吸盘、折叠、壁挂、带灯、伸缩、美容镜。虽然标题未明示8寸和圆形，需进入详情确认。因此点击该商品。这个操作间接实现最终目标，帮助确认规格和价格。选择商品不一定完全符合，需进一步确认8寸圆形和具体规格；规格覆盖需看详情。 Then call click.\n\nNeed ensure no other action. Use click tool value."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_YQhkdOelZbQsS6v16QWc1613",
+            "content": "Instruction: [SEP] 想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。 [SEP] Back to Search [SEP] < Prev [SEP] 颜色分类 [SEP] 枪灰色圆底8寸（打孔） [SEP] 枪灰色圆底6寸（打孔+免打孔） [SEP] 枪灰色圆底8寸（打孔+免打孔） [SEP] 枪灰色圆底8寸（吸盘） [SEP] 枪灰色方底8寸（打孔+免打孔） [SEP] 枪灰圆底带灯款8寸（吸盘主图款） [SEP] 枪灰色圆底带灯款8寸（打孔） [SEP] 枪灰色圆底6寸（打孔） [SEP] 枪灰色方底8寸（打孔） [SEP] 枪灰圆底带灯款8寸（打孔免打孔） [SEP] 吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜 [SEP] 价格: 53.0 to 150.0 [SEP] 店铺: 特莱斯卫浴 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"枪灰色圆底8寸（打孔）\", \"枪灰色圆底6寸（打孔+免打孔）\", \"枪灰色圆底8寸（打孔+免打孔）\", \"枪灰色圆底8寸（吸盘）\", \"枪灰色方底8寸（打孔+免打孔）\", \"枪灰圆底带灯款8寸（吸盘主图款）\", \"枪灰色圆底带灯款8寸（打孔）\", \"枪灰色圆底6寸（打孔）\", \"枪灰色方底8寸（打孔）\", \"枪灰圆底带灯款8寸（打孔免打孔）\"]"
+        },
+        {
+            "content": "当前已进入商品详情页，需要先选择符合要求的规格才能继续购买。  \n在可选规格中，“枪灰圆底带灯款8寸（吸盘主图款）”同时覆盖了：枪灰色、圆形、8寸、带灯、吸盘式；并且商品标题还包含折叠、伸缩、免打孔、美容镜等属性，最符合用户要求。  \n因此下一步应点击该规格，以便确认价格并准备购买。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_FUuIm9kswxJBXlCcuaLe0859",
+                    "function": {
+                        "arguments": "{\"value\": \"枪灰圆底带灯款8寸（吸盘主图款）\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "Now we are on product detail. Need choose operation. Need fulfill instruction: before buying ensure at least click one product spec. Need choose spec matching: gray round 8 inch, 吸附, 带灯, 伸缩调节, 收拢. Available specs:\n- 枪灰色圆底8寸（打孔） no吸盘, no灯\n- 枪灰色圆底6寸（打孔+免打孔） wrong size\n- 枪灰色圆底8寸（打孔+免打孔） no light, not strictly吸盘? 免打孔 includes adhesive, not吸盘.\n- 枪灰色圆底8寸（吸盘） no light\n- 枪灰色方底8寸... wrong shape\n- 枪灰圆底带灯款8寸（吸盘主图款） This matches round 8寸, gray, light, suction. likely main product, and features include fold伸缩. Best.\n- 枪灰色圆底带灯款8寸（打孔） no suction\n- 枪灰色圆底6寸（打孔） wrong\n- 枪灰色方底8寸（打孔） wrong\n- 枪灰圆底带灯款8寸（打孔免打孔） no suction (not吸盘)\n\nThus choose \"枪灰圆底带灯款8寸（吸盘主图款）\". Need click that spec. That's one action. After that maybe buy now. But now just click. Need reason: current page has color/spec options. To buy need select spec. The best spec exactly matches: 枪灰, 圆底, 带灯款, 8寸, 吸盘. Price? not shown per spec but overall 53-150 likely. Need choose. This operation directly helps final goal by selecting correct SKU. Does selected product fully meet? Product title covers 吸盘/带灯/伸缩/折叠; spec covers 枪灰圆底带灯8寸吸盘. It should meet. We should still ensure price within budget? Overall 53-150. The chosen spec may be top 150, likely within. This clicks spec, not purchase. Then next action buy now. But now only one action.\n\nNeed final with Thought and tool call."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_FUuIm9kswxJBXlCcuaLe0859",
+            "content": "Instruction: [SEP] 想要一款灰色系的圆形美容镜，8寸大小，能直接吸附在浴室、厕所的墙壁上，带有打灯照亮功能，可以伸缩调节位置，也可收拢，适合化妆的时候用，预算在150元上下。 [SEP] Back to Search [SEP] < Prev [SEP] 颜色分类 [SEP] 枪灰色圆底8寸（打孔） [SEP] 枪灰色圆底6寸（打孔+免打孔） [SEP] 枪灰色圆底8寸（打孔+免打孔） [SEP] 枪灰色圆底8寸（吸盘） [SEP] 枪灰色方底8寸（打孔+免打孔） [SEP] 枪灰圆底带灯款8寸（吸盘主图款） [SEP] 枪灰色圆底带灯款8寸（打孔） [SEP] 枪灰色圆底6寸（打孔） [SEP] 枪灰色方底8寸（打孔） [SEP] 枪灰圆底带灯款8寸（打孔免打孔） [SEP] 吸盘枪灰色折叠化妆壁挂浴室镜卫生间化妆镜免打孔带灯伸缩美容镜 [SEP] 价格: 150 [SEP] 店铺: 特莱斯卫浴 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"枪灰色圆底8寸（打孔）\", \"枪灰色圆底6寸（打孔+免打孔）\", \"枪灰色圆底8寸（打孔+免打孔）\", \"枪灰色圆底8寸（吸盘）\", \"枪灰色方底8寸（打孔+免打孔）\", \"枪灰圆底带灯款8寸（吸盘主图款）\", \"枪灰色圆底带灯款8寸（打孔）\", \"枪灰色圆底6寸（打孔）\", \"枪灰色方底8寸（打孔）\", \"枪灰圆底带灯款8寸（打孔免打孔）\"]"
+        },
+        {
+            "content": "已选择规格“枪灰圆底带灯款8寸（吸盘主图款）”，页面显示价格为 150 元，正好在预算范围内。  \n该规格覆盖了用户要求：枪灰色、圆形、8寸、吸盘式、带灯；商品标题也包含折叠、伸缩、免打孔、壁挂、美容镜等属性。  \n因此下一步可以直接点击“buy now”进行购买。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_Tw3TeIAWgKfMCujuPXCD2674",
+                    "function": {
+                        "arguments": "{\"value\": \"buy now\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "Now selected spec, price 150, within budget. Need next action likely click Buy Now to purchase. But maybe need verify details features? The instruction: \"注意，在点击购买前，确保至少点击了一个商品的规格。\" We did. Now can click buy now. But should we first inspect features/reviews? The user just wants to buy. We have product title and spec. Need ensure functionality:带灯吸盘伸缩折叠. Title includes. Price 150. It meets. So next click buy now. One action. Need reason.\n\nCould click \"buy now\". This is direct to final goal. Need final with Thought and tool call. Ensure we don't need add to cart? Buy Now available. Click.\n\nNeed maybe answer \"选择的这个商品是否能够完全符合用户的要求？选择的商品规格是否完全覆盖了用户的要求？\" We can state yes: 商品标题+规格覆盖：枪灰色、圆底/圆形、8寸、吸盘、带灯、折叠伸缩、免打孔、美容镜；价格150在预算内。所以点击购买。\n\nLet's final."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_Tw3TeIAWgKfMCujuPXCD2674",
+            "content": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 693924923238 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u67aa\\u7070\\u5706\\u5e95\\u5e26\\u706f\\u6b3e8\\u5bf8\\uff08\\u5438\\u76d8\\u4e3b\\u56fe\\u6b3e\\uff09\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+        }
+    ]
+}

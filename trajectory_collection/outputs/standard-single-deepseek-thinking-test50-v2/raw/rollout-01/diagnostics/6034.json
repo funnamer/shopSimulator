@@ -1,0 +1,160 @@
+{
+    "task_id": 6034,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 5,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 2,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 推荐一款暖霸，厚度较薄，不超过10厘米，适用于30厘米×30厘米的集成吊顶模块，可以通过米家APP控制开关，具备提升浴室温度、将室内空气吹出、为浴室提供照明和将异味排除到室外的功能，颜色要银色，开关不用外接电线，价格不低于380元。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "846837004935"
+    ],
+    "selected_options": {
+        "颜色分类": "30✕30银色+米家开关（取暖+吹风+照明+换气）开关免接线"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "暖霸 30x30 集成吊顶 米家APP 银色 无线开关 取暖 吹风 照明 换气 厚度10cm"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "846837004935"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "30✕30银色+米家开关（取暖+吹风+照明+换气）开关免接线"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 18414,
+        "completion_tokens": 2911,
+        "total_tokens": 21325,
+        "by_call": [
+            {
+                "completion_tokens": 798,
+                "prompt_tokens": 665,
+                "total_tokens": 1463,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 661
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 153
+            },
+            {
+                "completion_tokens": 1382,
+                "prompt_tokens": 2683,
+                "total_tokens": 4065,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1249
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1408
+                },
+                "prompt_cache_hit_tokens": 1408,
+                "prompt_cache_miss_tokens": 1275
+            },
+            {
+                "completion_tokens": 364,
+                "prompt_tokens": 6258,
+                "total_tokens": 6622,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 212
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 2290
+            },
+            {
+                "completion_tokens": 367,
+                "prompt_tokens": 8808,
+                "total_tokens": 9175,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 258
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6528
+                },
+                "prompt_cache_hit_tokens": 6528,
+                "prompt_cache_miss_tokens": 2280
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "846837004935",
+        "name": "接入小米米家超薄6cm浴霸30x30取暖吹风照明排气暖风机集成单取暖",
+        "attributes": [
+            "超薄",
+            "6cm"
+        ],
+        "goal_options": [
+            "30?30银色+米家开关（取暖+吹风+照明+换气）开关免接线"
+        ],
+        "price_upper": 350
+    },
+    "purchase_summary": {
+        "asin": "846837004935",
+        "name": "接入小米米家超薄6cm浴霸30x30取暖吹风照明排气暖风机集成单取暖",
+        "attributes": [
+            "超薄",
+            "6cm"
+        ],
+        "options": {
+            "颜色分类": "30✕30银色+米家开关（取暖+吹风+照明+换气）开关免接线"
+        },
+        "price": 278.74870907906745
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 846837004935 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"30\\u271530\\u94f6\\u8272+\\u7c73\\u5bb6\\u5f00\\u5173\\uff08\\u53d6\\u6696+\\u5439\\u98ce+\\u7167\\u660e+\\u6362\\u6c14\\uff09\\u5f00\\u5173\\u514d\\u63a5\\u7ebf\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

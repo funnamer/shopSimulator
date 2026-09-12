@@ -1,0 +1,194 @@
+{
+    "task_id": 19047,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.7142857142857143
+    },
+    "instruction": "Instruction: 求推荐一台映美品牌的针式打印机，型号为FP-570K+，带有网口，售价在1500元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 1,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "534701340917"
+    ],
+    "selected_options": {
+        "套餐": "官方标配",
+        "颜色分类": "570k+ 网口"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "映美 FP-570K+ 针式打印机 网口"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "534701340917"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "570k+ 网口"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "官方标配"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 6,
+        "prompt_tokens": 14991,
+        "completion_tokens": 3544,
+        "total_tokens": 18535,
+        "by_call": [
+            {
+                "completion_tokens": 222,
+                "prompt_tokens": 622,
+                "total_tokens": 844,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 156
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 238
+            },
+            {
+                "completion_tokens": 519,
+                "prompt_tokens": 2039,
+                "total_tokens": 2558,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 313
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1271
+            },
+            {
+                "completion_tokens": 67,
+                "prompt_tokens": 2586,
+                "total_tokens": 2653,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 27
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 154
+            },
+            {
+                "completion_tokens": 259,
+                "prompt_tokens": 2395,
+                "total_tokens": 2654,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 183
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1920
+                },
+                "prompt_cache_hit_tokens": 1920,
+                "prompt_cache_miss_tokens": 475
+            },
+            {
+                "completion_tokens": 1198,
+                "prompt_tokens": 2935,
+                "total_tokens": 4133,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1117
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 375
+            },
+            {
+                "completion_tokens": 1279,
+                "prompt_tokens": 4414,
+                "total_tokens": 5693,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1178
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 574
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "534701340917",
+        "name": "映美（Jolimark）FP-570K+ 针式打印机/已升级FP-575K",
+        "attributes": [
+            "映美"
+        ],
+        "goal_options": [
+            "570K+ 网口",
+            "官方标配"
+        ],
+        "price_upper": 1540
+    },
+    "purchase_summary": {
+        "asin": "534701340917",
+        "name": "映美（Jolimark）FP-570K+ 针式打印机/已升级FP-575K",
+        "attributes": [
+            "映美"
+        ],
+        "options": {
+            "套餐": "官方标配",
+            "颜色分类": "570k+ 网口"
+        },
+        "price": 1456.589313577415
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 534701340917 [SEP] options [SEP] {\"\\u5957\\u9910\": \"\\u5b98\\u65b9\\u6807\\u914d\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"570k+ \\u7f51\\u53e3\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

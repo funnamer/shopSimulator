@@ -1,0 +1,194 @@
+{
+    "task_id": 7152,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 4,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 7,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.8
+    },
+    "instruction": "Instruction: 有啥最近新出，适合夏天穿的白色板鞋嘛？我想要那种帆布的，不闷脚，男女都能穿，不需要系鞋带，37码，价格就200块左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "924133522587",
+        "37"
+    ],
+    "selected_options": {
+        "鞋码": "37",
+        "颜色分类": "白色"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "白色 帆布 板鞋 免系带 一脚蹬 男女同款 37码 夏季 新款 200元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "924133522587"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "白色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "37"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 14640,
+        "completion_tokens": 1798,
+        "total_tokens": 16438,
+        "by_call": [
+            {
+                "completion_tokens": 534,
+                "prompt_tokens": 634,
+                "total_tokens": 1168,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 470
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 250
+            },
+            {
+                "completion_tokens": 667,
+                "prompt_tokens": 2303,
+                "total_tokens": 2970,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 627
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1151
+            },
+            {
+                "completion_tokens": 303,
+                "prompt_tokens": 3313,
+                "total_tokens": 3616,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 266
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 369
+            },
+            {
+                "completion_tokens": 135,
+                "prompt_tokens": 3957,
+                "total_tokens": 4092,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 98
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 373
+            },
+            {
+                "completion_tokens": 159,
+                "prompt_tokens": 4433,
+                "total_tokens": 4592,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 121
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 465
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "924133522587",
+        "name": "夏季新款tiger虎冢虎鞋彩色帆布套脚透气板鞋男女无鞋带鬼捉虎鞋",
+        "attributes": [
+            "夏季",
+            "新款",
+            "帆布",
+            "透气",
+            "板鞋",
+            "无鞋带",
+            "男女"
+        ],
+        "goal_options": [
+            "白色",
+            "37"
+        ],
+        "price_upper": 280
+    },
+    "purchase_summary": {
+        "asin": "924133522587",
+        "name": "夏季新款tiger虎冢虎鞋彩色帆布套脚透气板鞋男女无鞋带鬼捉虎鞋",
+        "attributes": [
+            "夏季",
+            "新款",
+            "帆布",
+            "透气",
+            "板鞋",
+            "无鞋带",
+            "男女"
+        ],
+        "options": {
+            "鞋码": "37",
+            "颜色分类": "白色"
+        },
+        "price": 198.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 924133522587 [SEP] options [SEP] {\"\\u978b\\u7801\": \"37\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u767d\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

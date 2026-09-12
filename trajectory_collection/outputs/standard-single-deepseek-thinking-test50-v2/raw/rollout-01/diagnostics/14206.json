@@ -1,0 +1,164 @@
+{
+    "task_id": 14206,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 14,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想买一些热门流行比较好配饭的罐头，吃起来又麻又辣，要有可以爆汁的完整八爪鱼头、鱿鱼、蛤蜊，买来不用煮可以直接吃的那种，想买三罐，总计预算50块钱左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "890311058262"
+    ],
+    "selected_options": {
+        "口味": "【八爪+蛤蜊+鱿鱼】共3罐"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "麻辣 八爪鱼 鱿鱼 蛤蜊 罐头 即食 爆汁 下饭"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "890311058262"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "【八爪+蛤蜊+鱿鱼】共3罐"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 11462,
+        "completion_tokens": 1788,
+        "total_tokens": 13250,
+        "by_call": [
+            {
+                "completion_tokens": 377,
+                "prompt_tokens": 649,
+                "total_tokens": 1026,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 182
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 137
+            },
+            {
+                "completion_tokens": 756,
+                "prompt_tokens": 2295,
+                "total_tokens": 3051,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 593
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1271
+            },
+            {
+                "completion_tokens": 341,
+                "prompt_tokens": 3745,
+                "total_tokens": 4086,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 182
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 801
+            },
+            {
+                "completion_tokens": 314,
+                "prompt_tokens": 4773,
+                "total_tokens": 5087,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 158
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 805
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "890311058262",
+        "name": "八爪鱼大爆头即食网红小吃零食章鱼鱿鱼须麻辣海鲜熟食罐头下饭菜",
+        "attributes": [
+            "网红",
+            "下饭菜",
+            "大爆头",
+            "麻辣"
+        ],
+        "goal_options": [
+            "【八爪+蛤蜊+鱿鱼】共3罐"
+        ],
+        "price_upper": 100
+    },
+    "purchase_summary": {
+        "asin": "890311058262",
+        "name": "八爪鱼大爆头即食网红小吃零食章鱼鱿鱼须麻辣海鲜熟食罐头下饭菜",
+        "attributes": [
+            "网红",
+            "下饭菜",
+            "大爆头",
+            "麻辣"
+        ],
+        "options": {
+            "口味": "【八爪+蛤蜊+鱿鱼】共3罐"
+        },
+        "price": 89.28980133772014
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 890311058262 [SEP] options [SEP] {\"\\u53e3\\u5473\": \"\\u3010\\u516b\\u722a+\\u86e4\\u870a+\\u9c7f\\u9c7c\\u3011\\u51713\\u7f50\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

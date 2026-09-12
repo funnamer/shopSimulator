@@ -1,0 +1,187 @@
+{
+    "task_id": 17322,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 9,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我要买一款2025年春季新款的高跟鞋，鞋码37码，表面有星星图案，适合婚礼穿着，鞋面为白色羊绒皮材质，价格在1000元以内。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "870067047324"
+    ],
+    "selected_options": {
+        "鞋码": "37码235-【联系客服领券】",
+        "颜色分类": "da1白色羊绒皮"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "2025春季新款 高跟鞋 白色羊绒皮 星星图案 婚礼 37码 1000元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "870067047324"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "37码235-【联系客服领券】"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "da1白色羊绒皮"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 16853,
+        "completion_tokens": 2885,
+        "total_tokens": 19738,
+        "by_call": [
+            {
+                "completion_tokens": 1039,
+                "prompt_tokens": 635,
+                "total_tokens": 1674,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 865
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 251
+            },
+            {
+                "completion_tokens": 516,
+                "prompt_tokens": 2809,
+                "total_tokens": 3325,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 363
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1408
+                },
+                "prompt_cache_hit_tokens": 1408,
+                "prompt_cache_miss_tokens": 1401
+            },
+            {
+                "completion_tokens": 457,
+                "prompt_tokens": 3719,
+                "total_tokens": 4176,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 284
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 519
+            },
+            {
+                "completion_tokens": 162,
+                "prompt_tokens": 4568,
+                "total_tokens": 4730,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 51
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 472
+            },
+            {
+                "completion_tokens": 711,
+                "prompt_tokens": 5122,
+                "total_tokens": 5833,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 579
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4608
+                },
+                "prompt_cache_hit_tokens": 4608,
+                "prompt_cache_miss_tokens": 514
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "870067047324",
+        "name": "STACCATO思加图高跟鞋2025春季商场新品繁星婚鞋优雅女鞋9NW84AQ5",
+        "attributes": [
+            "2025春季",
+            "新品",
+            "高跟鞋",
+            "繁星图案"
+        ],
+        "goal_options": [
+            "37码235-【联系客服领券】",
+            "DA1白色羊绒皮"
+        ],
+        "price_upper": 880
+    },
+    "purchase_summary": {
+        "asin": "870067047324",
+        "name": "STACCATO思加图高跟鞋2025春季商场新品繁星婚鞋优雅女鞋9NW84AQ5",
+        "attributes": [
+            "2025春季",
+            "新品",
+            "高跟鞋",
+            "繁星图案"
+        ],
+        "options": {
+            "鞋码": "37码235-【联系客服领券】",
+            "颜色分类": "da1白色羊绒皮"
+        },
+        "price": 849.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 870067047324 [SEP] options [SEP] {\"\\u978b\\u7801\": \"37\\u7801235-\\u3010\\u8054\\u7cfb\\u5ba2\\u670d\\u9886\\u5238\\u3011\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"da1\\u767d\\u8272\\u7f8a\\u7ed2\\u76ae\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

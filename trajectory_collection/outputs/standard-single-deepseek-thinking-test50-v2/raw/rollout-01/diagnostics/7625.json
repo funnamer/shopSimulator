@@ -1,0 +1,168 @@
+{
+    "task_id": 7625,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 12,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 6,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想入手一台洗地机，在家能自由移动，一边扫地吸尘，一边拖地，把家里角角落落都能打扫到，还能避免头发缠绕，清洁后能减少病毒细菌对人体的危害，预算在2000元以内。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "762372534750"
+    ],
+    "selected_options": {
+        "颜色分类": "米家无线洗地机2c"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "洗地机 家用 无线 吸拖一体 防缠绕 除菌 2000元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "762372534750"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "米家无线洗地机2c"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 11272,
+        "completion_tokens": 2729,
+        "total_tokens": 14001,
+        "by_call": [
+            {
+                "completion_tokens": 631,
+                "prompt_tokens": 646,
+                "total_tokens": 1277,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 503
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 1020,
+                "prompt_tokens": 2478,
+                "total_tokens": 3498,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 789
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1326
+            },
+            {
+                "completion_tokens": 482,
+                "prompt_tokens": 3722,
+                "total_tokens": 4204,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 342
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 650
+            },
+            {
+                "completion_tokens": 596,
+                "prompt_tokens": 4426,
+                "total_tokens": 5022,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 455
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 330
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "762372534750",
+        "name": "小米米家无线洗地机2C家用贴边扫吸拖洗三合一防缠绕专业杀菌消毒",
+        "attributes": [
+            "家用",
+            "贴边",
+            "扫吸拖洗三合一",
+            "防缠绕",
+            "杀菌消毒",
+            "专业"
+        ],
+        "goal_options": [
+            "米家无线洗地机2C"
+        ],
+        "price_upper": 2340
+    },
+    "purchase_summary": {
+        "asin": "762372534750",
+        "name": "小米米家无线洗地机2C家用贴边扫吸拖洗三合一防缠绕专业杀菌消毒",
+        "attributes": [
+            "家用",
+            "贴边",
+            "扫吸拖洗三合一",
+            "防缠绕",
+            "杀菌消毒",
+            "专业"
+        ],
+        "options": {
+            "颜色分类": "米家无线洗地机2c"
+        },
+        "price": 1999.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 762372534750 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u7c73\\u5bb6\\u65e0\\u7ebf\\u6d17\\u5730\\u673a2c\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

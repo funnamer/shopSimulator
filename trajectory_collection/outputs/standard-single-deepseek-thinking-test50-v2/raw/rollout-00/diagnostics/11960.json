@@ -1,0 +1,227 @@
+{
+    "task_id": 11960,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 13,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 求推荐一款面部磨砂产品，啫喱质地的，是150克装的，价格在120元左右，男女通用，可以有效清洁毛孔去除死皮和黑头。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 7,
+    "invalid_tool_response_count": 0,
+    "num_searches": 2,
+    "num_clicks": 5,
+    "num_back_to_search": 1,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "782075302352",
+        "893671573372"
+    ],
+    "selected_options": {
+        "净含量": "150g"
+    },
+    "last_action": {
+        "step": 7,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "面部磨砂 啫喱 150g 男女通用 清洁毛孔 去死皮 黑头"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "782075302352"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "back to search"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "search",
+            "arguments": {
+                "keywords": "面部磨砂啫喱 150g 黑头 男女"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "893671573372"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "150g"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 7,
+        "prompt_tokens": 26239,
+        "completion_tokens": 2354,
+        "total_tokens": 28593,
+        "by_call": [
+            {
+                "completion_tokens": 253,
+                "prompt_tokens": 632,
+                "total_tokens": 885,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 193
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 248
+            },
+            {
+                "completion_tokens": 493,
+                "prompt_tokens": 2107,
+                "total_tokens": 2600,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 453
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1339
+            },
+            {
+                "completion_tokens": 954,
+                "prompt_tokens": 2837,
+                "total_tokens": 3791,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 915
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 277
+            },
+            {
+                "completion_tokens": 142,
+                "prompt_tokens": 3873,
+                "total_tokens": 4015,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 91
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 161
+            },
+            {
+                "completion_tokens": 146,
+                "prompt_tokens": 5226,
+                "total_tokens": 5372,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 106
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 1258
+            },
+            {
+                "completion_tokens": 89,
+                "prompt_tokens": 5618,
+                "total_tokens": 5707,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 51
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5248
+                },
+                "prompt_cache_hit_tokens": 5248,
+                "prompt_cache_miss_tokens": 370
+            },
+            {
+                "completion_tokens": 277,
+                "prompt_tokens": 5946,
+                "total_tokens": 6223,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 239
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5632
+                },
+                "prompt_cache_hit_tokens": 5632,
+                "prompt_cache_miss_tokens": 314
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "893671573372",
+        "name": "去角质面部死皮深层清洁毛孔黑头脸部磨砂啫喱官方旗舰店正品男女",
+        "attributes": [
+            "啫喱",
+            "男女通用",
+            "清洁毛孔",
+            "去死皮",
+            "去黑头"
+        ],
+        "goal_options": [
+            "150g"
+        ],
+        "price_upper": 280
+    },
+    "purchase_summary": {
+        "asin": "893671573372",
+        "name": "去角质面部死皮深层清洁毛孔黑头脸部磨砂啫喱官方旗舰店正品男女",
+        "attributes": [
+            "啫喱",
+            "男女通用",
+            "清洁毛孔",
+            "去死皮",
+            "去黑头"
+        ],
+        "options": {
+            "净含量": "150g"
+        },
+        "price": 191.4333693704683
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 893671573372 [SEP] options [SEP] {\"\\u51c0\\u542b\\u91cf\": \"150g\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

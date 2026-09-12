@@ -1,0 +1,189 @@
+{
+    "task_id": 5225,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想要采购一批做卡通造型包子用的馅料，适合做流心奶黄包的那种，听说广源出的奶黄味很稳定，也用得上糖葫芦、锅巴夹心这些创意吃法，要1斤装的，价格不超过10元的。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "772361444114"
+    ],
+    "selected_options": {
+        "规格描述": "（1斤）",
+        "颜色分类": "广源奶黄味馅"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "广源 奶黄馅 1斤 流心奶黄包 卡通包子 馅料"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "772361444114"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "广源奶黄味馅"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "（1斤）"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 14652,
+        "completion_tokens": 1836,
+        "total_tokens": 16488,
+        "by_call": [
+            {
+                "completion_tokens": 393,
+                "prompt_tokens": 648,
+                "total_tokens": 1041,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 236
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 136
+            },
+            {
+                "completion_tokens": 427,
+                "prompt_tokens": 2267,
+                "total_tokens": 2694,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 256
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1243
+            },
+            {
+                "completion_tokens": 475,
+                "prompt_tokens": 3115,
+                "total_tokens": 3590,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 333
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 427
+            },
+            {
+                "completion_tokens": 200,
+                "prompt_tokens": 4004,
+                "total_tokens": 4204,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 70
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 420
+            },
+            {
+                "completion_tokens": 341,
+                "prompt_tokens": 4618,
+                "total_tokens": 4959,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 178
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 522
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "772361444114",
+        "name": "卡通包子奶黄馅料糖葫芦锅巴馅饼汤圆板栗馅香芋紫薯绿豆芝麻味馅",
+        "attributes": [
+            "卡通包子",
+            "糖葫芦",
+            "锅巴",
+            "馅饼",
+            "汤圆"
+        ],
+        "goal_options": [
+            "（1斤）",
+            "广源奶黄味馅"
+        ],
+        "price_upper": 120
+    },
+    "purchase_summary": {
+        "asin": "772361444114",
+        "name": "卡通包子奶黄馅料糖葫芦锅巴馅饼汤圆板栗馅香芋紫薯绿豆芝麻味馅",
+        "attributes": [
+            "卡通包子",
+            "糖葫芦",
+            "锅巴",
+            "馅饼",
+            "汤圆"
+        ],
+        "options": {
+            "规格描述": "（1斤）",
+            "颜色分类": "广源奶黄味馅"
+        },
+        "price": 95.66892027233402
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 772361444114 [SEP] options [SEP] {\"\\u89c4\\u683c\\u63cf\\u8ff0\": \"\\uff081\\u65a4\\uff09\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u5e7f\\u6e90\\u5976\\u9ec4\\u5473\\u9985\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

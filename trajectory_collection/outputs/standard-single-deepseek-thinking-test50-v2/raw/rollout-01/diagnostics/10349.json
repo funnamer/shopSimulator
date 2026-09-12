@@ -1,0 +1,194 @@
+{
+    "task_id": 10349,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 7,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9090909090909091
+    },
+    "instruction": "Instruction: 请帮我找一款25年经典怀旧的新款男士运动鞋，要求具有透气排汗、夏天穿着不闷脚的特点，穿上能增加身高，颜色为纯黑色，尺码为40号，价格在500元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "921057056764",
+        "40"
+    ],
+    "selected_options": {
+        "鞋码": "40",
+        "颜色分类": "001正黑"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "25年新款 男士运动鞋 经典怀旧 透气排汗 增高 纯黑色 40码 500元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "921057056764"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "001正黑"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "40"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 16465,
+        "completion_tokens": 2657,
+        "total_tokens": 19122,
+        "by_call": [
+            {
+                "completion_tokens": 676,
+                "prompt_tokens": 643,
+                "total_tokens": 1319,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 551
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 509
+                },
+                "prompt_cache_hit_tokens": 509,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 857,
+                "prompt_tokens": 2460,
+                "total_tokens": 3317,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 678
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1280
+                },
+                "prompt_cache_hit_tokens": 1280,
+                "prompt_cache_miss_tokens": 1180
+            },
+            {
+                "completion_tokens": 375,
+                "prompt_tokens": 3715,
+                "total_tokens": 4090,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 231
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 515
+            },
+            {
+                "completion_tokens": 279,
+                "prompt_tokens": 4486,
+                "total_tokens": 4765,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 167
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 518
+            },
+            {
+                "completion_tokens": 470,
+                "prompt_tokens": 5161,
+                "total_tokens": 5631,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 320
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4736
+                },
+                "prompt_cache_hit_tokens": 4736,
+                "prompt_cache_miss_tokens": 425
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "921057056764",
+        "name": "鸿羽2鸿星尔克男鞋复古老爹鞋2025夏季新款透气运动鞋增高休闲鞋",
+        "attributes": [
+            "男鞋",
+            "复古",
+            "2025",
+            "夏季",
+            "新款",
+            "透气",
+            "增高"
+        ],
+        "goal_options": [
+            "001正黑",
+            "40"
+        ],
+        "price_upper": 570
+    },
+    "purchase_summary": {
+        "asin": "921057056764",
+        "name": "鸿羽2鸿星尔克男鞋复古老爹鞋2025夏季新款透气运动鞋增高休闲鞋",
+        "attributes": [
+            "男鞋",
+            "复古",
+            "2025",
+            "夏季",
+            "新款",
+            "透气",
+            "增高"
+        ],
+        "options": {
+            "鞋码": "40",
+            "颜色分类": "001正黑"
+        },
+        "price": 499.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 921057056764 [SEP] options [SEP] {\"\\u978b\\u7801\": \"40\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"001\\u6b63\\u9ed1\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

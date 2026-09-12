@@ -1,0 +1,238 @@
+{
+    "task_id": 17526,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 2,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想找一款colorgram品牌的哑光唇釉，覆盖力强，自然且可以遮掩原本的唇色，颜色是低饱和度的夹杂了水泥灰色的暖棕色调，60元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 7,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 6,
+    "num_back_to_search": 0,
+    "num_detail_views": 2,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "908469851163"
+    ],
+    "selected_options": {
+        "颜色分类": "05  cement❤韩网热卖"
+    },
+    "last_action": {
+        "step": 7,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "colorgram 哑光唇釉 低饱和 水泥灰 暖棕 遮唇色 60元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "908469851163"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "05  cement❤韩网热卖"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[features]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：features 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 7,
+        "prompt_tokens": 20056,
+        "completion_tokens": 1543,
+        "total_tokens": 21599,
+        "by_call": [
+            {
+                "completion_tokens": 341,
+                "prompt_tokens": 634,
+                "total_tokens": 975,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 282
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 250
+            },
+            {
+                "completion_tokens": 207,
+                "prompt_tokens": 2143,
+                "total_tokens": 2350,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 167
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1247
+            },
+            {
+                "completion_tokens": 475,
+                "prompt_tokens": 2652,
+                "total_tokens": 3127,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 438
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2304
+                },
+                "prompt_cache_hit_tokens": 2304,
+                "prompt_cache_miss_tokens": 348
+            },
+            {
+                "completion_tokens": 58,
+                "prompt_tokens": 3248,
+                "total_tokens": 3306,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 21
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 176
+            },
+            {
+                "completion_tokens": 61,
+                "prompt_tokens": 3356,
+                "total_tokens": 3417,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 24
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 156
+            },
+            {
+                "completion_tokens": 285,
+                "prompt_tokens": 3719,
+                "total_tokens": 4004,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 241
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 391
+            },
+            {
+                "completion_tokens": 116,
+                "prompt_tokens": 4304,
+                "total_tokens": 4420,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 78
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3968
+                },
+                "prompt_cache_hit_tokens": 3968,
+                "prompt_cache_miss_tokens": 336
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "908469851163",
+        "name": "低饱和度哑光唇部打底唇釉 韩国colorgram遮盖唇色遮瑕唇霜裸色",
+        "attributes": [
+            "低饱和度",
+            "哑光",
+            "colorgram",
+            "遮盖唇色",
+            "裸色"
+        ],
+        "goal_options": [
+            "05 Cement?韩网热卖"
+        ],
+        "price_upper": 80
+    },
+    "purchase_summary": {
+        "asin": "908469851163",
+        "name": "低饱和度哑光唇部打底唇釉 韩国colorgram遮盖唇色遮瑕唇霜裸色",
+        "attributes": [
+            "低饱和度",
+            "哑光",
+            "colorgram",
+            "遮盖唇色",
+            "裸色"
+        ],
+        "options": {
+            "颜色分类": "05  cement❤韩网热卖"
+        },
+        "price": 57.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 908469851163 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"05  cement\\u2764\\u97e9\\u7f51\\u70ed\\u5356\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

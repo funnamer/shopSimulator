@@ -1,0 +1,185 @@
+{
+    "task_id": 7145,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 2,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 3,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9
+    },
+    "instruction": "Instruction: 帮我选一款1升的咖啡液，要法国的，浓度高的，原味就可以，能作为制作提拉米苏的原料，价格在400元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "637098017877"
+    ],
+    "selected_options": {
+        "口味": "原味",
+        "总净含量": "1000ml"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "法国 咖啡液 1L 原味 高浓度 提拉米苏 400元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "637098017877"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "1000ml"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "原味"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 12263,
+        "completion_tokens": 1179,
+        "total_tokens": 13442,
+        "by_call": [
+            {
+                "completion_tokens": 237,
+                "prompt_tokens": 628,
+                "total_tokens": 865,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 180
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 244
+            },
+            {
+                "completion_tokens": 344,
+                "prompt_tokens": 2076,
+                "total_tokens": 2420,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 304
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1308
+            },
+            {
+                "completion_tokens": 477,
+                "prompt_tokens": 2635,
+                "total_tokens": 3112,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 438
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2304
+                },
+                "prompt_cache_hit_tokens": 2304,
+                "prompt_cache_miss_tokens": 331
+            },
+            {
+                "completion_tokens": 61,
+                "prompt_tokens": 3325,
+                "total_tokens": 3386,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 23
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 253
+            },
+            {
+                "completion_tokens": 60,
+                "prompt_tokens": 3599,
+                "total_tokens": 3659,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 22
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 271
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "637098017877",
+        "name": "法国DGF咖啡液浓缩 迪/吉福咖啡液马卡龙提拉米苏欧贝拉珍妮曲奇",
+        "attributes": [
+            "法国",
+            "浓缩",
+            "提拉米苏"
+        ],
+        "goal_options": [
+            "1000ml",
+            "原味"
+        ],
+        "price_upper": 470
+    },
+    "purchase_summary": {
+        "asin": "637098017877",
+        "name": "法国DGF咖啡液浓缩 迪/吉福咖啡液马卡龙提拉米苏欧贝拉珍妮曲奇",
+        "attributes": [
+            "法国",
+            "浓缩",
+            "提拉米苏"
+        ],
+        "options": {
+            "口味": "原味",
+            "总净含量": "1000ml"
+        },
+        "price": 385.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 637098017877 [SEP] options [SEP] {\"\\u53e3\\u5473\": \"\\u539f\\u5473\", \"\\u603b\\u51c0\\u542b\\u91cf\": \"1000ml\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

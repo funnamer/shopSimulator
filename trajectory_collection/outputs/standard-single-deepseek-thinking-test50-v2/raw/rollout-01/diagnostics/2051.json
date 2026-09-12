@@ -1,0 +1,166 @@
+{
+    "task_id": 2051,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 15,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 想买一款无线连接的手链，手机来电话时能通过振动提示，而且不易被盗，外观颜色要黑色的，价格在90元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "705550504865"
+    ],
+    "selected_options": {
+        "颜色分类": "黑色"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "蓝牙手链 来电振动 防盗 黑色 90元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "705550504865"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "黑色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9435,
+        "completion_tokens": 1516,
+        "total_tokens": 10951,
+        "by_call": [
+            {
+                "completion_tokens": 463,
+                "prompt_tokens": 625,
+                "total_tokens": 1088,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 265
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 491,
+                "prompt_tokens": 2284,
+                "total_tokens": 2775,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 256
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1260
+            },
+            {
+                "completion_tokens": 336,
+                "prompt_tokens": 2989,
+                "total_tokens": 3325,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 110
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 301
+            },
+            {
+                "completion_tokens": 226,
+                "prompt_tokens": 3537,
+                "total_tokens": 3763,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 43
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 337
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "705550504865",
+        "name": "蓝牙手链手镯智能手机来电震动提醒器提示防盗防丢器振动手环",
+        "attributes": [
+            "手链",
+            "蓝牙",
+            "智能手机",
+            "来电震动",
+            "提醒"
+        ],
+        "goal_options": [
+            "黑色"
+        ],
+        "price_upper": 120
+    },
+    "purchase_summary": {
+        "asin": "705550504865",
+        "name": "蓝牙手链手镯智能手机来电震动提醒器提示防盗防丢器振动手环",
+        "attributes": [
+            "手链",
+            "蓝牙",
+            "智能手机",
+            "来电震动",
+            "提醒"
+        ],
+        "options": {
+            "颜色分类": "黑色"
+        },
+        "price": 92.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 705550504865 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9ed1\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

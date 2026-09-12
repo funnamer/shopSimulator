@@ -1,0 +1,164 @@
+{
+    "task_id": 12144,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 6,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.7692307692307693
+    },
+    "instruction": "Instruction: 购买一款用于抓黄鳝的黑色记忆金属钩，材质为镍钛合金，钩子直径为1.5毫米，具有超强的弹性和超高的硬度，价格在10元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "642169729313"
+    ],
+    "selected_options": {
+        "颜色分类": "黑色"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "黑色 镍钛合金 记忆金属钩 1.5mm 抓黄鳝 超弹 超硬"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "642169729313"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "黑色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9930,
+        "completion_tokens": 1521,
+        "total_tokens": 11451,
+        "by_call": [
+            {
+                "completion_tokens": 652,
+                "prompt_tokens": 635,
+                "total_tokens": 1287,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 517
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 251
+            },
+            {
+                "completion_tokens": 382,
+                "prompt_tokens": 2544,
+                "total_tokens": 2926,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 230
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1280
+                },
+                "prompt_cache_hit_tokens": 1280,
+                "prompt_cache_miss_tokens": 1264
+            },
+            {
+                "completion_tokens": 292,
+                "prompt_tokens": 3129,
+                "total_tokens": 3421,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 183
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 313
+            },
+            {
+                "completion_tokens": 195,
+                "prompt_tokens": 3622,
+                "total_tokens": 3817,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 108
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 294
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "642169729313",
+        "name": "1.5mm镍钛合金记忆钢丝超弹超硬镍钛合金记忆金属线黄鳝钩鞋底钩",
+        "attributes": [
+            "1.5mm",
+            "黄鳝钩",
+            "超弹",
+            "超硬"
+        ],
+        "goal_options": [
+            "黑色"
+        ],
+        "price_upper": 30
+    },
+    "purchase_summary": {
+        "asin": "642169729313",
+        "name": "1.5mm镍钛合金记忆钢丝超弹超硬镍钛合金记忆金属线黄鳝钩鞋底钩",
+        "attributes": [
+            "1.5mm",
+            "黄鳝钩",
+            "超弹",
+            "超硬"
+        ],
+        "options": {
+            "颜色分类": "黑色"
+        },
+        "price": 12.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 642169729313 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9ed1\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

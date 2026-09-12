@@ -1,0 +1,189 @@
+{
+    "task_id": 19943,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 2,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我要帮我姐妹买一件夏季新品的烧花T恤，选用真丝丝绒材质制作的，需要适合追求名媛风的女士穿着，颜色就要淡桔色，尺码选M，预算控制在850元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "803458577165"
+    ],
+    "selected_options": {
+        "尺码": "m",
+        "颜色分类": "淡桔"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "真丝丝绒 烧花T恤 淡桔色 名媛风 夏季新品"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "803458577165"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "淡桔"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "m"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 14040,
+        "completion_tokens": 1748,
+        "total_tokens": 15788,
+        "by_call": [
+            {
+                "completion_tokens": 665,
+                "prompt_tokens": 639,
+                "total_tokens": 1304,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 499
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 255
+            },
+            {
+                "completion_tokens": 365,
+                "prompt_tokens": 2473,
+                "total_tokens": 2838,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 199
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1280
+                },
+                "prompt_cache_hit_tokens": 1280,
+                "prompt_cache_miss_tokens": 1193
+            },
+            {
+                "completion_tokens": 348,
+                "prompt_tokens": 3101,
+                "total_tokens": 3449,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 219
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 285
+            },
+            {
+                "completion_tokens": 146,
+                "prompt_tokens": 3710,
+                "total_tokens": 3856,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 44
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 382
+            },
+            {
+                "completion_tokens": 224,
+                "prompt_tokens": 4117,
+                "total_tokens": 4341,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 94
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 277
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "803458577165",
+        "name": "轻奢名媛真丝丝绒烧花T恤衫女夏季新款中式国风唐装时尚气质上衣",
+        "attributes": [
+            "夏季新品",
+            "烧花面料",
+            "T恤",
+            "真丝丝绒材质",
+            "名媛风"
+        ],
+        "goal_options": [
+            "淡桔",
+            "M"
+        ],
+        "price_upper": 910
+    },
+    "purchase_summary": {
+        "asin": "803458577165",
+        "name": "轻奢名媛真丝丝绒烧花T恤衫女夏季新款中式国风唐装时尚气质上衣",
+        "attributes": [
+            "夏季新品",
+            "烧花面料",
+            "T恤",
+            "真丝丝绒材质",
+            "名媛风"
+        ],
+        "options": {
+            "尺码": "m",
+            "颜色分类": "淡桔"
+        },
+        "price": 828.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 803458577165 [SEP] options [SEP] {\"\\u5c3a\\u7801\": \"m\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u6de1\\u6854\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

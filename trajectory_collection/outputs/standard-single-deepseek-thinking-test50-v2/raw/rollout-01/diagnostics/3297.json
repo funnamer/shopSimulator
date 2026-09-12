@@ -1,0 +1,190 @@
+{
+    "task_id": 3297,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 9,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9090909090909091
+    },
+    "instruction": "Instruction: 能推荐一双情侣款专业羽毛球鞋吗？希望减震回弹的效果好一点，还要有透气的特性，这样穿起来比较舒服，至于颜色，我想买普通的白色款，我的脚是39码的，价格不能高于350块喔~\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "942162479009",
+        "39"
+    ],
+    "selected_options": {
+        "鞋码": "39",
+        "颜色分类": "ayzu005-2标准白"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "情侣款 专业羽毛球鞋 减震回弹 透气 白色 39码 350元以下"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "942162479009"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "ayzu005-2标准白"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "39"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13220,
+        "completion_tokens": 2072,
+        "total_tokens": 15292,
+        "by_call": [
+            {
+                "completion_tokens": 351,
+                "prompt_tokens": 648,
+                "total_tokens": 999,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 205
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 136
+            },
+            {
+                "completion_tokens": 342,
+                "prompt_tokens": 2159,
+                "total_tokens": 2501,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 199
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 640
+                },
+                "prompt_cache_hit_tokens": 640,
+                "prompt_cache_miss_tokens": 1519
+            },
+            {
+                "completion_tokens": 315,
+                "prompt_tokens": 2862,
+                "total_tokens": 3177,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 185
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 430
+            },
+            {
+                "completion_tokens": 135,
+                "prompt_tokens": 3531,
+                "total_tokens": 3666,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 44
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3072
+                },
+                "prompt_cache_hit_tokens": 3072,
+                "prompt_cache_miss_tokens": 459
+            },
+            {
+                "completion_tokens": 929,
+                "prompt_tokens": 4020,
+                "total_tokens": 4949,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 806
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 436
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "942162479009",
+        "name": "李宁羽毛球鞋 音爆系列 男女情侣款减震回弹舒适透气专业比赛鞋",
+        "attributes": [
+            "情侣款",
+            "专业",
+            "减震",
+            "回弹",
+            "透气"
+        ],
+        "goal_options": [
+            "AYZU005-2标准白",
+            "39"
+        ],
+        "price_upper": 400
+    },
+    "purchase_summary": {
+        "asin": "942162479009",
+        "name": "李宁羽毛球鞋 音爆系列 男女情侣款减震回弹舒适透气专业比赛鞋",
+        "attributes": [
+            "情侣款",
+            "专业",
+            "减震",
+            "回弹",
+            "透气"
+        ],
+        "options": {
+            "鞋码": "39",
+            "颜色分类": "ayzu005-2标准白"
+        },
+        "price": 311.76045867941343
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 942162479009 [SEP] options [SEP] {\"\\u978b\\u7801\": \"39\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"ayzu005-2\\u6807\\u51c6\\u767d\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

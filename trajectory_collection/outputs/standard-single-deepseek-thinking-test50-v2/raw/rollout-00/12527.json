@@ -1,0 +1,147 @@
+{
+    "task_id": 12527,
+    "reward": 0.8333333333333334,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 3,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 0.5,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "goal": {
+        "asin": "918442053910",
+        "attributes": [
+            "裱花",
+            "刮刀花",
+            "粽子"
+        ],
+        "category": "粮油调味/速食/干货/烘焙›烘焙原料/辅料/食品添加剂›烘培原料›烘焙馅料",
+        "goal_options": [
+            "力创华成 低糖白豆沙",
+            "降甜版低糖白豆沙200g"
+        ],
+        "instruction_simple": null,
+        "instruction_text": "帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。",
+        "name": "力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料",
+        "price_upper": 280,
+        "query": "",
+        "reason_key": null,
+        "user_persona": {},
+        "weight": 1
+    },
+    "purchase": {
+        "asin": "918442053910",
+        "attributes": [
+            "裱花",
+            "刮刀花",
+            "粽子"
+        ],
+        "category": "粮油调味/速食/干货/烘焙›烘焙原料/辅料/食品添加剂›烘培原料›烘焙馅料",
+        "instruction_text": "帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。",
+        "name": "力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料",
+        "options": {
+            "颜色分类": "降甜版低糖白豆沙200g"
+        },
+        "price": 224.87997164109922,
+        "product_category": "",
+        "query": ""
+    },
+    "conversation": [
+        {
+            "role": "system",
+            "content": "你正在进行网上购物。\n我会给你一些关于需要做什么的指示。\n你必须遵循这些指示。\n每一轮，我会给你一个观察结果和一组可用的操作，你需要根据当前状态和指示来选择一个操作进行响应。\n如果搜索功能可用，你可以使用search工具执行搜索操作。\n你可以使用click工具点击可点击的按钮列表中的某一个按钮。\n如果操作无效，则不执行任何操作。\n搜索中的关键词由你自行决定，但点击操作中的值必须是可用操作列表中的值。\n一轮只能执行一个动作\n注意，在点击购买前，确保至少点击了一个商品的规格。\n请记住，你的搜索关键词应该精心设计。\n\n请在 Thought 中尝试回答以下几个问题：\n在当前的状态下你是如何思考以做出下一步操作？\n应该选择执行什么操作？\n这个操作是否直接或间接地帮助实现最终目标？\n选择的这个商品是否能够完全符合用户的要求？\n选择的商品规格是否完全覆盖了用户的要求？\n请你认真思考后给出你的思考过程。\n"
+        },
+        {
+            "role": "user",
+            "content": "Instruction: 帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []"
+        },
+        {
+            "content": "Thought: 当前没有可点击按钮，说明还不能直接选择或购买；搜索功能可用，因此下一步应先通过搜索获取符合“低糖白豆沙馅料、200g、可用于包粽子/裱花/刮刀花、价格约10元”的候选商品。这个动作能帮助后续筛选和点击，是实现最终目标的第一步。由于还没看到商品，暂时无法判断具体商品是否完全符合要求，也无法判断规格是否覆盖全部用途。  \n关键词应兼顾核心属性与用途，优先搜索“低糖白豆沙馅料 200g 裱花 刮刀花”，这样既能锁定低糖白豆沙和200g规格，又能覆盖裱花、刮刀花等用途。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_Qxh6prikgruv10aCriYj3192",
+                    "function": {
+                        "arguments": "{\"keywords\": \"低糖白豆沙馅料 200g 裱花 刮刀花\"}",
+                        "name": "search"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "我们需要回答用户指令。我们需要进行网上购物。当前状态：指令要求推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格10元左右。搜索可用。可点击按钮为空。需要选择动作。由于没有可点击按钮，只能搜索。需要精心设计关键词。也许应该搜索“低糖白豆沙馅料 200g 裱花 刮刀花 粽子”。我们需要在思考中回答那几个问题。然后给出操作。注意工具调用格式：在需要时调用 search。我们必须执行一个动作。当前没有可点击按钮，所以搜索。需要确保最终目标推荐商品？这是一个购物任务，我们应该搜索找到符合条件商品，然后后续点击。现在第一步搜索。关键词需要精准。可能中文电商搜索：低糖 白豆沙 馅料 200g 裱花 刮刀花 粽子。但太长可能没有结果。我们可以搜索“低糖白豆沙馅料 200g 裱花”。因为要求含糖量低，白豆沙，200g，用于包粽子、裱花、刮刀花。价格10元左右。也许“白豆沙馅 低糖 200g 裱花 刮刀花”。选一个。\n\n需要输出 Thought 内容。注意系统说请在 Thought 中尝试回答... 因此我们应包含思考过程。然后调用工具。最终助手应该包含 thinking? 我们可以输出一个思考段落，然后调用 search。由于工具调用需要单独。按照格式，我们先写思考，然后调用。但指令说必须在 Thought 中尝试回答。也许在回复中写“Thought: ...”然后工具调用。工具调用会中断？一般可以。\n\n注意：一轮只能执行一个动作。所以只调用 search。\n\n关键词选择：可能精准但不宜过于狭窄。例如“低糖白豆沙馅 200g”。但用户要求包粽子、裱花、刮刀花。这些用途可能标题包含“裱花 刮刀花”。搜索“低糖白豆沙馅料 200g 裱花 刮刀花 粽子”可能太具体。但搜索功能可能匹配关键词。如果搜索无结果，可后续调整。关键词可以包括“低糖 白豆沙 200g”。但为了满足用途，可以“低糖白豆沙馅 200g 裱花 刮刀花”。包粽子可能不少白豆沙可用于粽子，不必须搜索词。价格不需要搜索词，之后筛选。\n\n我们需要决定。当前可点击按钮空，搜索是唯一动作。调用 search 参数 keywords。可以用“低糖白豆沙馅料 200g 裱花 刮刀花 粽子”。如果搜索系统精确，可能返回无结果。通常购物搜索能够处理长尾。但最好平衡：核心属性是“低糖 白豆沙 馅料 200g”。用途“裱花 刮刀花”可能是规格/描述。包粽子是普遍用途。价格10元左右不搜索。关键词：低糖白豆沙馅 200g 裱花。这样较好。\n\n但是用户要求推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。搜索关键词应精心设计。可能“白豆沙馅料 低糖 200g 裱花 刮刀花”更全。如果我搜索“低糖白豆沙馅 200g 裱花 刮刀花”可能返回。让我们调用。\n\n确认没有可点击按钮，所以不能点击。搜索是否可用 True。调用 search。\n\n在思考中回答：\n- 当前状态：无按钮，只有搜索可用，需先找候选商品。\n- 选择操作：search。\n- 是否帮助最终目标：是，获取候选。\n- 选择商品能否完全符合：尚未选择商品。\n- 规格是否覆盖：尚未。\n\n然后工具调用。"
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_Qxh6prikgruv10aCriYj3192",
+            "content": "Instruction: [SEP] 帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。 [SEP] Back to Search [SEP] Page 1 (Total results: 150) [SEP] Next > [SEP] 918442053910 [SEP] 力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料 [SEP] 10.0 to 438.0 [SEP] 778336940172 [SEP] 金西湖绿豆沙低糖绿豆馅料绿豆冰糕烘焙糕点用绿豆沙馅料20kg [SEP] 298.0 [SEP] 805072691821 [SEP] 顺南馅料月饼青团原材料蛋黄酥馅糕点烘焙金装低糖红豆沙馅料500g [SEP] 7.0 to 74.0 [SEP] 888705520819 [SEP] 广州酒家低糖红豆沙馅泥奶黄凤梨黑芝麻包子五仁纯白莲蓉月饼馅料 [SEP] 50.0 [SEP] 902239330760 [SEP] 台杰绿豆沙馅料5kg木糖醇牛油果低糖绿豆冰糕甜品馅烘焙商用原料 [SEP] 207.0 to 253.0 [SEP] 865804416588 [SEP] 展艺低甜水洗红豆沙馅料月饼包子面包专用蛋黄酥汤圆青团家用烘焙 [SEP] 14.0 to 149.0 [SEP] 935728573170 [SEP] 豆沙色馅料冬蓉冬翅馅月饼馅料豆沙馅 [SEP] 12.0 to 128.0 [SEP] 536699019810 [SEP] 百钻红豆沙馅料月饼包子面包专用蛋黄酥汤圆粽子家用烘焙 [SEP] 11.0 to 28.0 [SEP] 785778019163 [SEP] 顺南月饼馅料低糖红豆沙馅冰皮原料家用包子莲蓉凤梨五仁奶黄500g [SEP] 25.0 to 89.0 [SEP] 803311266045 [SEP] 低糖红豆沙包子馅料做月饼蛋黄酥家用专烘焙纯正原材旗舰店0添加 [SEP] 8.0 to 159.0 [SEP] 553122569477 [SEP] 顺南低糖红豆沙白莲蓉黑芝麻紫薯冰皮绿凤梨月饼馅料烘焙商用5kg [SEP] 74.0 to 230.0 [SEP] 725626879049 [SEP] 水沙粒馅红豆沙馅10斤豆沙包粽子烧饼酥饼蛋黄酥汤圆馅料家用烘焙 [SEP] 10.0 to 99.0 [SEP] 885061745036 [SEP] 老式夹沙肉馅甜烧白喜沙肉糯米饭五花肉扣肉馅料豆沙传统洗沙馅料 [SEP] 13.0 [SEP] 933481442144 [SEP] 精品红豆沙馅料豆沙馅红豆沙泥粽子红豆沙包子月饼烘焙馅料豆沙泥 [SEP] 3.0 to 10.0 [SEP] 827041670930 [SEP] 糖尿人专用零食品血糖高无糖精红豆沙月饼馅料孕妇糖友人代餐早餐 [SEP] 18.0 to 45.0 [SEP] 912092693355 [SEP] 红豆沙馅月饼馅料专用包子馅料商用元宵汤圆青团甜品烘焙蜜豆沙馅 [SEP] 29.0 to 45.0 [SEP] 645688854363 [SEP] 正达广源 玫瑰豆沙馅14kg/箱 3袋包子馒头红豆沙馅料西点烘焙月饼 [SEP] 115.0 [SEP] 642201219878 [SEP] 广香园红豆沙10斤豆沙馅料红豆馅豆沙包子馅料糕点烘焙家用商用 [SEP] 42.0 to 128.0 [SEP] 610977565590 [SEP] 王致和红豆沙馅500g家用包子月饼蛋黄酥糕点面包烘焙馅料即食豆沙 [SEP] 7.0 [SEP] 595965071891 [SEP] 广西食全食美豆沙馅料红豆沙泥烘焙糕点家用月饼包子原料458g*2包 [SEP] 39.0 to 170.0\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"next >\", \"918442053910\", \"778336940172\", \"805072691821\", \"888705520819\", \"902239330760\", \"865804416588\", \"935728573170\", \"536699019810\", \"785778019163\", \"803311266045\", \"553122569477\", \"725626879049\", \"885061745036\", \"933481442144\", \"827041670930\", \"912092693355\", \"645688854363\", \"642201219878\", \"610977565590\", \"595965071891\"]"
+        },
+        {
+            "content": "Thought: 搜索结果中第一项“力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料”与需求高度吻合：它是白豆沙、低糖，且标题明确提到裱花、刮刀花和粽子馅料。价格区间从10.0起，可能对应200g规格，但需要进入商品详情确认规格、价格和是否完全覆盖用途。当前搜索不可用，但可点击商品按钮，因此下一步应点击该商品查看详情。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_JISGbIwHle6OqPZQxpRS4126",
+                    "function": {
+                        "arguments": "{\"value\": \"918442053910\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We need continue. We have search results. Need choose next action. User instruction: recommend a low-sugar white bean paste filling, 200g, can be used for zongzi, also for piping and scraper flowers, price around 10 yuan. Search results show first item \"力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料\" price 10.0 to 438.0. That looks highly relevant: low sugar white bean paste, used for Korean piping, tea confectionery skin, scraper flower, zongzi filling. Price range starts 10.0 likely for smaller size? Need 200g. We need click product to inspect specs. Current clickable buttons include product ID 918442053910 and next. Need click item. Since user wants 200g and around 10 yuan. The first item likely 200g at 10 yuan? Need verify via product page. We should click product ID. This is one action. Must ensure click value exactly from list. \"918442053910\". Let's do click. Need perhaps in thought explain. The instruction says if search not available? Now search false. We have buttons. We should click relevant product to check specs. Need maybe search is now False, but we can click. We'll select first product due matching. Let's call click."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_JISGbIwHle6OqPZQxpRS4126",
+            "content": "Instruction: [SEP] 帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。 [SEP] Back to Search [SEP] < Prev [SEP] 规格描述 [SEP] 力创华成 低糖白豆沙 [SEP] 颜色分类 [SEP] 降甜版低糖白豆沙500g*2包（比低糖的更不甜） [SEP] 降甜版低糖白豆沙500g（老师推荐） [SEP] 低糖唐菓子皮(白)500g*1包（到手即用） [SEP] 白豆沙500g（非低糖 较甜） [SEP] 精品白豆沙2kg*5包（非低糖 较甜） [SEP] 降甜版低糖白豆沙+低糖青稞红豆馅+低糖香芋馅（各200克） [SEP] 降甜版低糖白豆沙200g [SEP] 降甜版~低糖白豆沙5kg（商用划算） [SEP] 低糖唐菓子皮(白)5kg*1（到手即用） [SEP] 降甜版低糖白豆沙500g*3包（比低糖的更不甜） [SEP] 低糖紫薯+低糖青稞红豆馅+桂花馅 各200g (风味内馅) [SEP] 白豆沙5kg（非低糖款） [SEP] 精品白豆沙2kg（非低糖 较甜） [SEP] 白豆沙500g*2包（非低糖 较甜） [SEP] 白豆沙500g * 3包（非低糖 较甜） [SEP] 降甜版低糖白豆沙500g+低糖青稞红豆馅200g [SEP] 低糖油白豆沙5kg（中式酥点用） [SEP] 力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料 [SEP] 价格: 10.0 to 438.0 [SEP] 店铺: 百安记食品 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"力创华成 低糖白豆沙\", \"降甜版低糖白豆沙500g*2包（比低糖的更不甜）\", \"降甜版低糖白豆沙500g（老师推荐）\", \"低糖唐菓子皮(白)500g*1包（到手即用）\", \"白豆沙500g（非低糖 较甜）\", \"精品白豆沙2kg*5包（非低糖 较甜）\", \"降甜版低糖白豆沙+低糖青稞红豆馅+低糖香芋馅（各200克）\", \"降甜版低糖白豆沙200g\", \"降甜版~低糖白豆沙5kg（商用划算）\", \"低糖唐菓子皮(白)5kg*1（到手即用）\", \"降甜版低糖白豆沙500g*3包（比低糖的更不甜）\", \"低糖紫薯+低糖青稞红豆馅+桂花馅 各200g (风味内馅)\", \"白豆沙5kg（非低糖款）\", \"精品白豆沙2kg（非低糖 较甜）\", \"白豆沙500g*2包（非低糖 较甜）\", \"白豆沙500g * 3包（非低糖 较甜）\", \"降甜版低糖白豆沙500g+低糖青稞红豆馅200g\", \"低糖油白豆沙5kg（中式酥点用）\"]"
+        },
+        {
+            "content": "Thought: 进入商品详情后，可以看到该商品有“降甜版低糖白豆沙200g”规格，正好覆盖用户要求的“低糖白豆沙”和“200g装”。商品标题也明确包含“韩式裱花”“刮刀花”“粽子馅料”，说明用途符合。当前需要先选择这个200g规格，才能确认价格是否在10元左右，并为后续购买做准备。这个操作直接推进最终目标。",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_DjAWQvmSfrFyTeJ2LiD73464",
+                    "function": {
+                        "arguments": "{\"value\": \"降甜版低糖白豆沙200g\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We are on product detail. Need select specs. Requirement 200g, low sugar, white bean paste, used for zongzi, piping and scraper flower, price around 10. Available规格: \"降甜版低糖白豆沙200g\" and \"降甜版低糖白豆沙+低糖青稞红豆馅+低糖香芋馅（各200克）\" etc. The exact 200g is \"降甜版低糖白豆沙200g\". Need click that spec. Then maybe price updates? We need click spec before buy. The current clickable buttons include that. Click it. This is next action. Should we check description? Maybe need confirm use for piping/scraper flower/zongzi. The product title already says. The spec \"降甜版低糖白豆沙200g\" likely fits. Price maybe 10? We need know price. Current page shows 10.0 to 438.0. Clicking 200g might show price. Do that.\n\nNeed in thought answer questions. The selected product can fully meet? It is low sugar white bean paste, product title includes uses. 200g spec exists. Price around 10? Starting price 10 likely for 200g. Need verify by clicking spec. The spec exactly 200g, low sugar, white bean paste. But need ensure \"能用来包粽子，还可以用来裱花和刮刀花\" - product title says 韩式裱花和果子茶果子皮刮刀花粽子馅料. So yes. We should select spec. Click \"降甜版低糖白豆沙200g\". One action. Then perhaps after click, price appears and buy now. Let's call click."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_DjAWQvmSfrFyTeJ2LiD73464",
+            "content": "Instruction: [SEP] 帮我推荐一款含糖量低的白豆沙馅料，200g装，能用来包粽子，还可以用来裱花和刮刀花，价格在10元左右。 [SEP] Back to Search [SEP] < Prev [SEP] 规格描述 [SEP] 力创华成 低糖白豆沙 [SEP] 颜色分类 [SEP] 降甜版低糖白豆沙500g*2包（比低糖的更不甜） [SEP] 降甜版低糖白豆沙500g（老师推荐） [SEP] 低糖唐菓子皮(白)500g*1包（到手即用） [SEP] 白豆沙500g（非低糖 较甜） [SEP] 精品白豆沙2kg*5包（非低糖 较甜） [SEP] 降甜版低糖白豆沙+低糖青稞红豆馅+低糖香芋馅（各200克） [SEP] 降甜版低糖白豆沙200g [SEP] 降甜版~低糖白豆沙5kg（商用划算） [SEP] 低糖唐菓子皮(白)5kg*1（到手即用） [SEP] 降甜版低糖白豆沙500g*3包（比低糖的更不甜） [SEP] 低糖紫薯+低糖青稞红豆馅+桂花馅 各200g (风味内馅) [SEP] 白豆沙5kg（非低糖款） [SEP] 精品白豆沙2kg（非低糖 较甜） [SEP] 白豆沙500g*2包（非低糖 较甜） [SEP] 白豆沙500g * 3包（非低糖 较甜） [SEP] 降甜版低糖白豆沙500g+低糖青稞红豆馅200g [SEP] 低糖油白豆沙5kg（中式酥点用） [SEP] 力创白豆沙低糖白芸豆沙馅韩式裱花和果子茶果子皮刮刀花粽子馅料 [SEP] 价格: 10 [SEP] 店铺: 百安记食品 [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now\n\n搜索功能是否可用: False\n\n可点击的按钮: [\"back to search\", \"< prev\", \"description\", \"features\", \"reviews\", \"buy now\", \"力创华成 低糖白豆沙\", \"降甜版低糖白豆沙500g*2包（比低糖的更不甜）\", \"降甜版低糖白豆沙500g（老师推荐）\", \"低糖唐菓子皮(白)500g*1包（到手即用）\", \"白豆沙500g（非低糖 较甜）\", \"精品白豆沙2kg*5包（非低糖 较甜）\", \"降甜版低糖白豆沙+低糖青稞红豆馅+低糖香芋馅（各200克）\", \"降甜版低糖白豆沙200g\", \"降甜版~低糖白豆沙5kg（商用划算）\", \"低糖唐菓子皮(白)5kg*1（到手即用）\", \"降甜版低糖白豆沙500g*3包（比低糖的更不甜）\", \"低糖紫薯+低糖青稞红豆馅+桂花馅 各200g (风味内馅)\", \"白豆沙5kg（非低糖款）\", \"精品白豆沙2kg（非低糖 较甜）\", \"白豆沙500g*2包（非低糖 较甜）\", \"白豆沙500g * 3包（非低糖 较甜）\", \"降甜版低糖白豆沙500g+低糖青稞红豆馅200g\", \"低糖油白豆沙5kg（中式酥点用）\"]"
+        },
+        {
+            "content": "",
+            "role": "assistant",
+            "tool_calls": [
+                {
+                    "id": "call_00_uk8BYTSn3FJpz3pncOYL9812",
+                    "function": {
+                        "arguments": "{\"value\": \"buy now\"}",
+                        "name": "click"
+                    },
+                    "type": "function",
+                    "index": 0
+                }
+            ],
+            "reasoning_content": "We need respond to user: current shopping task not complete. Must output no plain text; must call exactly one tool from current available operations. We need decide next action. Current state after selecting spec, price 10, buy now available. The task \"帮我推荐一款...\" but user says shopping task not complete, must call one tool. Probably need click buy now? We need infer from benchmark: They want us to complete shopping task by purchasing? The instruction \"当前购物任务尚未完成\" implies we need continue. Since we selected spec, next action is likely click \"buy now\". Must call click with value \"buy now\". Only one tool. No plain text. Let's do."
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_00_uk8BYTSn3FJpz3pncOYL9812",
+            "content": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 918442053910 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u964d\\u751c\\u7248\\u4f4e\\u7cd6\\u767d\\u8c46\\u6c99200g\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8333333333333334 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+        }
+    ]
+}

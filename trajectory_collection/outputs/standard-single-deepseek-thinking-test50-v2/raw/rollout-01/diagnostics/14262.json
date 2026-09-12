@@ -1,0 +1,340 @@
+{
+    "task_id": 14262,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 8,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 6,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.9090909090909091
+    },
+    "instruction": "Instruction: 我需要一个热饮机，可以制作酸梅汤等多种饮品，功率大一点要1800W，容量在13L左右，具备全自动操作模式，有快慢档双档调节不容易溢锅，材质为防爆玻璃，预算控制在850元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 12,
+    "invalid_tool_response_count": 0,
+    "num_searches": 2,
+    "num_clicks": 10,
+    "num_back_to_search": 0,
+    "num_detail_views": 2,
+    "repeated_action_count": 4,
+    "visited_asins": [
+        "851914195632"
+    ],
+    "selected_options": {
+        "颜色分类": "13l（30*30*65cm）"
+    },
+    "last_action": {
+        "step": 12,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "热饮机 1800W 13L 全自动 防爆玻璃 酸梅汤 双档"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "851914195632"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "description"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "features"
+            }
+        },
+        {
+            "step": 6,
+            "tool": "click",
+            "arguments": {
+                "value": "13l（30*30*65cm）"
+            }
+        },
+        {
+            "step": 7,
+            "tool": "click",
+            "arguments": {
+                "value": "< prev"
+            }
+        },
+        {
+            "step": 8,
+            "tool": "click",
+            "arguments": {
+                "value": "851914195632"
+            }
+        },
+        {
+            "step": 9,
+            "tool": "search",
+            "arguments": {
+                "keywords": "力人梨汤机酸梅汤机 全自动 防爆玻璃 13L"
+            }
+        },
+        {
+            "step": 10,
+            "tool": "click",
+            "arguments": {
+                "value": "851914195632"
+            }
+        },
+        {
+            "step": 11,
+            "tool": "click",
+            "arguments": {
+                "value": "13l（30*30*65cm）"
+            }
+        },
+        {
+            "step": 12,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [
+        {
+            "ok": false,
+            "recoverable": true,
+            "source": "validation",
+            "action": "click[13l（30*30*65cm）]",
+            "available_clickables": [
+                "back to search",
+                "< prev"
+            ],
+            "error": "无效点击：13l（30*30*65cm） 不在当前可点击按钮中。当前只能选择 [\"back to search\", \"< prev\"]。请重新调用 click，并且 value 必须与其中一个按钮完全对应。"
+        }
+    ],
+    "model_usage": {
+        "api_calls_with_usage": 12,
+        "prompt_tokens": 62820,
+        "completion_tokens": 3519,
+        "total_tokens": 66339,
+        "by_call": [
+            {
+                "completion_tokens": 440,
+                "prompt_tokens": 650,
+                "total_tokens": 1090,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 110
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 138
+            },
+            {
+                "completion_tokens": 447,
+                "prompt_tokens": 2354,
+                "total_tokens": 2801,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 195
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1330
+            },
+            {
+                "completion_tokens": 451,
+                "prompt_tokens": 3138,
+                "total_tokens": 3589,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 152
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 450
+            },
+            {
+                "completion_tokens": 186,
+                "prompt_tokens": 3731,
+                "total_tokens": 3917,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 64
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 147
+            },
+            {
+                "completion_tokens": 108,
+                "prompt_tokens": 4254,
+                "total_tokens": 4362,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 12
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3840
+                },
+                "prompt_cache_hit_tokens": 3840,
+                "prompt_cache_miss_tokens": 414
+            },
+            {
+                "completion_tokens": 501,
+                "prompt_tokens": 4475,
+                "total_tokens": 4976,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 251
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4224
+                },
+                "prompt_cache_hit_tokens": 4224,
+                "prompt_cache_miss_tokens": 251
+            },
+            {
+                "completion_tokens": 139,
+                "prompt_tokens": 5035,
+                "total_tokens": 5174,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 39
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4864
+                },
+                "prompt_cache_hit_tokens": 4864,
+                "prompt_cache_miss_tokens": 171
+            },
+            {
+                "completion_tokens": 130,
+                "prompt_tokens": 6438,
+                "total_tokens": 6568,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 24
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5120
+                },
+                "prompt_cache_hit_tokens": 5120,
+                "prompt_cache_miss_tokens": 1318
+            },
+            {
+                "completion_tokens": 248,
+                "prompt_tokens": 6668,
+                "total_tokens": 6916,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 95
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6528
+                },
+                "prompt_cache_hit_tokens": 6528,
+                "prompt_cache_miss_tokens": 140
+            },
+            {
+                "completion_tokens": 175,
+                "prompt_tokens": 8155,
+                "total_tokens": 8330,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 52
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 6912
+                },
+                "prompt_cache_hit_tokens": 6912,
+                "prompt_cache_miss_tokens": 1243
+            },
+            {
+                "completion_tokens": 259,
+                "prompt_tokens": 8667,
+                "total_tokens": 8926,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 14
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8320
+                },
+                "prompt_cache_hit_tokens": 8320,
+                "prompt_cache_miss_tokens": 347
+            },
+            {
+                "completion_tokens": 435,
+                "prompt_tokens": 9255,
+                "total_tokens": 9690,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 151
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 8576
+                },
+                "prompt_cache_hit_tokens": 8576,
+                "prompt_cache_miss_tokens": 679
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "851914195632",
+        "name": "力人梨汤机酸梅汤机大容量热饮机乌梅汤20L30L全自动炖煮防爆玻璃",
+        "attributes": [
+            "酸梅汤",
+            "全自动炖煮",
+            "防爆玻璃",
+            "快慢档设计",
+            "1800W大火力",
+            "不溢锅"
+        ],
+        "goal_options": [
+            "13L（30*30*65cm）"
+        ],
+        "price_upper": 2120
+    },
+    "purchase_summary": {
+        "asin": "851914195632",
+        "name": "力人梨汤机酸梅汤机大容量热饮机乌梅汤20L30L全自动炖煮防爆玻璃",
+        "attributes": [
+            "酸梅汤",
+            "全自动炖煮",
+            "防爆玻璃",
+            "快慢档设计",
+            "1800W大火力",
+            "不溢锅"
+        ],
+        "options": {
+            "颜色分类": "13l（30*30*65cm）"
+        },
+        "price": 1620.8649317592985
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 851914195632 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"13l\\uff0830*30*65cm\\uff09\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

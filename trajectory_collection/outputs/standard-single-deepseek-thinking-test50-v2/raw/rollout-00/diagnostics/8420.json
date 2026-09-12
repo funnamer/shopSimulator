@@ -1,0 +1,176 @@
+{
+    "task_id": 8420,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 15,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 10,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 这周末朋友在外滩办一场超隆重的晚宴，我要穿一件小香风旗袍礼服，走那种名媛风，包挑个镶钻的银色女包就行，能凸显气质，风格我想要偏日系潮流一点，推崇今年的新款，链条可单肩、也能斜挎，同时包口要带一个手环式的小提手，买个便宜的就行了，四十块差不多。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "806555750580"
+    ],
+    "selected_options": {
+        "颜色分类": "手环银"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "银色 镶钻 女包 日系 新款 链条 单肩 斜挎 手环提手 便宜 40元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "806555750580"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "手环银"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 10240,
+        "completion_tokens": 1891,
+        "total_tokens": 12131,
+        "by_call": [
+            {
+                "completion_tokens": 302,
+                "prompt_tokens": 680,
+                "total_tokens": 982,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 235
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 168
+            },
+            {
+                "completion_tokens": 780,
+                "prompt_tokens": 2232,
+                "total_tokens": 3012,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 484
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1336
+            },
+            {
+                "completion_tokens": 493,
+                "prompt_tokens": 3283,
+                "total_tokens": 3776,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 226
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 339
+            },
+            {
+                "completion_tokens": 316,
+                "prompt_tokens": 4045,
+                "total_tokens": 4361,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 87
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 333
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "806555750580",
+        "name": "新款名媛气质旗袍礼服女包镶钻日系包高级潮流链条单肩斜跨手提包",
+        "attributes": [
+            "新款",
+            "名媛气质",
+            "旗袍礼服",
+            "镶钻",
+            "日系",
+            "潮流",
+            "链条",
+            "单肩",
+            "斜跨",
+            "女"
+        ],
+        "goal_options": [
+            "手环银"
+        ],
+        "price_upper": 60
+    },
+    "purchase_summary": {
+        "asin": "806555750580",
+        "name": "新款名媛气质旗袍礼服女包镶钻日系包高级潮流链条单肩斜跨手提包",
+        "attributes": [
+            "新款",
+            "名媛气质",
+            "旗袍礼服",
+            "镶钻",
+            "日系",
+            "潮流",
+            "链条",
+            "单肩",
+            "斜跨",
+            "女"
+        ],
+        "options": {
+            "颜色分类": "手环银"
+        },
+        "price": 35.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 806555750580 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u624b\\u73af\\u94f6\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

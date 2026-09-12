@@ -1,0 +1,186 @@
+{
+    "task_id": 2103,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 4,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 8,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.8333333333333334
+    },
+    "instruction": "Instruction: 想要一款添加了377成分的bb霜，能起到阻挡紫外线、焕白肌肤、遮盖面部瑕疵的作用，还能补充并锁住水分；能提亮气色，还拥有气垫的质地和隔离外界的功能。颜色要比较自然，且赠送替换品，价格在200元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 1,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "905163550992"
+    ],
+    "selected_options": {
+        "颜色分类": "自然色+替换装"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "377 气垫BB霜 替换装 自然色 防晒 美白 遮瑕 保湿 隔离"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "905163550992"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "自然色+替换装"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 10574,
+        "completion_tokens": 1943,
+        "total_tokens": 12517,
+        "by_call": [
+            {
+                "completion_tokens": 894,
+                "prompt_tokens": 657,
+                "total_tokens": 1551,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 757
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 145
+            },
+            {
+                "completion_tokens": 346,
+                "prompt_tokens": 1579,
+                "total_tokens": 1925,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 287
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 640
+                },
+                "prompt_cache_hit_tokens": 640,
+                "prompt_cache_miss_tokens": 939
+            },
+            {
+                "completion_tokens": 377,
+                "prompt_tokens": 2235,
+                "total_tokens": 2612,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 337
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 640
+                },
+                "prompt_cache_hit_tokens": 640,
+                "prompt_cache_miss_tokens": 1595
+            },
+            {
+                "completion_tokens": 161,
+                "prompt_tokens": 2852,
+                "total_tokens": 3013,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 120
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 292
+            },
+            {
+                "completion_tokens": 165,
+                "prompt_tokens": 3251,
+                "total_tokens": 3416,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 127
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 307
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "899428511143",
+        "name": "377防晒美白遮瑕CC霜隔离保湿补水提亮肤色BB霜隔离气垫四合一10",
+        "attributes": [
+            "377",
+            "防晒",
+            "美白",
+            "遮瑕",
+            "保湿",
+            "补水",
+            "提亮肤色",
+            "隔离"
+        ],
+        "goal_options": [
+            "自然色+替换装"
+        ],
+        "price_upper": 270
+    },
+    "purchase_summary": {
+        "asin": "905163550992",
+        "name": "377防晒美白遮瑕CC霜隔离保湿补水提亮肤色BB霜隔离气垫四合一15",
+        "attributes": [
+            "防晒",
+            "美白",
+            "遮瑕",
+            "CC霜",
+            "隔离",
+            "保湿",
+            "补水",
+            "提亮肤色",
+            "气垫"
+        ],
+        "options": {
+            "颜色分类": "自然色+替换装"
+        },
+        "price": 199.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 905163550992 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u81ea\\u7136\\u8272+\\u66ff\\u6362\\u88c5\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

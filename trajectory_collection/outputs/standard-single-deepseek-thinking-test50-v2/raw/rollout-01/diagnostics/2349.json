@@ -1,0 +1,189 @@
+{
+    "task_id": 2349,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 14,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我想要B7型号的回音壁音响，要经典的黑色款，可以通过蓝牙连接电视和电脑，适合家庭影院使用，售价在900元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "648622795009"
+    ],
+    "selected_options": {
+        "套餐类型": "官方标配",
+        "颜色分类": "黑色"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "B7 回音壁 音响 黑色 蓝牙 电视 电脑 家庭影院"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "648622795009"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "黑色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "官方标配"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13623,
+        "completion_tokens": 2400,
+        "total_tokens": 16023,
+        "by_call": [
+            {
+                "completion_tokens": 652,
+                "prompt_tokens": 625,
+                "total_tokens": 1277,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 515
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 448,
+                "prompt_tokens": 2404,
+                "total_tokens": 2852,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 309
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1252
+            },
+            {
+                "completion_tokens": 339,
+                "prompt_tokens": 3051,
+                "total_tokens": 3390,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 206
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 235
+            },
+            {
+                "completion_tokens": 172,
+                "prompt_tokens": 3587,
+                "total_tokens": 3759,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 68
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3328
+                },
+                "prompt_cache_hit_tokens": 3328,
+                "prompt_cache_miss_tokens": 259
+            },
+            {
+                "completion_tokens": 789,
+                "prompt_tokens": 3956,
+                "total_tokens": 4745,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 673
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3712
+                },
+                "prompt_cache_hit_tokens": 3712,
+                "prompt_cache_miss_tokens": 244
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "648622795009",
+        "name": "Edifier/漫步者 B7电视电脑音响回音壁音箱家庭影院客厅家用蓝牙",
+        "attributes": [
+            "B7型号",
+            "家庭影院",
+            "蓝牙",
+            "电视",
+            "电脑"
+        ],
+        "goal_options": [
+            "黑色",
+            "官方标配"
+        ],
+        "price_upper": 970
+    },
+    "purchase_summary": {
+        "asin": "648622795009",
+        "name": "Edifier/漫步者 B7电视电脑音响回音壁音箱家庭影院客厅家用蓝牙",
+        "attributes": [
+            "B7型号",
+            "家庭影院",
+            "蓝牙",
+            "电视",
+            "电脑"
+        ],
+        "options": {
+            "套餐类型": "官方标配",
+            "颜色分类": "黑色"
+        },
+        "price": 899.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 648622795009 [SEP] options [SEP] {\"\\u5957\\u9910\\u7c7b\\u578b\": \"\\u5b98\\u65b9\\u6807\\u914d\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u9ed1\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

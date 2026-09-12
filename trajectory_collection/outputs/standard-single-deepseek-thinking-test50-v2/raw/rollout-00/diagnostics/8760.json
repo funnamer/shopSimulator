@@ -1,0 +1,164 @@
+{
+    "task_id": 8760,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我想买一箱6瓶品质较高的清香型白酒，1瓶500毫升，度数可以高一点要50度的，有适合的推荐吗？\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "894678409353"
+    ],
+    "selected_options": {
+        "规格描述": "500ml*6瓶"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "清香型白酒 50度 500ml 6瓶 整箱"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "894678409353"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "500ml*6瓶"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 8663,
+        "completion_tokens": 1147,
+        "total_tokens": 9810,
+        "by_call": [
+            {
+                "completion_tokens": 288,
+                "prompt_tokens": 625,
+                "total_tokens": 913,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 237
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 241
+            },
+            {
+                "completion_tokens": 426,
+                "prompt_tokens": 2103,
+                "total_tokens": 2529,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 295
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1207
+            },
+            {
+                "completion_tokens": 294,
+                "prompt_tokens": 2724,
+                "total_tokens": 3018,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 183
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2432
+                },
+                "prompt_cache_hit_tokens": 2432,
+                "prompt_cache_miss_tokens": 292
+            },
+            {
+                "completion_tokens": 139,
+                "prompt_tokens": 3211,
+                "total_tokens": 3350,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 43
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 267
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "894678409353",
+        "name": "宝丰国色清香500ml*6瓶整箱陈坛35清香型白酒50度特级酒水",
+        "attributes": [
+            "清香型",
+            "整箱",
+            "50度",
+            "特级"
+        ],
+        "goal_options": [
+            "500ml*6瓶"
+        ],
+        "price_upper": 1860
+    },
+    "purchase_summary": {
+        "asin": "894678409353",
+        "name": "宝丰国色清香500ml*6瓶整箱陈坛35清香型白酒50度特级酒水",
+        "attributes": [
+            "清香型",
+            "整箱",
+            "50度",
+            "特级"
+        ],
+        "options": {
+            "规格描述": "500ml*6瓶"
+        },
+        "price": 1708.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 894678409353 [SEP] options [SEP] {\"\\u89c4\\u683c\\u63cf\\u8ff0\": \"500ml*6\\u74f6\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

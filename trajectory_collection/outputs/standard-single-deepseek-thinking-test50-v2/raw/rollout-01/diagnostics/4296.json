@@ -1,0 +1,158 @@
+{
+    "task_id": 4296,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 6,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 给我找一台75英寸的新款电视，4K护眼屏带144Hz高刷，支持运动补偿功能，要一级能效那款，内存是3+64G配置的，底座安装的版本，预算在6500元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "895418634588"
+    ],
+    "selected_options": {
+        "颜色分类": "座装:一级能效ra pro75英寸4k护眼 3g+64g 运动补尝 144hz"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "75英寸 4K护眼 144Hz 运动补偿 一级能效 3+64G 底座安装 电视 6500元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "895418634588"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "座装:一级能效ra pro75英寸4k护眼 3g+64g 运动补尝 144hz"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 14391,
+        "completion_tokens": 2331,
+        "total_tokens": 16722,
+        "by_call": [
+            {
+                "completion_tokens": 623,
+                "prompt_tokens": 646,
+                "total_tokens": 1269,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 471
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 802,
+                "prompt_tokens": 2488,
+                "total_tokens": 3290,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 614
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1152
+                },
+                "prompt_cache_hit_tokens": 1152,
+                "prompt_cache_miss_tokens": 1336
+            },
+            {
+                "completion_tokens": 452,
+                "prompt_tokens": 4701,
+                "total_tokens": 5153,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 247
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 1501
+            },
+            {
+                "completion_tokens": 454,
+                "prompt_tokens": 6556,
+                "total_tokens": 7010,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 282
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 5120
+                },
+                "prompt_cache_hit_tokens": 5120,
+                "prompt_cache_miss_tokens": 1436
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "895418634588",
+        "name": "小米REDMI电视 A Pro75英寸一级能效144Hz高刷2025新款液晶电视机",
+        "attributes": [
+            "2025新款"
+        ],
+        "goal_options": [
+            "座装:一级能效RA Pro75英寸4K护眼 3G+64G 运动补尝 144Hz"
+        ],
+        "price_upper": 5680
+    },
+    "purchase_summary": {
+        "asin": "895418634588",
+        "name": "小米REDMI电视 A Pro75英寸一级能效144Hz高刷2025新款液晶电视机",
+        "attributes": [
+            "2025新款"
+        ],
+        "options": {
+            "颜色分类": "座装:一级能效ra pro75英寸4k护眼 3g+64g 运动补尝 144hz"
+        },
+        "price": 5387.261724137991
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 895418634588 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u5ea7\\u88c5:\\u4e00\\u7ea7\\u80fd\\u6548ra pro75\\u82f1\\u5bf84k\\u62a4\\u773c 3g+64g \\u8fd0\\u52a8\\u8865\\u5c1d 144hz\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

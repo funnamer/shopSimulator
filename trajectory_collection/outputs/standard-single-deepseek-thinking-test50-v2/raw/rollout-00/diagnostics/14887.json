@@ -1,0 +1,166 @@
+{
+    "task_id": 14887,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 0.3333333333333333,
+    "reward_detail": {
+        "category_match": false,
+        "num_attr_matches": 1,
+        "num_option_matches": 0,
+        "query_match": true,
+        "r_att": 0.25,
+        "r_option": 0.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 0.14285714285714285
+    },
+    "instruction": "Instruction: 想买一款新款的可移动的空调，制冷量要大2匹的，适合在35平的出租房客厅使用，同时具备制冷和制热两种功能，要一体式设计不需要自己安装的，价格在2000-2500之间。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "699560410280"
+    ],
+    "selected_options": {
+        "颜色分类": "冷暖2匹"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "可移动空调 2匹 冷暖 一体式 免安装 2000-2500元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "699560410280"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "冷暖2匹"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 12674,
+        "completion_tokens": 3347,
+        "total_tokens": 16021,
+        "by_call": [
+            {
+                "completion_tokens": 317,
+                "prompt_tokens": 646,
+                "total_tokens": 963,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 216
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 2039,
+                "prompt_tokens": 2182,
+                "total_tokens": 4221,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 1901
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1286
+            },
+            {
+                "completion_tokens": 239,
+                "prompt_tokens": 4612,
+                "total_tokens": 4851,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 117
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4096
+                },
+                "prompt_cache_hit_tokens": 4096,
+                "prompt_cache_miss_tokens": 516
+            },
+            {
+                "completion_tokens": 752,
+                "prompt_tokens": 5234,
+                "total_tokens": 5986,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 643
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 4736
+                },
+                "prompt_cache_hit_tokens": 4736,
+                "prompt_cache_miss_tokens": 498
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "941809060737",
+        "name": "先科移动空调出租房客厅卧室压缩机制冷一体式空调免安装冷暖两用",
+        "attributes": [
+            "出租房",
+            "客厅",
+            "一体式",
+            "免安装"
+        ],
+        "goal_options": [
+            "先科新款【3S冷暖大2P】45平方"
+        ],
+        "price_upper": 2540
+    },
+    "purchase_summary": {
+        "asin": "699560410280",
+        "name": "美菱可移动空调冷暖一体机2p无外机免安装压缩机立式厨房制冷两用",
+        "attributes": [
+            "无外机",
+            "立式",
+            "2p",
+            "冷暖两用",
+            "厨房适用",
+            "可移动"
+        ],
+        "options": {
+            "颜色分类": "冷暖2匹"
+        },
+        "price": 1302.155254182744
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 699560410280 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u51b7\\u66962\\u5339\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.3333333333333333 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

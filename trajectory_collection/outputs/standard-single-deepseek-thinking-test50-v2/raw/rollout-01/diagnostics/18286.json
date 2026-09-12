@@ -1,0 +1,181 @@
+{
+    "task_id": 18286,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 14,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 1,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 帮我找一件印有全世界无产者联合起来字样的文化衫，颜色我希望是灰色，平时穿L码居多，价格不用太高，80元左右就行。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "926577554233"
+    ],
+    "selected_options": {
+        "尺码": "l",
+        "颜色分类": "灰色"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "全世界无产者联合起来 文化衫 灰色 L 80元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "926577554233"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "灰色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "l"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 12127,
+        "completion_tokens": 1218,
+        "total_tokens": 13345,
+        "by_call": [
+            {
+                "completion_tokens": 361,
+                "prompt_tokens": 629,
+                "total_tokens": 990,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 202
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 245
+            },
+            {
+                "completion_tokens": 287,
+                "prompt_tokens": 2095,
+                "total_tokens": 2382,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 136
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 896
+                },
+                "prompt_cache_hit_tokens": 896,
+                "prompt_cache_miss_tokens": 1199
+            },
+            {
+                "completion_tokens": 295,
+                "prompt_tokens": 2639,
+                "total_tokens": 2934,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 147
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2304
+                },
+                "prompt_cache_hit_tokens": 2304,
+                "prompt_cache_miss_tokens": 335
+            },
+            {
+                "completion_tokens": 131,
+                "prompt_tokens": 3189,
+                "total_tokens": 3320,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 39
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 373
+            },
+            {
+                "completion_tokens": 144,
+                "prompt_tokens": 3575,
+                "total_tokens": 3719,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 40
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3200
+                },
+                "prompt_cache_hit_tokens": 3200,
+                "prompt_cache_miss_tokens": 375
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "926577554233",
+        "name": "全世界无产者联合起来 文创衫 男女同款编译文创 93%新疆棉7%氨纶",
+        "attributes": [
+            "全世界无产者联合起来字样"
+        ],
+        "goal_options": [
+            "L",
+            "灰色"
+        ],
+        "price_upper": 100
+    },
+    "purchase_summary": {
+        "asin": "926577554233",
+        "name": "全世界无产者联合起来 文创衫 男女同款编译文创 93%新疆棉7%氨纶",
+        "attributes": [
+            "全世界无产者联合起来字样"
+        ],
+        "options": {
+            "尺码": "l",
+            "颜色分类": "灰色"
+        },
+        "price": 79.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 926577554233 [SEP] options [SEP] {\"\\u5c3a\\u7801\": \"l\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u7070\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

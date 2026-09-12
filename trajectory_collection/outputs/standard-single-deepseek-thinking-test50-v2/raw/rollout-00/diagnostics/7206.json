@@ -1,0 +1,189 @@
+{
+    "task_id": 7206,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-00",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 5,
+        "num_option_matches": 2,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 需要一款适合平常上班穿的带有五对褶皱的国风马面褶裙，要求已经做好非定制款，材质要绸缎面料的，颜色为黑色，还需要有现成库存，尺码选择中号，价格不超过130元。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 5,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 4,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "693071732546"
+    ],
+    "selected_options": {
+        "尺码": "m",
+        "颜色分类": "葡萄兔兔-墨玉黑-现货"
+    },
+    "last_action": {
+        "step": 5,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "国风马面褶裙 五对褶皱 黑色 绸缎 中号 现货 非定制 130元"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "693071732546"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "葡萄兔兔-墨玉黑-现货"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "m"
+            }
+        },
+        {
+            "step": 5,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 5,
+        "prompt_tokens": 13339,
+        "completion_tokens": 1340,
+        "total_tokens": 14679,
+        "by_call": [
+            {
+                "completion_tokens": 485,
+                "prompt_tokens": 647,
+                "total_tokens": 1132,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 314
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 512
+                },
+                "prompt_cache_hit_tokens": 512,
+                "prompt_cache_miss_tokens": 135
+            },
+            {
+                "completion_tokens": 316,
+                "prompt_tokens": 2352,
+                "total_tokens": 2668,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 157
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1328
+            },
+            {
+                "completion_tokens": 244,
+                "prompt_tokens": 2961,
+                "total_tokens": 3205,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 132
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2560
+                },
+                "prompt_cache_hit_tokens": 2560,
+                "prompt_cache_miss_tokens": 401
+            },
+            {
+                "completion_tokens": 96,
+                "prompt_tokens": 3496,
+                "total_tokens": 3592,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 20
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2944
+                },
+                "prompt_cache_hit_tokens": 2944,
+                "prompt_cache_miss_tokens": 552
+            },
+            {
+                "completion_tokens": 199,
+                "prompt_tokens": 3883,
+                "total_tokens": 4082,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 66
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3584
+                },
+                "prompt_cache_hit_tokens": 3584,
+                "prompt_cache_miss_tokens": 299
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "693071732546",
+        "name": "明缘轩汉服 葡萄兔兔 缎面5对褶 马面裙成品现货国风日常通勤",
+        "attributes": [
+            "缎面",
+            "5对褶",
+            "成品",
+            "现货",
+            "日常通勤"
+        ],
+        "goal_options": [
+            "葡萄兔兔-墨玉黑-现货",
+            "M"
+        ],
+        "price_upper": 150
+    },
+    "purchase_summary": {
+        "asin": "693071732546",
+        "name": "明缘轩汉服 葡萄兔兔 缎面5对褶 马面裙成品现货国风日常通勤",
+        "attributes": [
+            "缎面",
+            "5对褶",
+            "成品",
+            "现货",
+            "日常通勤"
+        ],
+        "options": {
+            "尺码": "m",
+            "颜色分类": "葡萄兔兔-墨玉黑-现货"
+        },
+        "price": 128.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 693071732546 [SEP] options [SEP] {\"\\u5c3a\\u7801\": \"m\", \"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u8461\\u8404\\u5154\\u5154-\\u58a8\\u7389\\u9ed1-\\u73b0\\u8d27\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

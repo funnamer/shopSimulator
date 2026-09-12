@@ -1,0 +1,164 @@
+{
+    "task_id": 2811,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 1,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 我需要一款澳大利亚进口的保健品，适合宝宝和小孩食用，以鳕鱼油为主要原料制成，剂型是丸状，富含DHA和维生素E，一瓶大概九十粒，重量不超过100克，价格140元左右。\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "528673180592"
+    ],
+    "selected_options": {
+        "净含量": "90g"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "澳大利亚进口 鳕鱼油 宝宝儿童 DHA 维生素E 90粒 100g"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "528673180592"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "90g"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 9820,
+        "completion_tokens": 1840,
+        "total_tokens": 11660,
+        "by_call": [
+            {
+                "completion_tokens": 468,
+                "prompt_tokens": 643,
+                "total_tokens": 1111,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 339
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 509
+                },
+                "prompt_cache_hit_tokens": 509,
+                "prompt_cache_miss_tokens": 134
+            },
+            {
+                "completion_tokens": 626,
+                "prompt_tokens": 2284,
+                "total_tokens": 2910,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 476
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                },
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1260
+            },
+            {
+                "completion_tokens": 375,
+                "prompt_tokens": 3145,
+                "total_tokens": 3520,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 269
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2816
+                },
+                "prompt_cache_hit_tokens": 2816,
+                "prompt_cache_miss_tokens": 329
+            },
+            {
+                "completion_tokens": 371,
+                "prompt_tokens": 3748,
+                "total_tokens": 4119,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 258
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 3456
+                },
+                "prompt_cache_hit_tokens": 3456,
+                "prompt_cache_miss_tokens": 292
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "528673180592",
+        "name": "澳洲进口BIO ISLAND儿童宝宝婴幼儿鳕鱼油丸+鱼油DHA维生素E 90粒",
+        "attributes": [
+            "澳洲进口",
+            "鳕鱼油丸",
+            "DHA",
+            "维生素E"
+        ],
+        "goal_options": [
+            "90g"
+        ],
+        "price_upper": 250
+    },
+    "purchase_summary": {
+        "asin": "528673180592",
+        "name": "澳洲进口BIO ISLAND儿童宝宝婴幼儿鳕鱼油丸+鱼油DHA维生素E 90粒",
+        "attributes": [
+            "澳洲进口",
+            "鳕鱼油丸",
+            "DHA",
+            "维生素E"
+        ],
+        "options": {
+            "净含量": "90g"
+        },
+        "price": 212.0412841806779
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 528673180592 [SEP] options [SEP] {\"\\u51c0\\u542b\\u91cf\": \"90g\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}

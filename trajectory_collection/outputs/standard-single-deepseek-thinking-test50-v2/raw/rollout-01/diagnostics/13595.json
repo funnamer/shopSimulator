@@ -1,0 +1,164 @@
+{
+    "task_id": 13595,
+    "model_name": "deepseek-flash",
+    "run_name": "rollout-01",
+    "thinking": "enabled",
+    "reasoning_effort": "low",
+    "env_idx": 16,
+    "termination_reason": "purchase",
+    "completed_purchase": true,
+    "error": null,
+    "reward": 1.0,
+    "reward_detail": {
+        "category_match": true,
+        "num_attr_matches": 4,
+        "num_option_matches": 1,
+        "query_match": true,
+        "r_att": 1.0,
+        "r_option": 1.0,
+        "r_price": true,
+        "r_type": 1.0,
+        "title_score": 1.0
+    },
+    "instruction": "Instruction: 家里想买一款同时拥有烤肉和煎肉功能的韩式电烤盘，我想买个白色的款式，可以帮我推荐一款价格在500元以内的产品吗？\n\n搜索功能是否可用: True\n\n可点击的按钮: []",
+    "num_tool_calls": 4,
+    "invalid_tool_response_count": 0,
+    "num_searches": 1,
+    "num_clicks": 3,
+    "num_back_to_search": 0,
+    "num_detail_views": 0,
+    "repeated_action_count": 0,
+    "visited_asins": [
+        "901413305389"
+    ],
+    "selected_options": {
+        "颜色分类": "白色"
+    },
+    "last_action": {
+        "step": 4,
+        "tool": "click",
+        "arguments": {
+            "value": "buy now"
+        }
+    },
+    "actions": [
+        {
+            "step": 1,
+            "tool": "search",
+            "arguments": {
+                "keywords": "韩式电烤盘 烤肉 煎肉 白色 500元以内"
+            }
+        },
+        {
+            "step": 2,
+            "tool": "click",
+            "arguments": {
+                "value": "901413305389"
+            }
+        },
+        {
+            "step": 3,
+            "tool": "click",
+            "arguments": {
+                "value": "白色"
+            }
+        },
+        {
+            "step": 4,
+            "tool": "click",
+            "arguments": {
+                "value": "buy now"
+            }
+        }
+    ],
+    "tool_errors": [],
+    "model_usage": {
+        "api_calls_with_usage": 4,
+        "prompt_tokens": 8027,
+        "completion_tokens": 969,
+        "total_tokens": 8996,
+        "by_call": [
+            {
+                "completion_tokens": 233,
+                "prompt_tokens": 628,
+                "total_tokens": 861,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 181
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 384
+                },
+                "prompt_cache_hit_tokens": 384,
+                "prompt_cache_miss_tokens": 244
+            },
+            {
+                "completion_tokens": 259,
+                "prompt_tokens": 2030,
+                "total_tokens": 2289,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 219
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 768
+                },
+                "prompt_cache_hit_tokens": 768,
+                "prompt_cache_miss_tokens": 1262
+            },
+            {
+                "completion_tokens": 214,
+                "prompt_tokens": 2482,
+                "total_tokens": 2696,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 177
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2176
+                },
+                "prompt_cache_hit_tokens": 2176,
+                "prompt_cache_miss_tokens": 306
+            },
+            {
+                "completion_tokens": 263,
+                "prompt_tokens": 2887,
+                "total_tokens": 3150,
+                "completion_tokens_details": {
+                    "reasoning_tokens": 225
+                },
+                "prompt_tokens_details": {
+                    "cached_tokens": 2688
+                },
+                "prompt_cache_hit_tokens": 2688,
+                "prompt_cache_miss_tokens": 199
+            }
+        ]
+    },
+    "goal_summary": {
+        "asin": "901413305389",
+        "name": "苏泊尔电烤盘家用烤肉盘烤鱼一体锅韩式多功能锅烧烤架煎肉烧烤盘",
+        "attributes": [
+            "韩式",
+            "多功能",
+            "烤肉",
+            "煎肉"
+        ],
+        "goal_options": [
+            "白色"
+        ],
+        "price_upper": 580
+    },
+    "purchase_summary": {
+        "asin": "901413305389",
+        "name": "苏泊尔电烤盘家用烤肉盘烤鱼一体锅韩式多功能锅烧烤架煎肉烧烤盘",
+        "attributes": [
+            "韩式",
+            "多功能",
+            "烤肉",
+            "煎肉"
+        ],
+        "options": {
+            "颜色分类": "白色"
+        },
+        "price": 499.0
+    },
+    "last_valid_observation": "Thank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] 901413305389 [SEP] options [SEP] {\"\\u989c\\u8272\\u5206\\u7c7b\": \"\\u767d\\u8272\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None\n\n搜索功能是否可用: False\n\n可点击的按钮: []"
+}
